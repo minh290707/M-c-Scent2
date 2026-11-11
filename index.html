@@ -130,9 +130,9 @@
       <!-- Logo thương hiệu -->
       <a href="javascript:void(0)" onclick="switchTab('home')" class="flex items-center gap-3.5 group">
         <div>
-          <div class="w-12 h-12 rounded-2xl bg-white border border-moc-border p-1.5 shadow-xs group-hover:scale-105 transition flex items-center justify-center">
-            <img src="logo1.png" alt="MỘC Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='images/logo1.png'">
-          </div>
+          <div class="w-12 h-12 rounded-2xl overflow-hidden border border-moc-border shadow-xs group-hover:scale-105 transition">
+  <img src="logo1.png" alt="MỘC Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='images/logo1.png'">
+</div>
         </div>
         <div>
           <div class="flex items-baseline gap-2">
@@ -532,7 +532,7 @@
           </div>
 
           <div class="flex flex-wrap items-center gap-3">
-            <!-- 5 TABS DANH MỤC: TẤT CẢ, NẾN THƠM, TINH DẦU, MÁY KHUẾCH TÁN, COMBO, HỘP QUÀ -->
+            <!-- TABS DANH MỤC -->
             <div class="flex flex-wrap gap-1.5 p-1 bg-white rounded-full border border-moc-border text-xs" id="cat-filter-tabs">
               <button onclick="filterCategory('all')" class="cat-filter-btn active bg-moc-brown text-white px-4 py-1.5 rounded-full transition">Tất cả</button>
               <button onclick="filterCategory('nenthom')" class="cat-filter-btn text-moc-muted hover:text-moc-brown px-4 py-1.5 rounded-full transition">Nến thơm</button>
@@ -964,7 +964,7 @@
   <script>
     const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxuwrMO4EhuI8ojGxJTQdDSdYyIPA478AFLtknbbjGzlOxz9F7WZNeMbltj0ou20gNZ/exec";
 
-    // DỮ LIỆU SẢN PHẨM: 12 NẾN, 6 TINH DẦU, 3 MÁY KHUẾCH TÁN, 2 COMBO, 2 HỘP QUÀ
+    // DỮ LIỆU SẢN PHẨM: 12 NẾN, 6 TINH DẦU, 3 MÁY KHUẾCH TÁN, 4 COMBO, 2 HỘP QUÀ
     const productsData = [
       // 1-12: Nến thơm
       { id: 1, name: 'Lavender Calm', price: 199000, cat: 'nenthom', img: 'images/nen-lavender.png', fallbackImg: 'lavender.png', desc: 'Thư giãn • Giảm stress', fullDesc: 'Hương thơm dịu nhẹ, thanh khiết từ những cánh đồng hoa oải hương Pháp. Giúp xoa dịu thần kinh, xua tan căng thẳng sau ngày dài làm việc và đưa bạn vào giấc ngủ sâu, an yên.', scale: { sweet: 2, warm: 3, throw: 3 } },
@@ -980,22 +980,130 @@
       { id: 11, name: 'Sweet Peach', price: 199000, cat: 'nenthom', img: 'images/peach.png', fallbackImg: 'peach.png', desc: 'Ngọt ngào • Tươi mát', fullDesc: 'Vị đào chín giòn ngọt thanh, ngập tràn nét tươi trẻ và đáng yêu. Thổi vào căn phòng làn gió ngọt ngào, dịu dàng khiến tâm trạng luôn vui vẻ, rạng rỡ.', scale: { sweet: 5, warm: 2, throw: 4 } },
       { id: 12, name: 'Coffee Beans', price: 199000, cat: 'nenthom', img: 'images/coffee.png', fallbackImg: 'coffee.png', desc: 'Thơm đậm • Ấm áp', fullDesc: 'Mùi cà phê rang xay đậm đà nức mũi quyện nốt đắng nhẹ đặc trưng. Kích thích sự tỉnh táo, tăng cường tập trung tối đa khi làm việc và học tập.', scale: { sweet: 3, warm: 5, throw: 5 } },
 
-      // 13-18: Tinh dầu (Đã bổ sung thêm 2 mùi mới)
-      { id: 13, name: 'Lemongrass & Tea', price: 129000, cat: 'tinhdau', img: 'images/lemongrass.png', fallbackImg: 'lemongrass.png', desc: 'Thanh mát • Thư thái', fullDesc: 'Hương sả chanh tươi mát kết hợp trà xanh, hỗ trợ khử mùi, đuổi côn trùng hiệu quả và đem lại không gian thoáng đãng, sạch sẽ.' },
-      { id: 14, name: 'Lotus & White Musk', price: 129000, cat: 'tinhdau', img: 'images/Lotus.png', fallbackImg: 'Lotus.png', desc: 'Tĩnh lặng • Nhẹ nhàng', fullDesc: 'Hương hoa sen thuần khiết hòa quyện xạ hương trắng thanh tao, tạo nên cảm giác bình yên, êm dịu cho giấc ngủ.' },
-      { id: 15, name: 'Hinoki & Bamboo', price: 129000, cat: 'tinhdau', img: 'images/bamboo.png', fallbackImg: 'bamboo.png', desc: 'Mộc mạc • Trong lành', fullDesc: 'Hương gỗ bách Hinoki Nhật Bản và tre xanh trong lành, mang cả không gian spa thư giãn về ngay góc phòng của bạn.' },
-      { id: 16, name: 'Sea salt & Sage', price: 129000, cat: 'tinhdau', img: 'images/sea.png', fallbackImg: 'sea.png', desc: 'Phóng khoáng • Tự do', fullDesc: 'Muối biển khoáng đạt kết hợp thảo mộc xô thơm tạo cảm giác tự do, dễ chịu và thanh lọc năng lượng tiêu cực.' },
-      { id: 17, name: 'Eucalyptus & Peppermint', price: 129000, cat: 'tinhdau', img: 'images/eucalyptus.png', fallbackImg: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80', desc: 'Thông mũi • Sảng khoái', fullDesc: 'Sự kết hợp tinh túy từ tinh dầu khuynh diệp Úc và lá bạc hà mát lạnh. Giúp thông thoáng đường thở, giảm nghẹt mũi, kháng khuẩn không khí và mang lại cảm giác tươi tỉnh tức thì.' },
-      { id: 18, name: 'Sweet Orange & Cinnamon', price: 129000, cat: 'tinhdau', img: 'images/cinnamon.png', fallbackImg: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80', desc: 'Ngọt ấm • Giảm âu lo', fullDesc: 'Hương cam ngọt mọng nước hòa quyện nốt quế vỏ cay ấm truyền thống. Đem lại cảm giác ấm áp như những ngày lễ hội, xua tan sự cô đơn và sưởi ấm tâm hồn mùa gió lạnh.' },
+      // 13-18: Tinh dầu thiên nhiên nguyên chất
+      { 
+        id: 13, 
+        name: 'Lemongrass & Tea', 
+        price: 119000, 
+        price10ml: 119000, 
+        price30ml: 259000, 
+        cat: 'tinhdau', 
+        img: 'images/lemongrass.png', 
+        fallbackImg: 'lemongrass.png', 
+        desc: 'Thanh mát • Thư thái', 
+        fullDesc: 'Hương sả chanh tươi mát kết hợp trà xanh, hỗ trợ khử mùi, xua đuổi côn trùng hiệu quả và đem lại không gian thoáng đãng, sạch sẽ.' 
+      },
+      { 
+        id: 14, 
+        name: 'Lotus & White Musk', 
+        price: 139000, 
+        price10ml: 139000, 
+        price30ml: 299000, 
+        cat: 'tinhdau', 
+        img: 'images/Lotus.png', 
+        fallbackImg: 'Lotus.png', 
+        desc: 'Tĩnh lặng • Nhẹ nhàng', 
+        fullDesc: 'Hương hoa sen thuần khiết hòa quyện xạ hương trắng thanh tao, tạo nên cảm giác bình yên, êm dịu và vỗ về giấc ngủ.' 
+      },
+      { 
+        id: 15, 
+        name: 'Hinoki & Bamboo', 
+        price: 149000, 
+        price10ml: 149000, 
+        price30ml: 319000, 
+        cat: 'tinhdau', 
+        img: 'images/bamboo.png', 
+        fallbackImg: 'bamboo.png', 
+        desc: 'Mộc mạc • Trong lành', 
+        fullDesc: 'Hương gỗ bách Hinoki Nhật Bản và tre xanh trong lành, mang cả không gian spa thư giãn về ngay góc phòng của bạn.' 
+      },
+      { 
+        id: 16, 
+        name: 'Sea salt & Sage', 
+        price: 129000, 
+        price10ml: 129000, 
+        price30ml: 279000, 
+        cat: 'tinhdau', 
+        img: 'images/sea.png', 
+        fallbackImg: 'sea.png', 
+        desc: 'Phóng khoáng • Tự do', 
+        fullDesc: 'Muối biển khoáng đạt kết hợp thảo mộc xô thơm tạo cảm giác tự do, dễ chịu và thanh lọc nguồn năng lượng tiêu cực.' 
+      },
+      { 
+        id: 17, 
+        name: 'Lavender & Sweet Orange', 
+        price: 119000, 
+        price10ml: 119000, 
+        price30ml: 259000, 
+        cat: 'tinhdau', 
+        img: 'images/lavender-orange.png', 
+        fallbackImg: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80', 
+        desc: 'Thư giãn • Ngọt dịu (2 nốt hương)', 
+        fullDesc: 'Sự hòa quyện êm dịu giữa hoa oải hương Pháp nồng nàn và quả cam ngọt mọng nước. Tông hương vừa giúp xoa dịu thần kinh, dễ ngủ, vừa mang lại cảm giác vui tươi, xua tan căng thẳng.' 
+      },
+      { 
+        id: 18, 
+        name: 'Peppermint, Lemongrass & Jasmine', 
+        price: 139000, 
+        price10ml: 139000, 
+        price30ml: 279000, 
+        cat: 'tinhdau', 
+        img: 'images/peppermint-jasmine.png', 
+        fallbackImg: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80', 
+        desc: 'Mát lạnh • Thanh lọc (3 nốt hương)', 
+        fullDesc: 'Tổ hợp 3 tầng hương độc đáo: Bạc hà the mát thông mũi, sả chanh khử mùi ẩm mốc, và hoa nhài thoang thoảng quý phái. Đem lại luồng không khí thanh sạch và sảng khoái tối đa.' 
+      },
 
-      // 19-21: MÁY KHUẾCH TÁN TINH DẦU (MỤC RIÊNG MỚI)
+      // 19-21: MÁY KHUẾCH TÁN TINH DẦU
       { id: 19, name: 'Máy Xông Vân Gỗ Trụ Đứng 500ml', price: 289000, cat: 'mayxong', img: 'images/mayxong-tru.png', fallbackImg: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80', desc: 'Dung tích lớn • LED 7 màu • Hẹn giờ', fullDesc: 'Máy khuếch tán tinh dầu sóng siêu âm thiết kế vân gỗ sáng thanh lịch. Dung tích lớn 500ml phun sương liên tục 10-12 tiếng, tích hợp đèn LED 7 màu dịu mắt làm đèn ngủ và tính năng tự ngắt thông minh khi cạn nước.' },
       { id: 20, name: 'Máy Xông Tròn Zen Ceramic 300ml', price: 249000, cat: 'mayxong', img: 'images/mayxong-tron.png', fallbackImg: 'https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=600&q=80', desc: 'Phong cách Zen • Siêu êm • Tiết kiệm', fullDesc: 'Kiểu dáng búp tròn tối giản mang phong cách Zen Nhật Bản. Hoạt động siêu êm dưới 25dB hoàn toàn không ảnh hưởng giấc ngủ hay sự tập trung khi làm việc. Phun sương nano siêu mịn giúp giữ nguyên hoạt tính tinh dầu.' },
       { id: 21, name: 'Máy Xông Hiệu Ứng Lửa Flame 200ml', price: 319000, cat: 'mayxong', img: 'images/mayxong-lua.png', fallbackImg: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80', desc: 'Hiệu ứng lửa 3D • Độc đáo • Sang trọng', fullDesc: 'Sự kết hợp hoàn hảo giữa ánh sáng LED màu hổ phách và làn sương khuếch tán tạo nên hiệu ứng ngọn lửa bập bùng vô cùng ấm cúng và sống động. Món đồ decor cực kỳ sang trọng cho phòng ngủ hoặc bàn làm việc cao cấp.' },
 
-      // 22-23: SET COMBO TIẾT KIỆM (MỤC RIÊNG MỚI)
-      { id: 22, name: 'Combo Bình Yên: Nến 75g + Tinh Dầu 10ml', price: 299000, cat: 'combo', img: 'images/combo-binhyen.png', fallbackImg: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=600&q=80', desc: 'Tiết kiệm 29k • Tặng kèm hộp quà', fullDesc: 'Sự kết hợp trọn vẹn giữa ngọn nến ấm cúng và chai tinh dầu thanh khiết. Bạn được tự chọn mùi nến và mùi tinh dầu tùy ý khi xưởng liên hệ xác nhận đơn. Tiết kiệm hơn so với mua lẻ.' },
-      { id: 23, name: 'Combo Tinh Khiết: Máy Xông + 2 Tinh Dầu', price: 469000, cat: 'combo', img: 'images/combo-zen.png', fallbackImg: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80', desc: 'Tiết kiệm 78k • Full phụ kiện cắm điện', fullDesc: 'Gói chăm sóc không gian trọn vẹn gồm 01 Máy khuếch tán vân gỗ 300ml + 02 chai tinh dầu thiên nhiên 10ml tùy chọn mùi. Khử mùi nhanh chóng và dưỡng ẩm cho làn da khi ngồi phòng điều hòa.' },
+      // 22-23 & 26-27: SET COMBO ƯU ĐÃI
+      { 
+        id: 22, 
+        name: 'Combo MỘC Dịu Êm', 
+        price: 299000, 
+        cat: 'combo', 
+        comboType: 'diu-em',
+        img: 'images/combo-binhyen.png', 
+        fallbackImg: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=600&q=80', 
+        desc: '1 Nến 75g + 1 Tinh dầu 10ml + 4 Mẫu thử', 
+        fullDesc: 'Combo chủ lực bán chạy: Gồm 01 Nến thơm sáp cọ 75g (đốt ~20h), 01 Chai tinh dầu thiên nhiên 10ml, tặng kèm 04 mẩu sáp thử tự chọn và hỗ trợ đóng hộp quà thường.' 
+      },
+      { 
+        id: 23, 
+        name: 'Combo MỘC Trọn Vẹn', 
+        price: 549000, 
+        cat: 'combo', 
+        comboType: 'tron-ven',
+        img: 'images/combo-zen.png', 
+        fallbackImg: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80', 
+        desc: '1 Nến 160g + 1 Tinh dầu 30ml + 6 Mẫu thử + Khắc tên', 
+        fullDesc: 'Combo quà tặng cao cấp: Gồm 01 Nến thơm 160g (đốt ~45h), 01 Chai tinh dầu 30ml tiết kiệm, tặng kèm 06 mẩu sáp thử, đóng hộp quà cao cấp thắt nơ, kèm thiệp tay nắn nót và miễn phí khắc tên lên nắp gỗ.' 
+      },
+      { 
+        id: 26, 
+        name: 'Combo Máy 220ml + Tinh Dầu 10ml', 
+        price: 299000, 
+        cat: 'combo', 
+        comboType: 'may-oil-10',
+        img: 'images/combo-may-10ml.png', 
+        fallbackImg: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80', 
+        desc: '1 Máy xông 220ml + 1 Tinh dầu 10ml • Tiết kiệm 59k', 
+        fullDesc: 'Combo chuẩn dễ trải nghiệm: Gồm 01 Máy khuếch tán phun sương 220ml nhỏ gọn kèm dây cắm USB + 01 Chai tinh dầu thiên nhiên 10ml tùy chọn mùi hương. Tiết kiệm ngay 59.000đ so với mua lẻ.' 
+      },
+      { 
+        id: 27, 
+        name: 'Combo Nâng Cấp: Máy 220ml + Tinh Dầu 30ml', 
+        price: 429000, 
+        cat: 'combo', 
+        comboType: 'may-oil-30',
+        img: 'images/combo-may-30ml.png', 
+        fallbackImg: 'https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=600&q=80', 
+        desc: '1 Máy xông 220ml + 1 Tinh dầu 30ml • Tiết kiệm 69k', 
+        fullDesc: 'Combo nâng cấp tăng dung tích: Dành cho khách hàng đã quen dùng tinh dầu hoặc làm quà tặng chỉn chu. Gồm 01 Máy khuếch tán 220ml + 01 Chai tinh dầu dung tích lớn 30ml tiết kiệm. Tiết kiệm ngay 69.000đ.' 
+      },
 
       // 24-25: Hộp quà
       { id: 24, name: 'Hộp quà Basic', price: 45000, cat: 'hopqua', img: 'images/hopquabasic.png', fallbackImg: 'hopquabasic.png', desc: 'Đơn giản • Mộc mạc', fullDesc: 'Hộp giấy kraft mộc mạc, thắt nơ ruy băng thủ công tinh tế kèm thiệp viết tay, thích hợp làm món quà nhỏ chân thành.' },
@@ -1005,6 +1113,9 @@
     let cart = [];
     let selectedOption = '75g';
     let currentModalProduct = null;
+    let comboSelectedCandle = 'Lavender Calm';
+    let comboSelectedOil = 'Lemongrass & Tea';
+    let currentMayComboPrice = 299000;
     let currentUser = JSON.parse(localStorage.getItem('moc_user') || 'null');
 
     function updateHeaderUserUI() {
@@ -1107,7 +1218,7 @@
       `).join('');
     }
 
-    // ================= XỬ LÝ CHỌN DUNG TÍCH (CHO CẢ NẾN VÀ TINH DẦU) =================
+    // ================= XỬ LÝ CHỌN DUNG TÍCH (CHO NẾN VÀ TINH DẦU LẺ) =================
     window.selectModalOption = function(btn, opt, price) {
       selectedOption = opt;
 
@@ -1152,6 +1263,18 @@
           if (note10g) note10g.classList.add('hidden');
         }
       }
+    };
+
+    // Cập nhật giá tự động cho 2 Combo Máy + Tinh Dầu
+    window.updateMayComboPrice = function(comboType, selectEl) {
+      const selectedOpt = selectEl.options[selectEl.selectedIndex];
+      const price = parseInt(selectedOpt.getAttribute('data-price'), 10) || 299000;
+      currentMayComboPrice = price;
+
+      const priceDisplay = document.getElementById('modal-product-price');
+      const cartBtnText = document.getElementById('modal-cart-btn-text');
+      if (priceDisplay) priceDisplay.innerText = price.toLocaleString('vi-VN') + 'đ';
+      if (cartBtnText) cartBtnText.innerText = `Thêm vào giỏ hàng - ${price.toLocaleString('vi-VN')}đ`;
     };
 
     // ================= HIỂN THỊ MODAL CHI TIẾT SẢN PHẨM =================
@@ -1247,8 +1370,8 @@
       // 2. Tùy chọn cho TINH DẦU (10ml / 30ml)
       else if (p.cat === 'tinhdau') {
         selectedOption = '10ml';
-        const price10ml = p.price;
-        const price30ml = p.price + 120000;
+        const price10ml = p.price10ml || p.price;
+        const price30ml = p.price30ml || (p.price + 140000);
 
         optionsHTML = `
           <div class="space-y-4 pt-2">
@@ -1258,19 +1381,164 @@
                 <button type="button" onclick="selectModalOption(this, '10ml', ${price10ml})" class="modal-opt-btn p-3 rounded-2xl border-2 border-moc-brown bg-[#e5dbcd]/60 text-xs font-bold text-moc-brown transition cursor-pointer text-center shadow-xs">
                   <span class="block text-sm font-bold">Chai 10ml</span>
                   <span class="text-[10px] text-moc-muted font-normal">Dùng liên tục ~1 tháng</span>
+                  <span class="text-xs font-bold text-moc-brown block mt-0.5">${price10ml.toLocaleString('vi-VN')}đ</span>
                 </button>
                 <button type="button" onclick="selectModalOption(this, '30ml', ${price30ml})" class="modal-opt-btn p-3 rounded-2xl border border-moc-border bg-white text-xs font-semibold text-moc-muted hover:border-moc-brown transition cursor-pointer text-center">
                   <span class="block text-sm font-bold">Chai 30ml (Tiết kiệm)</span>
                   <span class="text-[10px] text-moc-muted font-normal">Dùng liên tục ~3 tháng</span>
+                  <span class="text-xs font-bold text-moc-brown block mt-0.5">${price30ml.toLocaleString('vi-VN')}đ</span>
                 </button>
               </div>
             </div>
           </div>
         `;
+      } 
+      // 3. Tùy chọn cho COMBO
+      else if (p.cat === 'combo') {
+        selectedOption = '';
+        // 3.1. Combo Máy 220ml + Tinh Dầu 10ml
+        if (p.comboType === 'may-oil-10') {
+          currentMayComboPrice = 299000;
+          optionsHTML = `
+            <div class="space-y-4 pt-3 border-t border-moc-border/60">
+              <div class="p-3 bg-amber-50/80 rounded-2xl border border-amber-200 text-xs text-moc-brown space-y-1">
+                <p>• <strong>Bộ sản phẩm:</strong> 01 Máy xông 220ml (USB + LED) + 01 Chai tinh dầu 10ml.</p>
+                <p>• <strong>Ưu đãi:</strong> Tiết kiệm ngay <strong>59.000đ</strong> so với mua lẻ.</p>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-moc-brown uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                  <i class="fa-solid fa-droplet text-sky-600"></i> Chọn mùi hương Tinh dầu (10ml):
+                </label>
+                <select id="may-combo-oil-select" onchange="updateMayComboPrice('may-oil-10', this)" class="w-full p-3 rounded-2xl border border-moc-border bg-white text-xs font-semibold text-moc-brown focus:outline-none focus:border-moc-brown cursor-pointer">
+                  <option value="Lavender & Sweet Orange" data-price="299000">Lavender & Sweet Orange — 299.000đ (Gốc 358k)</option>
+                  <option value="Lemongrass & Tea (Số 13)" data-price="299000">Lemongrass & Tea (Số 13) — 299.000đ (Gốc 358k)</option>
+                  <option value="Sea salt & Sage (Số 16)" data-price="309000">Sea salt & Sage (Số 16) — 309.000đ (Gốc 368k)</option>
+                  <option value="Peppermint, Lemongrass & Jasmine" data-price="309000">Peppermint, Lemongrass & Jasmine — 309.000đ (Gốc 368k)</option>
+                  <option value="Lotus & White Musk (Số 14)" data-price="319000">Lotus & White Musk (Số 14) — 319.000đ (Gốc 378k)</option>
+                  <option value="Hinoki & Bamboo (Số 15)" data-price="329000">Hinoki & Bamboo (Số 15) — 329.000đ (Gốc 388k)</option>
+                </select>
+              </div>
+            </div>
+          `;
+        }
+        // 3.2. Combo Máy 220ml + Tinh Dầu 30ml
+        else if (p.comboType === 'may-oil-30') {
+          currentMayComboPrice = 429000;
+          optionsHTML = `
+            <div class="space-y-4 pt-3 border-t border-moc-border/60">
+              <div class="p-3 bg-amber-50/80 rounded-2xl border border-amber-200 text-xs text-moc-brown space-y-1">
+                <p>• <strong>Bộ sản phẩm:</strong> 01 Máy xông 220ml + 01 Chai tinh dầu lớn 30ml (dùng ~3 tháng).</p>
+                <p>• <strong>Ưu đãi:</strong> Tiết kiệm ngay <strong>69.000đ</strong> so với mua lẻ.</p>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-moc-brown uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                  <i class="fa-solid fa-droplet text-sky-600"></i> Chọn mùi hương Tinh dầu (Chai lớn 30ml):
+                </label>
+                <select id="may-combo-oil-select" onchange="updateMayComboPrice('may-oil-30', this)" class="w-full p-3 rounded-2xl border border-moc-border bg-white text-xs font-semibold text-moc-brown focus:outline-none focus:border-moc-brown cursor-pointer">
+                  <option value="Lavender & Sweet Orange" data-price="429000">Lavender & Sweet Orange (30ml) — 429.000đ (Gốc 498k)</option>
+                  <option value="Lemongrass & Tea (Số 13)" data-price="429000">Lemongrass & Tea (Số 13, 30ml) — 429.000đ (Gốc 498k)</option>
+                  <option value="Sea salt & Sage (Số 16)" data-price="449000">Sea salt & Sage (Số 16, 30ml) — 449.000đ (Gốc 518k)</option>
+                  <option value="Peppermint, Lemongrass & Jasmine" data-price="449000">Peppermint, Lemongrass & Jasmine (30ml) — 449.000đ (Gốc 518k)</option>
+                  <option value="Lotus & White Musk (Số 14)" data-price="469000">Lotus & White Musk (Số 14, 30ml) — 469.000đ (Gốc 538k)</option>
+                  <option value="Hinoki & Bamboo (Số 15)" data-price="489000">Hinoki & Bamboo (Số 15, 30ml) — 489.000đ (Gốc 558k)</option>
+                </select>
+              </div>
+            </div>
+          `;
+        }
+        // 3.3. Combo Nến + Tinh Dầu (Dịu Êm / Trọn Vẹn)
+        else {
+          comboSelectedCandle = 'Lavender Calm';
+          comboSelectedOil = 'Lemongrass & Tea';
+          
+          const isTronVen = p.comboType === 'tron-ven';
+          const candleSizeText = isTronVen ? '160g' : '75g';
+          const oilSizeText = isTronVen ? '30ml' : '10ml';
+          const maxSamples = isTronVen ? 6 : 4;
+
+          const candleList = [
+            'Lavender Calm', 'Vanilla Dream', 'Citrus Fresh', 'Sandalwood',
+            'Rose Garden', 'Green Tea', 'Ocean Breeze', 'Musk Warmth',
+            'Earl Grey Tea', 'Cedarwood Forest', 'Sweet Peach', 'Coffee Beans'
+          ];
+
+          const oilList = [
+            'Lemongrass & Tea', 'Lotus & White Musk', 'Hinoki & Bamboo',
+            'Sea salt & Sage', 'Lavender & Sweet Orange', 'Peppermint, Lemongrass & Jasmine'
+          ];
+
+          const candleOptionsHTML = candleList.map(c => `<option value="${c}">${c}</option>`).join('');
+          const oilOptionsHTML = oilList.map(o => `<option value="${o}">${o}</option>`).join('');
+
+          const sampleCheckboxes = candleList.map(scent => `
+            <label class="flex items-center gap-1.5 p-1.5 rounded-xl bg-white border border-moc-border/70 text-[10.5px] cursor-pointer hover:border-moc-brown transition">
+              <input type="checkbox" value="${scent}" onchange="checkComboSampleLimit(${maxSamples})" class="combo-sample-cb accent-moc-brown rounded">
+              <span class="truncate">${scent}</span>
+            </label>
+          `).join('');
+
+          optionsHTML = `
+            <div class="space-y-4 pt-3 border-t border-moc-border/60">
+              <div>
+                <label class="block text-xs font-bold text-moc-brown uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                  <i class="fa-solid fa-fire text-amber-600"></i> 1. Chọn mùi Nến thơm (${candleSizeText}):
+                </label>
+                <select id="combo-candle-select" onchange="comboSelectedCandle = this.value" class="w-full p-3 rounded-2xl border border-moc-border bg-white text-xs font-semibold text-moc-brown focus:outline-none focus:border-moc-brown cursor-pointer">
+                  ${candleOptionsHTML}
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-moc-brown uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                  <i class="fa-solid fa-droplet text-sky-600"></i> 2. Chọn mùi Tinh dầu (${oilSizeText}):
+                </label>
+                <select id="combo-oil-select" onchange="comboSelectedOil = this.value" class="w-full p-3 rounded-2xl border border-moc-border bg-white text-xs font-semibold text-moc-brown focus:outline-none focus:border-moc-brown cursor-pointer">
+                  ${oilOptionsHTML}
+                </select>
+              </div>
+
+              <div class="p-3.5 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-2">
+                <div class="flex justify-between items-center text-xs">
+                  <span class="font-bold text-moc-brown">🎁 Chọn ${maxSamples} mẩu sáp thử miễn phí:</span>
+                  <span class="text-[10px] text-moc-muted font-semibold" id="combo-sample-badge">Đã chọn: 0/${maxSamples}</span>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 max-h-36 overflow-y-auto pr-1">
+                  ${sampleCheckboxes}
+                </div>
+              </div>
+
+              ${isTronVen ? `
+                <div class="p-3.5 bg-white rounded-2xl border border-moc-border space-y-3">
+                  <span class="block text-xs font-bold text-moc-brown uppercase tracking-wider">
+                    <i class="fa-solid fa-gift text-[#c49a6c]"></i> Đặc quyền Combo Trọn Vẹn:
+                  </span>
+                  <div>
+                    <label class="block text-[11px] font-medium text-moc-brown mb-1">Khắc tên lên nắp gỗ nến (Miễn phí):</label>
+                    <input type="text" id="combo-engrave-input" maxlength="25" placeholder="Ví dụ: Tặng Lan Anh, Mộc Scent..." class="w-full p-2.5 rounded-xl border border-moc-border text-xs text-moc-brown focus:outline-none focus:border-moc-brown">
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-medium text-moc-brown mb-1">Nội dung thiệp tay (Miễn phí):</label>
+                    <input type="text" id="combo-msg-input" maxlength="80" placeholder="Nhập lời chúc muốn viết vào thiệp..." class="w-full p-2.5 rounded-xl border border-moc-border text-xs text-moc-brown focus:outline-none focus:border-moc-brown">
+                  </div>
+                </div>
+              ` : `
+                <div class="p-3 bg-white rounded-2xl border border-moc-border flex items-center justify-between text-xs">
+                  <span class="text-moc-brown font-medium">Đóng gói kèm hộp quà thường:</span>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" id="combo-giftbox-opt" checked class="accent-moc-brown rounded">
+                    <span class="text-[11px] text-moc-muted">Có nhu cầu</span>
+                  </label>
+                </div>
+              `}
+            </div>
+          `;
+        }
       } else {
         selectedOption = '';
       }
-     
+
       // XÂY DỰNG 5 MỤC NỘI DUNG CHI TIẾT
       let productDetailsSection = '';
       if (p.cat === 'nenthom') {
@@ -1437,6 +1705,7 @@
         `;
       }
       else if (p.cat === 'combo') {
+        const isMayCombo = p.comboType === 'may-oil-10' || p.comboType === 'may-oil-30';
         productDetailsSection = `
         <div class="space-y-2.5 text-xs text-moc-brown/90 leading-relaxed font-light mt-3">
           <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
@@ -1451,9 +1720,15 @@
               <i class="fa-solid fa-gift text-[#c49a6c]"></i> 2. Đặc quyền quà tặng kèm theo
             </span>
             <ul class="space-y-1 text-[11.5px] text-moc-brown/85">
-              <li>• Miễn phí gói quà chỉn chu có thắt nơ ruy băng thủ công cao cấp.</li>
-              <li>• Tặng kèm thiệp viết tay theo lời chúc riêng của bạn.</li>
-              <li>• Tặng bộ mẩu sáp thơm dùng thử ưu tiên từ xưởng.</li>
+              ${isMayCombo ? `
+                <li>• 01 Máy khuếch tán 220ml chính hãng, bảo hành 1 đổi 1 trong 30 ngày.</li>
+                <li>• Tặng kèm cáp sạc USB tiện dụng và que bông lọc sương dự phòng.</li>
+                <li>• Tinh dầu thiên nhiên nguyên chất chuẩn IFRA an toàn cho hô hấp.</li>
+              ` : `
+                <li>• Miễn phí gói quà chỉn chu có thắt nơ ruy băng thủ công cao cấp.</li>
+                <li>• Tặng kèm thiệp viết tay theo lời chúc riêng của bạn.</li>
+                <li>• Tặng bộ mẩu sáp thơm dùng thử ưu tiên từ xưởng.</li>
+              `}
             </ul>
           </div>
 
@@ -1462,7 +1737,7 @@
               <i class="fa-solid fa-hand-holding-heart text-[#c49a6c]"></i> 3. Lựa chọn mùi hương
             </span>
             <p class="text-[11.5px] text-moc-brown/85 leading-relaxed">
-              Bạn có thể ghi chú mùi nến/tinh dầu mong muốn ở bước thanh toán, hoặc nhân viên xưởng MỘC sẽ gọi điện thoại xác nhận mùi hợp gu với bạn nhất trước khi gửi hàng!
+              ${isMayCombo ? 'Bạn có thể chọn trực tiếp mùi hương tinh dầu ngay bên dưới hoặc đổi mùi miễn phí khi nhận hàng.' : 'Bạn có thể ghi chú mùi nến/tinh dầu mong muốn ở bước thanh toán, hoặc nhân viên xưởng MỘC sẽ gọi điện thoại xác nhận mùi hợp gu với bạn nhất trước khi gửi hàng!'}
             </p>
           </div>
         </div>
@@ -1517,6 +1792,23 @@
       }
     };
 
+    window.checkComboSampleLimit = function(maxAllowed) {
+      const checkedBoxes = document.querySelectorAll('.combo-sample-cb:checked');
+      const count = checkedBoxes.length;
+
+      const badge = document.getElementById('combo-sample-badge');
+      if (badge) badge.innerText = `Đã chọn: ${count}/${maxAllowed}`;
+
+      const allBoxes = document.querySelectorAll('.combo-sample-cb');
+      if (count >= maxAllowed) {
+        allBoxes.forEach(cb => {
+          if (!cb.checked) cb.disabled = true;
+        });
+      } else {
+        allBoxes.forEach(cb => cb.disabled = false);
+      }
+    };
+
     window.addModalItemToCart = function() {
       if (!currentModalProduct) return;
 
@@ -1527,7 +1819,11 @@
         if (selectedOption === '10g') finalPrice = 39000;
         else if (selectedOption === '160g') finalPrice += 150000;
       } else if (currentModalProduct.cat === 'tinhdau') {
-        if (selectedOption === '30ml') finalPrice += 120000;
+        if (selectedOption === '30ml') {
+          finalPrice = currentModalProduct.price30ml || (currentModalProduct.price + 140000);
+        } else {
+          finalPrice = currentModalProduct.price10ml || currentModalProduct.price;
+        }
       }
 
       if (selectedOption) {
@@ -1547,10 +1843,35 @@
             giftDescription = `Tặng ${maxSamples} mẩu thử tự chọn`;
           }
         }
+      } else if (currentModalProduct.cat === 'combo') {
+        // Nếu là Combo Máy + Tinh dầu
+        if (currentModalProduct.comboType === 'may-oil-10' || currentModalProduct.comboType === 'may-oil-30') {
+          const selectEl = document.getElementById('may-combo-oil-select');
+          const oilVal = selectEl ? selectEl.value : 'Lavender & Sweet Orange';
+          finalPrice = currentMayComboPrice || currentModalProduct.price;
+          const oilSize = currentModalProduct.comboType === 'may-oil-30' ? '30ml' : '10ml';
+          giftDescription = `Gồm: 01 Máy xông 220ml + 01 Tinh dầu ${oilVal} (${oilSize})`;
+        } 
+        // Nếu là Combo Nến + Tinh dầu
+        else {
+          const candleVal = document.getElementById('combo-candle-select')?.value || comboSelectedCandle;
+          const oilVal = document.getElementById('combo-oil-select')?.value || comboSelectedOil;
+          const isTronVen = currentModalProduct.comboType === 'tron-ven';
+          const maxSamples = isTronVen ? 6 : 4;
+          const selectedSamples = Array.from(document.querySelectorAll('.combo-sample-cb:checked')).map(cb => cb.value);
+          const sampleText = selectedSamples.length > 0 ? selectedSamples.join(', ') : `Shop mix ${maxSamples} mùi hot`;
+
+          if (isTronVen) {
+            const engraveVal = document.getElementById('combo-engrave-input')?.value.trim() || 'Không';
+            const msgVal = document.getElementById('combo-msg-input')?.value.trim() || 'Không';
+            giftDescription = `Nến: ${candleVal} (160g) • Dầu: ${oilVal} (30ml) • Mẫu thử: [${sampleText}] • Khắc nắp: "${engraveVal}" • Thiệp: "${msgVal}"`;
+          } else {
+            const needBox = document.getElementById('combo-giftbox-opt')?.checked;
+            giftDescription = `Nến: ${candleVal} (75g) • Dầu: ${oilVal} (10ml) • Mẫu thử: [${sampleText}] • Hộp quà: ${needBox ? 'Có' : 'Không'}`;
+          }
+        }
       } else if (currentModalProduct.cat === 'mayxong') {
         giftDescription = 'Bảo hành 1 đổi 1 trong 30 ngày';
-      } else if (currentModalProduct.cat === 'combo') {
-        giftDescription = 'Kèm hộp quà nơ + thiệp tay nắn nót';
       }
 
       const existingItem = cart.find(item => item.name === itemName && item.giftNote === giftDescription);
@@ -2290,9 +2611,6 @@
     };
 
     // ================= LOGIC CHATBOT AI SMART PRO =================
-    let quizStep = 0;
-    let quizAnswers = {};
-
     function toggleChatWindow() {
       const chatWin = document.getElementById('moc-chat-window');
       if (!chatWin) return;
@@ -2301,32 +2619,6 @@
         const input = document.getElementById('chat-input');
         if (input) input.focus();
       }
-    }
-
-    function resetChatHistory() {
-      quizStep = 0;
-      quizAnswers = {};
-      const container = document.getElementById('chat-messages');
-      if (!container) return;
-      container.innerHTML = `
-        <div class="flex gap-2">
-          <img src="logo1.png" alt="Logo MỘC" class="w-7 h-7 rounded-full object-cover border border-moc-border/80 shrink-0 shadow-2xs bg-[#f7f3ec]" onerror="this.onerror=null; this.src='images/logo1.png'">
-          <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-moc-border/60 text-moc-brown shadow-2xs max-w-[85%] leading-relaxed">
-            Dạ MỘC xin chào bạn! 🌿 Mình là trợ lý thông minh của MỘC Scent. Bạn có thể hỏi mình mọi điều về nến thơm, máy khuếch tán, tinh dầu hoặc bấm <strong>"Trắc nghiệm tìm mùi"</strong> nhé!
-          </div>
-        </div>
-        <div class="flex flex-wrap gap-1.5 pt-1 pl-9" id="quick-replies">
-          <button type="button" onclick="startScentFinderQuiz()" class="bg-amber-100/90 text-amber-900 border border-amber-300 hover:bg-amber-200 px-2.5 py-1 rounded-full text-[11px] font-semibold transition shadow-2xs">
-            ✨ Trắc nghiệm tìm mùi chuẩn gu
-          </button>
-          <button type="button" onclick="sendQuickReply('Tư vấn máy khuếch tán tinh dầu')" class="bg-moc-card hover:bg-moc-accent/60 text-moc-brown border border-moc-border/70 px-2.5 py-1 rounded-full text-[11px] transition shadow-2xs">
-            💨 Máy khuếch tán
-          </button>
-          <button type="button" onclick="sendQuickReply('Mã giảm giá hôm nay có gì?')" class="bg-moc-card hover:bg-moc-accent/60 text-moc-brown border border-moc-border/70 px-2.5 py-1 rounded-full text-[11px] transition shadow-2xs">
-            🏷️ Mã giảm giá
-          </button>
-        </div>
-      `;
     }
 
     function appendMessage(sender, htmlContent) {
@@ -2383,12 +2675,12 @@
 
         if (raw.includes('may') || raw.includes('khuech tan') || raw.includes('xong')) {
           reply = `
-            <p>💨 <strong>MỘC Scent hiện có 3 dòng máy khuếch tán cao cấp:</strong></p>
-            <p>1. <strong>Máy Trụ Vân Gỗ 500ml:</strong> Phun sương cực khỏe cho phòng rộng (289k).</p>
-            <p>2. <strong>Máy Tròn Zen 300ml:</strong> Êm ái, thanh lịch chuẩn spa (249k).</p>
-            <p>3. <strong>Máy Ngọn Lửa Flame 200ml:</strong> Hiệu ứng ánh lửa 3D sang chảnh (319k).</p>
-            <button type="button" onclick="switchTab('products'); filterCategory('mayxong'); toggleChatWindow();" class="mt-2 w-full py-2 bg-moc-brown hover:bg-moc-brownDark text-white text-xs font-semibold rounded-xl transition shadow-2xs">
-              Xem ngay mục Máy Khuếch Tán
+            <p>💨 <strong>MỘC Scent hiện có các dòng máy và combo tiện ích:</strong></p>
+            <p>1. <strong>Combo Máy 220ml + Tinh dầu 10ml:</strong> Tiết kiệm ngay 59k (Chỉ từ 299k).</p>
+            <p>2. <strong>Combo Nâng Cấp Máy 220ml + Tinh dầu 30ml:</strong> Tiết kiệm ngay 69k (Chỉ từ 429k).</p>
+            <p>3. <strong>Máy Đơn Tách Rời:</strong> Máy Trụ 500ml, Máy Tròn Zen 300ml, Máy Lửa Flame 200ml.</p>
+            <button type="button" onclick="switchTab('products'); filterCategory('combo'); toggleChatWindow();" class="mt-2 w-full py-2 bg-moc-brown hover:bg-moc-brownDark text-white text-xs font-semibold rounded-xl transition shadow-2xs">
+              Xem ngay mục Set Combo
             </button>
           `;
         } else if (raw.includes('giam gia') || raw.includes('voucher') || raw.includes('ma')) {
