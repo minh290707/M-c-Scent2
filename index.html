@@ -59,28 +59,13 @@
       background-size: 32px 32px;
     }
 
-    .font-handwriting {
-      font-family: 'Dancing Script', cursive !important;
-    }
+    .font-handwriting { font-family: 'Dancing Script', cursive !important; }
+    .font-notes { font-family: 'Dancing Script', cursive !important; }
+    .font-serif { font-family: 'Playfair Display', serif !important; }
 
-    .font-notes {
-      font-family: 'Dancing Script', cursive !important;
-    }
-
-    .font-serif {
-      font-family: 'Playfair Display', serif !important;
-    }
-
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f7f3ec;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #cfc2ad;
-      border-radius: 9999px;
-    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #f7f3ec; }
+    ::-webkit-scrollbar-thumb { background: #cfc2ad; border-radius: 9999px; }
 
     .signature-tab-btn {
       position: relative;
@@ -131,8 +116,8 @@
       <a href="javascript:void(0)" onclick="switchTab('home')" class="flex items-center gap-3.5 group">
         <div>
           <div class="w-12 h-12 rounded-2xl overflow-hidden border border-moc-border shadow-xs group-hover:scale-105 transition">
-  <img src="logo1.png" alt="MỘC Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='images/logo1.png'">
-</div>
+            <img src="logo1.png" alt="MỘC Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='images/logo1.png'">
+          </div>
         </div>
         <div>
           <div class="flex items-baseline gap-2">
@@ -144,21 +129,24 @@
       </a>
 
       <!-- Menu Điều hướng -->
-      <nav class="hidden lg:flex items-center space-x-8 text-xs font-semibold uppercase tracking-[0.2em] text-moc-brown/80">
+      <nav class="hidden lg:flex items-center space-x-7 text-xs font-semibold uppercase tracking-[0.18em] text-moc-brown/80">
         <button id="nav-home" onclick="switchTab('home')" class="signature-tab-btn active py-1">Trang chủ</button>
         <button id="nav-products" onclick="switchTab('products')" class="signature-tab-btn py-1 hover:text-moc-brown">Bộ sưu tập</button>
         <button id="nav-custom-gift" onclick="switchTab('custom-gift')" class="signature-tab-btn py-1 hover:text-moc-brown">Khắc nắp riêng</button>
+        <button id="nav-orders" onclick="switchTab('orders')" class="signature-tab-btn py-1 hover:text-moc-brown flex items-center gap-1">
+          <span>Đơn hàng</span>
+        </button>
         <button id="nav-about" onclick="switchTab('about')" class="signature-tab-btn py-1 hover:text-moc-brown">Về xưởng Mộc</button>
         <button id="nav-contact" onclick="switchTab('contact')" class="signature-tab-btn py-1 hover:text-moc-brown">Liên hệ</button>
       </nav>
 
       <!-- Action Items -->
-      <div class="flex items-center space-x-2 sm:space-x-3 text-moc-brown">
+      <div class="flex items-center space-x-2 sm:space-x-2.5 text-moc-brown">
         <button type="button" onclick="toggleSearchModal()" class="w-10 h-10 rounded-full hover:bg-white border border-moc-border/60 flex items-center justify-center transition" title="Tìm mùi hương">
           <i class="fa-solid fa-magnifying-glass text-xs"></i>
         </button>
 
-        <button type="button" onclick="toggleAccountModal()" class="h-10 px-3.5 rounded-full hover:bg-white border border-moc-border/60 flex items-center gap-1.5 transition text-xs" title="Tài khoản tích điểm">
+        <button type="button" onclick="toggleAccountModal()" class="h-10 px-3.5 rounded-full hover:bg-white border border-moc-border/60 flex items-center gap-1.5 transition text-xs" title="Tài khoản & Đổi điểm">
           <i class="fa-regular fa-user text-xs"></i>
           <span id="header-user-badge" class="hidden text-[10px] bg-amber-200 text-amber-950 font-bold px-2 py-0.5 rounded-full ml-0.5">0đ</span>
         </button>
@@ -180,6 +168,7 @@
       <button onclick="switchTab('home'); toggleMobileMenu()" class="block w-full text-left py-2.5 text-moc-text border-b border-moc-border/40">Trang chủ</button>
       <button onclick="switchTab('products'); toggleMobileMenu()" class="block w-full text-left py-2.5 text-moc-text border-b border-moc-border/40">Bộ sưu tập</button>
       <button onclick="switchTab('custom-gift'); toggleMobileMenu()" class="block w-full text-left py-2.5 text-moc-text border-b border-moc-border/40">Khắc nắp riêng</button>
+      <button onclick="switchTab('orders'); toggleMobileMenu()" class="block w-full text-left py-2.5 text-moc-text border-b border-moc-border/40">Theo dõi & Lịch sử đơn hàng</button>
       <button onclick="switchTab('about'); toggleMobileMenu()" class="block w-full text-left py-2.5 text-moc-text border-b border-moc-border/40">Về xưởng Mộc</button>
       <button onclick="switchTab('contact'); toggleMobileMenu()" class="block w-full text-left py-2.5 text-moc-text">Liên hệ</button>
     </div>
@@ -233,8 +222,8 @@
                 </div>
                 <div class="w-px h-8 bg-moc-border/60"></div>
                 <div>
-                  <span class="font-serif text-2xl font-bold text-moc-brown">100%</span>
-                  <p class="text-[10px] uppercase tracking-wider text-moc-muted">Sáp thực vật sạch</p>
+                  <span class="font-serif text-2xl font-bold text-moc-brown">AR 3D</span>
+                  <p class="text-[10px] uppercase tracking-wider text-moc-muted">Đặt thử vào phòng</p>
                 </div>
                 <div class="w-px h-8 bg-moc-border/60"></div>
                 <div>
@@ -293,14 +282,14 @@
 
           <div class="bg-white p-5 rounded-3xl border border-moc-border/80 shadow-2xs space-y-2">
             <span class="font-serif italic text-base text-[#c49a6c] font-bold block">N° 02</span>
-            <h4 class="text-xs font-bold text-moc-brown uppercase tracking-wider">Khắc Tên Lên Nắp Gỗ</h4>
-            <p class="text-[11px] text-moc-muted leading-relaxed font-light">Miễn phí khắc tên riêng và viết thiệp tay gửi người thương.</p>
+            <h4 class="text-xs font-bold text-moc-brown uppercase tracking-wider">Tích Điểm Đổi Quà</h4>
+            <p class="text-[11px] text-moc-muted leading-relaxed font-light">Đổi ngay nến 10g miễn phí hoặc mã giảm giá đến 50.000đ.</p>
           </div>
 
           <div class="bg-white p-5 rounded-3xl border border-moc-border/80 shadow-2xs space-y-2">
             <span class="font-serif italic text-base text-[#c49a6c] font-bold block">N° 03</span>
-            <h4 class="text-xs font-bold text-moc-brown uppercase tracking-wider">Freeship Từ 300K</h4>
-            <p class="text-[11px] text-moc-muted leading-relaxed font-light">Đóng gói chống sốc tỉ mỉ, giao hỏa tốc an toàn toàn quốc.</p>
+            <h4 class="text-xs font-bold text-moc-brown uppercase tracking-wider">Trải Nghiệm AR Thực Tế</h4>
+            <p class="text-[11px] text-moc-muted leading-relaxed font-light">Bật camera để đặt thử nến & máy xông lên góc bàn phòng bạn.</p>
           </div>
 
           <div class="bg-white p-5 rounded-3xl border border-moc-border/80 shadow-2xs space-y-2">
@@ -358,7 +347,7 @@
             <div class="flex items-center justify-between">
               <div>
                 <strong class="text-xs font-bold text-moc-brown block">Máy Khuếch Tán</strong>
-                <span class="font-handwriting text-sm text-moc-muted">Phun sương siêu âm</span>
+                <span class="font-handwriting text-sm text-moc-muted">Humi • Tulip • Comfort</span>
               </div>
               <span class="w-6 h-6 rounded-full bg-moc-card flex items-center justify-center text-[10px] text-moc-brown group-hover:translate-x-1 transition">→</span>
             </div>
@@ -434,7 +423,7 @@
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </div>
               <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
-                "Mình mua set máy xông và tinh dầu Trà xanh về phòng làm việc, máy chạy cực êm không nghe tiếng động, phun sương đều và thơm ngát khắp phòng."
+                "Mình mua máy Tulip 200ml và tinh dầu Trà xanh về phòng làm việc, máy chạy cực êm không nghe tiếng động, phun sương đều và thơm ngát khắp phòng."
               </p>
             </div>
             <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
@@ -442,7 +431,7 @@
               <div>
                 <h5 class="text-xs font-bold text-moc-brown">Quang Nhật</h5>
                 <span class="text-[10px] text-moc-muted flex items-center gap-1">
-                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Máy Xông Tròn Zen
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Máy Tulip 200ml
                 </span>
               </div>
             </div>
@@ -454,7 +443,7 @@
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </div>
               <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
-                "Thích nhất là shop gửi kèm mẩu sáp thử bên ngoài gói hàng để ngửi trước. Hũ nắp gỗ thủy tinh nâu hổ phách để trên bàn vừa thơm vừa decor phòng cực sang."
+                "Thích nhất là shop gửi kèm mẩu sáp thử bên ngoài gói hàng để ngửi trước. Tích điểm đổi được thêm hũ 10g miễn phí nữa nên rất ưng!"
               </p>
             </div>
             <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
@@ -528,11 +517,10 @@
           <div>
             <span class="font-handwriting text-2xl text-moc-brownLight block">bộ sưu tập hương nến & máy xông</span>
             <h2 class="font-serif text-3xl sm:text-4xl text-moc-brown font-normal mt-0.5">Tuyển Tập Sản Phẩm Xưởng MỘC</h2>
-            <p class="text-xs text-moc-muted mt-1">Lựa chọn mùi hương và thiết bị khuếch tán phù hợp nhất cho không gian của bạn</p>
+            <p class="text-xs text-moc-muted mt-1">Hỗ trợ xem thử sản phẩm đặt trong phòng qua Camera AR</p>
           </div>
 
           <div class="flex flex-wrap items-center gap-3">
-            <!-- TABS DANH MỤC -->
             <div class="flex flex-wrap gap-1.5 p-1 bg-white rounded-full border border-moc-border text-xs" id="cat-filter-tabs">
               <button onclick="filterCategory('all')" class="cat-filter-btn active bg-moc-brown text-white px-4 py-1.5 rounded-full transition">Tất cả</button>
               <button onclick="filterCategory('nenthom')" class="cat-filter-btn text-moc-muted hover:text-moc-brown px-4 py-1.5 rounded-full transition">Nến thơm</button>
@@ -677,6 +665,29 @@
         </div>
 
       </div>
+    </div>
+
+    <!-- ================= TRANG MỚI: THEO DÕI & LỊCH SỬ ĐƠN HÀNG ================= -->
+    <div id="tab-orders" class="tab-content hidden max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="text-center space-y-2 mb-8">
+        <span class="font-handwriting text-3xl text-moc-brownLight block">Hành trình hương thơm ♡</span>
+        <h1 class="font-serif text-3xl sm:text-4xl text-moc-brown font-normal">Theo Dõi & Lịch Sử Đơn Hàng</h1>
+        <p class="text-xs text-moc-muted">Tra cứu trạng thái giao hàng hoặc đặt mua lại nhanh các mùi hương yêu thích của bạn</p>
+      </div>
+
+      <!-- Khung tra cứu đơn hàng -->
+      <div class="bg-white p-5 sm:p-6 rounded-3xl border border-moc-border/80 shadow-xs mb-8">
+        <label class="block text-xs font-bold text-moc-brown uppercase tracking-wider mb-2">Tra cứu nhanh theo Mã đơn hàng hoặc Số điện thoại:</label>
+        <div class="flex flex-col sm:flex-row gap-2.5">
+          <input type="text" id="order-search-input" oninput="renderOrdersHistory()" placeholder="Nhập mã đơn (VD: MOC2026...) hoặc SĐT đặt hàng..." class="flex-1 p-3.5 rounded-2xl border border-moc-border bg-moc-bg text-xs text-moc-brown focus:outline-none focus:border-moc-brown">
+          <button type="button" onclick="renderOrdersHistory()" class="px-6 py-3.5 rounded-2xl bg-moc-brown hover:bg-moc-brownDark text-white text-xs font-semibold uppercase tracking-wider transition shrink-0">
+            <i class="fa-solid fa-magnifying-glass mr-1"></i> Kiểm tra
+          </button>
+        </div>
+      </div>
+
+      <!-- Danh sách đơn hàng -->
+      <div id="orders-history-container" class="space-y-5"></div>
     </div>
 
     <!-- ================= TRANG 4: VỀ MỘC ================= -->
@@ -885,8 +896,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-moc-border/50">
         <div class="flex items-center gap-3.5">
-          <div class="w-11 h-11 rounded-2xl bg-moc-card border border-moc-border p-1.5 flex items-center justify-center shrink-0 shadow-2xs">
-            <img src="logo1.png" alt="Logo MỘC" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='images/logo1.png'">
+          <div class="w-11 h-11 rounded-2xl overflow-hidden border border-moc-border flex items-center justify-center shrink-0 shadow-2xs">
+            <img src="logo1.png" alt="Logo MỘC" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='images/logo1.png'">
           </div>
           <div>
             <span class="font-serif text-lg font-bold tracking-widest text-moc-brown block leading-none">MỘC SCENT</span>
@@ -904,12 +915,88 @@
         <div class="flex gap-6 uppercase tracking-wider text-[10.5px] font-semibold">
           <a href="javascript:void(0)" onclick="switchTab('home')" class="hover:text-moc-brown transition">Trang chủ</a>
           <a href="javascript:void(0)" onclick="switchTab('products')" class="hover:text-moc-brown transition">Hương nến</a>
+          <a href="javascript:void(0)" onclick="switchTab('orders')" class="hover:text-moc-brown transition">Đơn hàng</a>
           <a href="javascript:void(0)" onclick="switchTab('about')" class="hover:text-moc-brown transition">Về MỘC</a>
           <a href="javascript:void(0)" onclick="switchTab('contact')" class="hover:text-moc-brown transition">Liên hệ</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- ================= MODAL AR CAMERA TRẢI NGHIỆM THỰC TẾ ================= -->
+  <div id="ar-camera-modal" class="fixed inset-0 z-50 bg-black flex flex-col justify-between hidden select-none">
+    <!-- Thanh điều khiển trên cùng -->
+    <div class="relative z-20 flex items-center justify-between p-4 bg-gradient-to-b from-black/80 to-transparent text-white">
+      <div class="flex items-center gap-2.5">
+        <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> AR Live View
+        </span>
+        <div>
+          <h4 id="ar-product-title" class="text-xs sm:text-sm font-serif font-bold">Tên sản phẩm</h4>
+          <p class="text-[10px] text-white/70">Kéo để di chuyển • Chỉnh thanh trượt để phóng to / thu nhỏ</p>
+        </div>
+      </div>
+      <button type="button" onclick="closeARModal()" class="w-9 h-9 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-base"></i>
+      </button>
+    </div>
+
+    <!-- Khung hiển thị Camera & Vật thể 3D/AR -->
+    <div id="ar-stage" class="relative flex-1 w-full h-full overflow-hidden flex items-center justify-center bg-[#231f1d]">
+      <!-- Video stream từ Camera thực tế -->
+      <video id="ar-video-stream" autoplay playsinline muted class="absolute inset-0 w-full h-full object-cover"></video>
+      
+      <!-- Hình nền phòng mô phỏng dự phòng nếu thiết bị không có Camera -->
+      <div id="ar-fallback-room" class="hidden absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80');">
+        <div class="absolute top-3 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-xs text-amber-200 text-[10px] px-3 py-1 rounded-full border border-white/20">
+          Chế độ mô phỏng phòng mẫu (Do thiết bị chưa cấp quyền Camera)
+        </div>
+      </div>
+
+      <!-- Khung hướng dẫn đặt mặt phẳng -->
+      <div class="absolute inset-x-8 bottom-32 border-b border-dashed border-white/30 pointer-events-none text-center">
+        <span class="text-[10px] text-white/60 uppercase tracking-widest bg-black/30 px-2 py-0.5 rounded">Mặt bàn / Kệ trang trí</span>
+      </div>
+
+      <!-- Vật thể sản phẩm AR có thể kéo thả -->
+      <div id="ar-draggable-object" class="relative z-10 cursor-move touch-none flex flex-col items-center" style="transform: translate(0px, 0px) scale(1) rotate(0deg);">
+        <div class="relative group">
+          <img id="ar-product-img" src="" alt="AR Product" class="w-44 h-44 sm:w-56 sm:h-56 object-contain drop-shadow-[0_22px_25px_rgba(0,0,0,0.65)] pointer-events-none rounded-2xl">
+          <!-- Bóng đổ chân đế thực tế -->
+          <div class="w-32 h-5 bg-black/45 blur-md rounded-full mx-auto -mt-3"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thanh công cụ tinh chỉnh AR phía dưới -->
+    <div class="relative z-20 p-4 sm:p-5 bg-gradient-to-t from-black/90 via-black/75 to-transparent text-white space-y-3">
+      <div class="max-w-md mx-auto grid grid-cols-2 gap-4 text-[11px]">
+        <div>
+          <div class="flex justify-between mb-1">
+            <span><i class="fa-solid fa-magnifying-glass-plus text-amber-300"></i> Kích thước</span>
+            <span id="ar-scale-val">100%</span>
+          </div>
+          <input type="range" id="ar-scale-slider" min="0.5" max="1.8" step="0.05" value="1" oninput="updateARTransform()" class="w-full accent-amber-400 cursor-pointer">
+        </div>
+        <div>
+          <div class="flex justify-between mb-1">
+            <span><i class="fa-solid fa-rotate text-amber-300"></i> Góc nghiêng</span>
+            <span id="ar-rotate-val">0°</span>
+          </div>
+          <input type="range" id="ar-rotate-slider" min="-30" max="30" step="1" value="0" oninput="updateARTransform()" class="w-full accent-amber-400 cursor-pointer">
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center gap-3 pt-1">
+        <button type="button" onclick="resetARPosition()" class="px-4 py-2.5 rounded-full bg-white/15 hover:bg-white/25 text-xs font-medium transition">
+          <i class="fa-solid fa-arrows-to-dot mr-1"></i> Căn giữa
+        </button>
+        <button type="button" onclick="captureARPhoto()" class="px-6 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-moc-brownDark text-xs font-bold uppercase tracking-wider shadow-lg transition flex items-center gap-2">
+          <i class="fa-solid fa-camera"></i> Chụp ảnh thử
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- ================= PRODUCT DETAIL MODAL ================= -->
   <div id="product-detail-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
@@ -964,7 +1051,7 @@
   <script>
     const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxuwrMO4EhuI8ojGxJTQdDSdYyIPA478AFLtknbbjGzlOxz9F7WZNeMbltj0ou20gNZ/exec";
 
-    // DỮ LIỆU SẢN PHẨM: 12 NẾN, 6 TINH DẦU, 3 MÁY KHUẾCH TÁN, 4 COMBO, 2 HỘP QUÀ
+    // DỮ LIỆU SẢN PHẨM: 12 NẾN, 6 TINH DẦU, 3 MÁY KHUẾCH TÁN MỚI, 4 COMBO, 2 HỘP QUÀ
     const productsData = [
       // 1-12: Nến thơm
       { id: 1, name: 'Lavender Calm', price: 199000, cat: 'nenthom', img: 'images/nen-lavender.png', fallbackImg: 'lavender.png', desc: 'Thư giãn • Giảm stress', fullDesc: 'Hương thơm dịu nhẹ, thanh khiết từ những cánh đồng hoa oải hương Pháp. Giúp xoa dịu thần kinh, xua tan căng thẳng sau ngày dài làm việc và đưa bạn vào giấc ngủ sâu, an yên.', scale: { sweet: 2, warm: 3, throw: 3 } },
@@ -981,129 +1068,23 @@
       { id: 12, name: 'Coffee Beans', price: 199000, cat: 'nenthom', img: 'images/coffee.png', fallbackImg: 'coffee.png', desc: 'Thơm đậm • Ấm áp', fullDesc: 'Mùi cà phê rang xay đậm đà nức mũi quyện nốt đắng nhẹ đặc trưng. Kích thích sự tỉnh táo, tăng cường tập trung tối đa khi làm việc và học tập.', scale: { sweet: 3, warm: 5, throw: 5 } },
 
       // 13-18: Tinh dầu thiên nhiên nguyên chất
-      { 
-        id: 13, 
-        name: 'Lemongrass & Tea', 
-        price: 119000, 
-        price10ml: 119000, 
-        price30ml: 259000, 
-        cat: 'tinhdau', 
-        img: 'images/lemongrass.png', 
-        fallbackImg: 'lemongrass.png', 
-        desc: 'Thanh mát • Thư thái', 
-        fullDesc: 'Hương sả chanh tươi mát kết hợp trà xanh, hỗ trợ khử mùi, xua đuổi côn trùng hiệu quả và đem lại không gian thoáng đãng, sạch sẽ.' 
-      },
-      { 
-        id: 14, 
-        name: 'Lotus & White Musk', 
-        price: 139000, 
-        price10ml: 139000, 
-        price30ml: 299000, 
-        cat: 'tinhdau', 
-        img: 'images/Lotus.png', 
-        fallbackImg: 'Lotus.png', 
-        desc: 'Tĩnh lặng • Nhẹ nhàng', 
-        fullDesc: 'Hương hoa sen thuần khiết hòa quyện xạ hương trắng thanh tao, tạo nên cảm giác bình yên, êm dịu và vỗ về giấc ngủ.' 
-      },
-      { 
-        id: 15, 
-        name: 'Hinoki & Bamboo', 
-        price: 149000, 
-        price10ml: 149000, 
-        price30ml: 319000, 
-        cat: 'tinhdau', 
-        img: 'images/bamboo.png', 
-        fallbackImg: 'bamboo.png', 
-        desc: 'Mộc mạc • Trong lành', 
-        fullDesc: 'Hương gỗ bách Hinoki Nhật Bản và tre xanh trong lành, mang cả không gian spa thư giãn về ngay góc phòng của bạn.' 
-      },
-      { 
-        id: 16, 
-        name: 'Sea salt & Sage', 
-        price: 129000, 
-        price10ml: 129000, 
-        price30ml: 279000, 
-        cat: 'tinhdau', 
-        img: 'images/sea.png', 
-        fallbackImg: 'sea.png', 
-        desc: 'Phóng khoáng • Tự do', 
-        fullDesc: 'Muối biển khoáng đạt kết hợp thảo mộc xô thơm tạo cảm giác tự do, dễ chịu và thanh lọc nguồn năng lượng tiêu cực.' 
-      },
-      { 
-        id: 17, 
-        name: 'Lavender & Sweet Orange', 
-        price: 119000, 
-        price10ml: 119000, 
-        price30ml: 259000, 
-        cat: 'tinhdau', 
-        img: 'images/lavender-orange.png', 
-        fallbackImg: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80', 
-        desc: 'Thư giãn • Ngọt dịu (2 nốt hương)', 
-        fullDesc: 'Sự hòa quyện êm dịu giữa hoa oải hương Pháp nồng nàn và quả cam ngọt mọng nước. Tông hương vừa giúp xoa dịu thần kinh, dễ ngủ, vừa mang lại cảm giác vui tươi, xua tan căng thẳng.' 
-      },
-      { 
-        id: 18, 
-        name: 'Peppermint, Lemongrass & Jasmine', 
-        price: 139000, 
-        price10ml: 139000, 
-        price30ml: 279000, 
-        cat: 'tinhdau', 
-        img: 'images/peppermint-jasmine.png', 
-        fallbackImg: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80', 
-        desc: 'Mát lạnh • Thanh lọc (3 nốt hương)', 
-        fullDesc: 'Tổ hợp 3 tầng hương độc đáo: Bạc hà the mát thông mũi, sả chanh khử mùi ẩm mốc, và hoa nhài thoang thoảng quý phái. Đem lại luồng không khí thanh sạch và sảng khoái tối đa.' 
-      },
+      { id: 13, name: 'Lemongrass & Tea', price: 119000, price10ml: 119000, price30ml: 259000, cat: 'tinhdau', img: 'images/lemongrass.png', fallbackImg: 'lemongrass.png', desc: 'Thanh mát • Thư thái', fullDesc: 'Hương sả chanh tươi mát kết hợp trà xanh, hỗ trợ khử mùi, xua đuổi côn trùng hiệu quả và đem lại không gian thoáng đãng, sạch sẽ.' },
+      { id: 14, name: 'Lotus & White Musk', price: 139000, price10ml: 139000, price30ml: 299000, cat: 'tinhdau', img: 'images/Lotus.png', fallbackImg: 'Lotus.png', desc: 'Tĩnh lặng • Nhẹ nhàng', fullDesc: 'Hương hoa sen thuần khiết hòa quyện xạ hương trắng thanh tao, tạo nên cảm giác bình yên, êm dịu và vỗ về giấc ngủ.' },
+      { id: 15, name: 'Hinoki & Bamboo', price: 149000, price10ml: 149000, price30ml: 319000, cat: 'tinhdau', img: 'images/bamboo.png', fallbackImg: 'bamboo.png', desc: 'Mộc mạc • Trong lành', fullDesc: 'Hương gỗ bách Hinoki Nhật Bản và tre xanh trong lành, mang cả không gian spa thư giãn về ngay góc phòng của bạn.' },
+      { id: 16, name: 'Sea salt & Sage', price: 129000, price10ml: 129000, price30ml: 279000, cat: 'tinhdau', img: 'images/sea.png', fallbackImg: 'sea.png', desc: 'Phóng khoáng • Tự do', fullDesc: 'Muối biển khoáng đạt kết hợp thảo mộc xô thơm tạo cảm giác tự do, dễ chịu và thanh lọc nguồn năng lượng tiêu cực.' },
+      { id: 17, name: 'Lavender & Sweet Orange', price: 119000, price10ml: 119000, price30ml: 259000, cat: 'tinhdau', img: 'images/lavender-orange.png', fallbackImg: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80', desc: 'Thư giãn • Ngọt dịu (2 nốt hương)', fullDesc: 'Sự hòa quyện êm dịu giữa hoa oải hương Pháp nồng nàn và quả cam ngọt mọng nước. Tông hương vừa giúp xoa dịu thần kinh, dễ ngủ, vừa mang lại cảm giác vui tươi, xua tan căng thẳng.' },
+      { id: 18, name: 'Peppermint, Lemongrass & Jasmine', price: 139000, price10ml: 139000, price30ml: 279000, cat: 'tinhdau', img: 'images/peppermint-jasmine.png', fallbackImg: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80', desc: 'Mát lạnh • Thanh lọc (3 nốt hương)', fullDesc: 'Tổ hợp 3 tầng hương độc đáo: Bạc hà the mát thông mũi, sả chanh khử mùi ẩm mốc, và hoa nhài thoang thoảng quý phái. Đem lại luồng không khí thanh sạch và sảng khoái tối đa.' },
 
-      // 19-21: MÁY KHUẾCH TÁN TINH DẦU
-      { id: 19, name: 'Máy Xông Vân Gỗ Trụ Đứng 500ml', price: 289000, cat: 'mayxong', img: 'images/mayxong-tru.png', fallbackImg: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80', desc: 'Dung tích lớn • LED 7 màu • Hẹn giờ', fullDesc: 'Máy khuếch tán tinh dầu sóng siêu âm thiết kế vân gỗ sáng thanh lịch. Dung tích lớn 500ml phun sương liên tục 10-12 tiếng, tích hợp đèn LED 7 màu dịu mắt làm đèn ngủ và tính năng tự ngắt thông minh khi cạn nước.' },
-      { id: 20, name: 'Máy Xông Tròn Zen Ceramic 300ml', price: 249000, cat: 'mayxong', img: 'images/mayxong-tron.png', fallbackImg: 'https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=600&q=80', desc: 'Phong cách Zen • Siêu êm • Tiết kiệm', fullDesc: 'Kiểu dáng búp tròn tối giản mang phong cách Zen Nhật Bản. Hoạt động siêu êm dưới 25dB hoàn toàn không ảnh hưởng giấc ngủ hay sự tập trung khi làm việc. Phun sương nano siêu mịn giúp giữ nguyên hoạt tính tinh dầu.' },
-      { id: 21, name: 'Máy Xông Hiệu Ứng Lửa Flame 200ml', price: 319000, cat: 'mayxong', img: 'images/mayxong-lua.png', fallbackImg: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80', desc: 'Hiệu ứng lửa 3D • Độc đáo • Sang trọng', fullDesc: 'Sự kết hợp hoàn hảo giữa ánh sáng LED màu hổ phách và làn sương khuếch tán tạo nên hiệu ứng ngọn lửa bập bùng vô cùng ấm cúng và sống động. Món đồ decor cực kỳ sang trọng cho phòng ngủ hoặc bàn làm việc cao cấp.' },
+      // 19-21: MÁY KHUẾCH TÁN TINH DẦU MỚI (HUMI, TULIP, COMFORT)
+      { id: 19, name: 'Máy Khuếch Tán Humi 220ml', price: 129000, cat: 'mayxong', img: 'images/may-humi.png', fallbackImg: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80', desc: 'Dòng cơ bản • Nhỏ gọn • Cổng USB', fullDesc: 'Humi 220ml – Dòng cơ bản dễ tiếp cận: Thiết kế nhỏ gọn, tối giản đặt vừa vặn mọi góc bàn làm việc hoặc đầu giường. Phun sương siêu âm mịn màng, tích hợp đèn ngủ dịu nhẹ và tự ngắt an toàn khi hết nước.' },
+      { id: 20, name: 'Máy Khuếch Tán Tulip 200ml', price: 149000, cat: 'mayxong', img: 'images/may-tulip.png', fallbackImg: 'https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=600&q=80', desc: 'Dòng chủ lực • Chuẩn phong cách MỘC', fullDesc: 'Tulip 200ml – Dòng chủ lực mang đậm dấu ấn thủ công MỘC Scent: Dáng búp hoa Tulip thanh lịch hòa hợp hoàn hảo với nội thất gỗ và không gian sống tối giản. Hoạt động siêu êm dưới 25dB, khuếch tán hương thơm lan tỏa đều khắp phòng.' },
+      { id: 21, name: 'Máy Khuếch Tán Comfort 420ml', price: 199000, cat: 'mayxong', img: 'images/may-comfort.png', fallbackImg: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80', desc: 'Dòng cao cấp vừa • Dung tích lớn 420ml', fullDesc: 'Comfort 420ml – Dòng cao cấp vừa với khoang chứa lớn 420ml cho thời gian phun sương liên tục suốt 8–10 tiếng không cần châm nước nhiều lần. Thích hợp cho phòng ngủ rộng, phòng khách gia đình hoặc studio.' },
 
       // 22-23 & 26-27: SET COMBO ƯU ĐÃI
-      { 
-        id: 22, 
-        name: 'Combo MỘC Dịu Êm', 
-        price: 299000, 
-        cat: 'combo', 
-        comboType: 'diu-em',
-        img: 'images/combo-binhyen.png', 
-        fallbackImg: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=600&q=80', 
-        desc: '1 Nến 75g + 1 Tinh dầu 10ml + 4 Mẫu thử', 
-        fullDesc: 'Combo chủ lực bán chạy: Gồm 01 Nến thơm sáp cọ 75g (đốt ~20h), 01 Chai tinh dầu thiên nhiên 10ml, tặng kèm 04 mẩu sáp thử tự chọn và hỗ trợ đóng hộp quà thường.' 
-      },
-      { 
-        id: 23, 
-        name: 'Combo MỘC Trọn Vẹn', 
-        price: 549000, 
-        cat: 'combo', 
-        comboType: 'tron-ven',
-        img: 'images/combo-zen.png', 
-        fallbackImg: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80', 
-        desc: '1 Nến 160g + 1 Tinh dầu 30ml + 6 Mẫu thử + Khắc tên', 
-        fullDesc: 'Combo quà tặng cao cấp: Gồm 01 Nến thơm 160g (đốt ~45h), 01 Chai tinh dầu 30ml tiết kiệm, tặng kèm 06 mẩu sáp thử, đóng hộp quà cao cấp thắt nơ, kèm thiệp tay nắn nót và miễn phí khắc tên lên nắp gỗ.' 
-      },
-      { 
-        id: 26, 
-        name: 'Combo Máy 220ml + Tinh Dầu 10ml', 
-        price: 299000, 
-        cat: 'combo', 
-        comboType: 'may-oil-10',
-        img: 'images/combo-may-10ml.png', 
-        fallbackImg: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80', 
-        desc: '1 Máy xông 220ml + 1 Tinh dầu 10ml • Tiết kiệm 59k', 
-        fullDesc: 'Combo chuẩn dễ trải nghiệm: Gồm 01 Máy khuếch tán phun sương 220ml nhỏ gọn kèm dây cắm USB + 01 Chai tinh dầu thiên nhiên 10ml tùy chọn mùi hương. Tiết kiệm ngay 59.000đ so với mua lẻ.' 
-      },
-      { 
-        id: 27, 
-        name: 'Combo Nâng Cấp: Máy 220ml + Tinh Dầu 30ml', 
-        price: 429000, 
-        cat: 'combo', 
-        comboType: 'may-oil-30',
-        img: 'images/combo-may-30ml.png', 
-        fallbackImg: 'https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=600&q=80', 
-        desc: '1 Máy xông 220ml + 1 Tinh dầu 30ml • Tiết kiệm 69k', 
-        fullDesc: 'Combo nâng cấp tăng dung tích: Dành cho khách hàng đã quen dùng tinh dầu hoặc làm quà tặng chỉn chu. Gồm 01 Máy khuếch tán 220ml + 01 Chai tinh dầu dung tích lớn 30ml tiết kiệm. Tiết kiệm ngay 69.000đ.' 
-      },
+      { id: 22, name: 'Combo MỘC Dịu Êm', price: 299000, cat: 'combo', comboType: 'diu-em', img: 'images/combo-binhyen.png', fallbackImg: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=600&q=80', desc: '1 Nến 75g + 1 Tinh dầu 10ml + 4 Mẫu thử', fullDesc: 'Combo chủ lực bán chạy: Gồm 01 Nến thơm sáp cọ 75g (đốt ~20h), 01 Chai tinh dầu thiên nhiên 10ml, tặng kèm 04 mẩu sáp thử tự chọn và hỗ trợ đóng hộp quà thường.' },
+      { id: 23, name: 'Combo MỘC Trọn Vẹn', price: 549000, cat: 'combo', comboType: 'tron-ven', img: 'images/combo-zen.png', fallbackImg: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80', desc: '1 Nến 160g + 1 Tinh dầu 30ml + 6 Mẫu thử + Khắc tên', fullDesc: 'Combo quà tặng cao cấp: Gồm 01 Nến thơm 160g (đốt ~45h), 01 Chai tinh dầu 30ml tiết kiệm, tặng kèm 06 mẩu sáp thử, đóng hộp quà cao cấp thắt nơ, kèm thiệp tay nắn nót và miễn phí khắc tên lên nắp gỗ.' },
+      { id: 26, name: 'Combo Máy 220ml + Tinh Dầu 10ml', price: 299000, cat: 'combo', comboType: 'may-oil-10', img: 'images/combo-may-10ml.png', fallbackImg: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80', desc: '1 Máy xông 220ml + 1 Tinh dầu 10ml • Tiết kiệm 59k', fullDesc: 'Combo chuẩn dễ trải nghiệm: Gồm 01 Máy khuếch tán phun sương 220ml nhỏ gọn kèm dây cắm USB + 01 Chai tinh dầu thiên nhiên 10ml tùy chọn mùi hương. Tiết kiệm ngay 59.000đ so với mua lẻ.' },
+      { id: 27, name: 'Combo Nâng Cấp: Máy 220ml + Tinh Dầu 30ml', price: 429000, cat: 'combo', comboType: 'may-oil-30', img: 'images/combo-may-30ml.png', fallbackImg: 'https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=600&q=80', desc: '1 Máy xông 220ml + 1 Tinh dầu 30ml • Tiết kiệm 69k', fullDesc: 'Combo nâng cấp tăng dung tích: Dành cho khách hàng đã quen dùng tinh dầu hoặc làm quà tặng chỉn chu. Gồm 01 Máy khuếch tán 220ml + 01 Chai tinh dầu dung tích lớn 30ml tiết kiệm. Tiết kiệm ngay 69.000đ.' },
 
       // 24-25: Hộp quà
       { id: 24, name: 'Hộp quà Basic', price: 45000, cat: 'hopqua', img: 'images/hopquabasic.png', fallbackImg: 'hopquabasic.png', desc: 'Đơn giản • Mộc mạc', fullDesc: 'Hộp giấy kraft mộc mạc, thắt nơ ruy băng thủ công tinh tế kèm thiệp viết tay, thích hợp làm món quà nhỏ chân thành.' },
@@ -1116,7 +1097,11 @@
     let comboSelectedCandle = 'Lavender Calm';
     let comboSelectedOil = 'Lemongrass & Tea';
     let currentMayComboPrice = 299000;
-    let currentUser = JSON.parse(localStorage.getItem('moc_user') || 'null');
+    
+    localStorage.removeItem('moc_user');
+    let currentUser = JSON.parse(sessionStorage.getItem('moc_active_session') || 'null');
+    let userOrdersHistory = JSON.parse(localStorage.getItem('moc_orders_history') || '[]');
+    let redeemedVouchers = JSON.parse(localStorage.getItem('moc_redeemed_vouchers') || '[]');
 
     function updateHeaderUserUI() {
       const badge = document.getElementById('header-user-badge');
@@ -1141,7 +1126,7 @@
       const reviewsSec = document.getElementById('home-reviews-section');
       const certSec = document.getElementById('home-cert-section');
       if (reviewsSec && certSec) {
-        if (tabId === 'about' || tabId === 'contact') {
+        if (tabId === 'about' || tabId === 'contact' || tabId === 'orders') {
           reviewsSec.classList.add('hidden');
           certSec.classList.add('hidden');
         } else {
@@ -1152,6 +1137,8 @@
 
       if (tabId === 'products') {
         renderProducts(productsData);
+      } else if (tabId === 'orders') {
+        renderOrdersHistory();
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1173,14 +1160,21 @@
         return;
       }
 
-      grid.innerHTML = items.map(p => `
+      grid.innerHTML = items.map(p => {
+        const supportsAR = (p.cat === 'nenthom' || p.cat === 'tinhdau' || p.cat === 'mayxong');
+        return `
         <div onclick="openProductModal(${p.id})" class="relative bg-white rounded-3xl p-4 border border-moc-border/80 hover:border-moc-brown hover:shadow-lg transition-all duration-300 flex flex-col justify-between cursor-pointer group">
-          ${(p.id === 1 || p.id === 11 || p.id === 19 || p.id === 22) ? `
+          ${(p.id === 1 || p.id === 11 || p.id === 20 || p.id === 22) ? `
           <div class="absolute top-4 left-4 z-20 pointer-events-none">
             <span class="inline-flex items-center gap-1 bg-moc-brown text-white text-[9.5px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs">
               <i class="fa-solid fa-crown text-[8px] text-amber-300"></i> Best Seller
             </span>
           </div>` : ''}
+
+          ${supportsAR ? `
+          <button type="button" onclick="event.stopPropagation(); openARModal(${p.id})" title="Đặt thử vào phòng qua Camera AR" class="absolute top-4 right-4 z-20 px-2.5 py-1 rounded-full bg-white/95 hover:bg-moc-brown text-moc-brown hover:text-white border border-moc-border text-[9.5px] font-bold shadow-xs transition flex items-center gap-1">
+            <i class="fa-solid fa-cube text-[9px]"></i> AR
+          </button>` : ''}
 
           <div>
             <div class="aspect-square rounded-2xl overflow-hidden mb-3 bg-moc-bg border border-moc-border/40">
@@ -1215,8 +1209,121 @@
             </button>
           </div>
         </div>
-      `).join('');
+      `;
+      }).join('');
     }
+
+    // ================= CÔNG NGHỆ AR ĐẶT THỬ SẢN PHẨM VÀO KHÔNG GIAN =================
+    let arStream = null;
+    let arPosX = 0, arPosY = 0;
+    let isDraggingAR = false, startX = 0, startY = 0;
+
+    window.openARModal = async function(pId) {
+      const p = productsData.find(item => item.id === pId);
+      if (!p) return;
+
+      const modal = document.getElementById('ar-camera-modal');
+      const titleEl = document.getElementById('ar-product-title');
+      const imgEl = document.getElementById('ar-product-img');
+      const videoEl = document.getElementById('ar-video-stream');
+      const fallbackRoom = document.getElementById('ar-fallback-room');
+
+      if (titleEl) titleEl.innerText = `AR Thực Tế: ${p.name}`;
+      if (imgEl) {
+        imgEl.src = p.img;
+        imgEl.onerror = function() { this.onerror = null; this.src = p.fallbackImg; };
+      }
+
+      resetARPosition();
+      modal.classList.remove('hidden');
+
+      try {
+        arStream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: 'environment' } },
+          audio: false
+        });
+        videoEl.srcObject = arStream;
+        videoEl.classList.remove('hidden');
+        fallbackRoom.classList.add('hidden');
+      } catch (err) {
+        videoEl.classList.add('hidden');
+        fallbackRoom.classList.remove('hidden');
+      }
+    };
+
+    window.closeARModal = function() {
+      const modal = document.getElementById('ar-camera-modal');
+      if (modal) modal.classList.add('hidden');
+      if (arStream) {
+        arStream.getTracks().forEach(track => track.stop());
+        arStream = null;
+      }
+    };
+
+    window.updateARTransform = function() {
+      const obj = document.getElementById('ar-draggable-object');
+      const scaleSlider = document.getElementById('ar-scale-slider');
+      const rotateSlider = document.getElementById('ar-rotate-slider');
+      const scaleVal = document.getElementById('ar-scale-val');
+      const rotateVal = document.getElementById('ar-rotate-val');
+
+      const s = scaleSlider ? scaleSlider.value : 1;
+      const r = rotateSlider ? rotateSlider.value : 0;
+
+      if (scaleVal) scaleVal.innerText = Math.round(s * 100) + '%';
+      if (rotateVal) rotateVal.innerText = r + '°';
+      if (obj) {
+        obj.style.transform = `translate(${arPosX}px, ${arPosY}px) scale(${s}) rotate(${r}deg)`;
+      }
+    };
+
+    window.resetARPosition = function() {
+      arPosX = 0;
+      arPosY = 0;
+      const scaleSlider = document.getElementById('ar-scale-slider');
+      const rotateSlider = document.getElementById('ar-rotate-slider');
+      if (scaleSlider) scaleSlider.value = 1;
+      if (rotateSlider) rotateSlider.value = 0;
+      updateARTransform();
+    };
+
+    window.captureARPhoto = function() {
+      alert('📸 Đã ghi lại khung hình AR! Bạn có thể chụp màn hình ngay lúc này để lưu lại góc decor yêu thích cùng MỘC Scent nhé.');
+    };
+
+    // Khởi tạo kéo thả mượt cho vật thể AR (cả chuột và cảm ứng điện thoại)
+    document.addEventListener('DOMContentLoaded', () => {
+      const arObj = document.getElementById('ar-draggable-object');
+      if (!arObj) return;
+
+      const onStart = (e) => {
+        isDraggingAR = true;
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        startX = clientX - arPosX;
+        startY = clientY - arPosY;
+      };
+
+      const onMove = (e) => {
+        if (!isDraggingAR) return;
+        e.preventDefault();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        arPosX = clientX - startX;
+        arPosY = clientY - startY;
+        updateARTransform();
+      };
+
+      const onEnd = () => { isDraggingAR = false; };
+
+      arObj.addEventListener('mousedown', onStart);
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup', onEnd);
+
+      arObj.addEventListener('touchstart', onStart, { passive: false });
+      window.addEventListener('touchmove', onMove, { passive: false });
+      window.addEventListener('touchend', onEnd);
+    });
 
     // ================= XỬ LÝ CHỌN DUNG TÍCH (CHO NẾN VÀ TINH DẦU LẺ) =================
     window.selectModalOption = function(btn, opt, price) {
@@ -1265,7 +1372,6 @@
       }
     };
 
-    // Cập nhật giá tự động cho 2 Combo Máy + Tinh Dầu
     window.updateMayComboPrice = function(comboType, selectEl) {
       const selectedOpt = selectEl.options[selectEl.selectedIndex];
       const price = parseInt(selectedOpt.getAttribute('data-price'), 10) || 299000;
@@ -1301,15 +1407,14 @@
       };
 
       const oilSpaces = {
-        13: 'Phòng khách, khu vực bếp, ban công hoặc góc làm việc cần khử mùi thức ăn, thanh lọc không khí và xua đuổi muỗi/côn trùng.',
-        14: 'Phòng ngủ, góc thiền định, phòng yoga, spa tại gia hoặc không gian cần sự tĩnh lặng, thanh tịnh để dễ đi vào giấc ngủ.',
-        15: 'Phòng làm việc, phòng đọc sách, phòng tắm thư giãn phong cách Zen Nhật Bản mang lại cảm giác tĩnh tại như giữa rừng thông.',
-        16: 'Bàn làm việc, góc sáng tạo, phòng khách mùa hè giúp làm mới tinh thần, giải tỏa năng lượng tiêu cực và tăng cường tập trung.',
-        17: 'Phòng ngủ máy lạnh, phòng làm việc kín hoặc không gian học tập cần sự thông thoáng đường thở và chống nghẹt mũi.',
-        18: 'Phòng khách ngày lễ tết, phòng ngủ mùa đông, góc đọc sách cần sự ấm cúng, giảm âu lo và gắn kết tình cảm.'
+        13: 'Phòng khách, khu vực bếp, ban công hoặc góc làm việc cần khử mùi thức ăn, thanh lọc không khí.',
+        14: 'Phòng ngủ, góc thiền định, phòng yoga, spa tại gia giúp dễ đi vào giấc ngủ.',
+        15: 'Phòng làm việc, phòng đọc sách, phòng tắm thư giãn phong cách Zen Nhật Bản.',
+        16: 'Bàn làm việc, góc sáng tạo, phòng khách mùa hè giúp làm mới tinh thần.',
+        17: 'Phòng ngủ máy lạnh, phòng làm việc kín giúp thông thoáng đường thở.',
+        18: 'Phòng khách ngày lễ tết, phòng ngủ mùa đông cần sự ấm cúng, giảm âu lo.'
       };
 
-      // 1. Tùy chọn cho NẾN THƠM (10g / 75g / 160g)
       if (p.cat === 'nenthom') {
         selectedOption = '75g';
         const price10 = 39000;
@@ -1367,7 +1472,6 @@
           </div>
         `;
       } 
-      // 2. Tùy chọn cho TINH DẦU (10ml / 30ml)
       else if (p.cat === 'tinhdau') {
         selectedOption = '10ml';
         const price10ml = p.price10ml || p.price;
@@ -1393,10 +1497,8 @@
           </div>
         `;
       } 
-      // 3. Tùy chọn cho COMBO
       else if (p.cat === 'combo') {
         selectedOption = '';
-        // 3.1. Combo Máy 220ml + Tinh Dầu 10ml
         if (p.comboType === 'may-oil-10') {
           currentMayComboPrice = 299000;
           optionsHTML = `
@@ -1422,7 +1524,6 @@
             </div>
           `;
         }
-        // 3.2. Combo Máy 220ml + Tinh Dầu 30ml
         else if (p.comboType === 'may-oil-30') {
           currentMayComboPrice = 429000;
           optionsHTML = `
@@ -1448,7 +1549,6 @@
             </div>
           `;
         }
-        // 3.3. Combo Nến + Tinh Dầu (Dịu Êm / Trọn Vẹn)
         else {
           comboSelectedCandle = 'Lavender Calm';
           comboSelectedOil = 'Lemongrass & Tea';
@@ -1539,7 +1639,6 @@
         selectedOption = '';
       }
 
-      // XÂY DỰNG 5 MỤC NỘI DUNG CHI TIẾT
       let productDetailsSection = '';
       if (p.cat === 'nenthom') {
         productDetailsSection = `
@@ -1554,42 +1653,16 @@
               <li>• <strong>Quy cách:</strong> Hũ thủy tinh hổ phách nắp gỗ tự nhiên (75g ~20 giờ đốt / 160g ~45 giờ đốt).</li>
             </ul>
           </div>
-
           <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
             <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-moc-brown mb-1.5">
-              <i class="fa-solid fa-fire-burner text-[#c49a6c]"></i> 2. Hướng dẫn sử dụng
+              <i class="fa-solid fa-house-chimney text-[#c49a6c]"></i> 2. Không gian phù hợp
             </span>
-            <ul class="space-y-1 text-[11.5px] text-moc-brown/85">
-              <li>• <strong>Lần đốt đầu tiên:</strong> Duy trì đốt liên tục từ 1 - 2 giờ để mặt sáp tan chảy đều tới mép hũ, ngăn lõm tim nến.</li>
-              <li>• <strong>Cắt tỉa bấc:</strong> Luôn cắt bấc còn khoảng 0.4 - 0.5 cm trước khi đốt lại để ngọn lửa ổn định và giữ nến sạch.</li>
-              <li>• <strong>Tắt nến:</strong> Đậy nắp gỗ lại để nến tự tắt do thiếu oxy, tránh thổi bằng miệng gây mùi khói.</li>
-            </ul>
+            <p class="text-[11.5px] text-moc-brown/85 leading-relaxed">${candleSpaces[p.id] || 'Phòng ngủ, bàn làm việc, phòng đọc sách.'}</p>
           </div>
-
-          <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
-            <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-moc-brown mb-1.5">
-              <i class="fa-solid fa-house-chimney text-[#c49a6c]"></i> 3. Phù hợp cho sử dụng ở đâu
-            </span>
-            <p class="text-[11.5px] text-moc-brown/85 leading-relaxed">
-              ${candleSpaces[p.id] || 'Phù hợp đặt tại phòng ngủ, bàn làm việc, phòng đọc sách diện tích 15 - 25m².'}
-            </p>
-          </div>
-
-          <div class="p-3 bg-amber-50/70 rounded-2xl border border-amber-200/80">
-            <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-amber-900 mb-1.5">
-              <i class="fa-solid fa-triangle-exclamation text-amber-700"></i> 4. Lưu ý khi sử dụng
-            </span>
-            <ul class="space-y-1 text-[11px] text-amber-950/90">
-              <li>• Luôn đặt nến trên bề mặt phẳng, chịu nhiệt và tránh xa các vật dễ bắt lửa.</li>
-              <li>• Không đốt nến liên tục quá 4 giờ trong một lần thắp.</li>
-              <li>• Để xa tầm với của trẻ nhỏ và vật nuôi; luôn giữ nến trong tầm quan sát.</li>
-            </ul>
-          </div>
-
           ${p.fullDesc ? `
           <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
             <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-moc-brown mb-1">
-              <i class="fa-solid fa-wand-magic-sparkles text-[#c49a6c]"></i> 5. Mô tả chi tiết mùi hương
+              <i class="fa-solid fa-wand-magic-sparkles text-[#c49a6c]"></i> 3. Mô tả chi tiết mùi hương
             </span>
             <p class="text-justify text-moc-brown/85 font-normal leading-relaxed text-[11.5px]">${p.fullDesc}</p>
           </div>` : ''}
@@ -1601,49 +1674,23 @@
         <div class="space-y-2.5 text-xs text-moc-brown/90 leading-relaxed font-light mt-3">
           <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
             <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-moc-brown mb-1.5">
-              <i class="fa-solid fa-circle-info text-[#c49a6c]"></i> 1. Thông tin chi tiết sản phẩm
+              <i class="fa-solid fa-circle-info text-[#c49a6c]"></i> 1. Thông tin chi tiết
             </span>
             <ul class="space-y-1 text-[11.5px] text-moc-brown/85">
-              <li>• <strong>Thành phần:</strong> 100% Tinh dầu thiên nhiên nguyên chất, đạt chuẩn IFRA an toàn cho sức khỏe.</li>
-              <li>• <strong>Quy cách:</strong> Chai thủy tinh hổ phách chống oxy hóa (10ml dùng ~1 tháng / 30ml dùng ~3 tháng).</li>
+              <li>• <strong>Thành phần:</strong> 100% Tinh dầu thiên nhiên nguyên chất chuẩn IFRA an toàn cho sức khỏe.</li>
+              <li>• <strong>Quy cách:</strong> Chai thủy tinh hổ phách chống oxy hóa (10ml / 30ml).</li>
             </ul>
           </div>
-
           <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
             <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-moc-brown mb-1.5">
-              <i class="fa-solid fa-spray-can-sparkles text-[#c49a6c]"></i> 2. Hướng dẫn sử dụng
+              <i class="fa-solid fa-house-chimney text-[#c49a6c]"></i> 2. Không gian phù hợp
             </span>
-            <ul class="space-y-1 text-[11.5px] text-moc-brown/85">
-              <li>• <strong>Với máy khuếch tán:</strong> Cho 100 - 200ml nước sạch vào khay chứa, nhỏ 3 - 5 giọt tinh dầu rồi bật máy.</li>
-              <li>• <strong>Với đèn xông gốm:</strong> Cho nước ấm lên đĩa đèn, nhỏ 3 - 4 giọt và đốt nến tealight bên dưới.</li>
-              <li>• <strong>Với đá khuếch tán:</strong> Nhỏ trực tiếp 4 - 6 giọt tinh dầu lên bề mặt đá đặt góc bàn.</li>
-            </ul>
+            <p class="text-[11.5px] text-moc-brown/85 leading-relaxed">${oilSpaces[p.id] || 'Bàn làm việc, phòng ngủ, phòng khách.'}</p>
           </div>
-
-          <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
-            <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-moc-brown mb-1.5">
-              <i class="fa-solid fa-house-chimney text-[#c49a6c]"></i> 3. Phù hợp cho sử dụng ở đâu
-            </span>
-            <p class="text-[11.5px] text-moc-brown/85 leading-relaxed">
-              ${oilSpaces[p.id] || 'Phù hợp đặt tại bàn làm việc, phòng ngủ, phòng khách hoặc phòng đọc sách diện tích 15 - 30m².'}
-            </p>
-          </div>
-
-          <div class="p-3 bg-amber-50/70 rounded-2xl border border-amber-200/80">
-            <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-amber-900 mb-1.5">
-              <i class="fa-solid fa-triangle-exclamation text-amber-700"></i> 4. Lưu ý khi sử dụng
-            </span>
-            <ul class="space-y-1 text-[11px] text-amber-950/90">
-              <li>• Không thoa trực tiếp tinh dầu nguyên chất chưa pha loãng lên da.</li>
-              <li>• Tuyệt đối không được uống; tránh văng vào mắt.</li>
-              <li>• Đậy chặt nắp, bảo quản nơi khô thoáng và tránh ánh nắng mặt trời trực tiếp.</li>
-            </ul>
-          </div>
-
           ${p.fullDesc ? `
           <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
             <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-moc-brown mb-1">
-              <i class="fa-solid fa-wand-magic-sparkles text-[#c49a6c]"></i> 5. Mô tả chi tiết mùi hương
+              <i class="fa-solid fa-wand-magic-sparkles text-[#c49a6c]"></i> 3. Mô tả chi tiết mùi hương
             </span>
             <p class="text-justify text-moc-brown/85 font-normal leading-relaxed text-[11.5px]">${p.fullDesc}</p>
           </div>` : ''}
@@ -1658,46 +1705,14 @@
               <i class="fa-solid fa-circle-info text-[#c49a6c]"></i> 1. Thông số & Chất liệu máy
             </span>
             <ul class="space-y-1 text-[11.5px] text-moc-brown/85">
-              <li>• <strong>Công nghệ:</strong> Phun sương sóng siêu âm tần số cao 2.4MHz không làm nóng tinh dầu.</li>
-              <li>• <strong>Chất liệu:</strong> Nhựa ABS + PP cao cấp chống ăn mòn tinh dầu, lớp vân gỗ trang nhã.</li>
+              <li>• <strong>Công nghệ:</strong> Phun sương sóng siêu âm tần số cao 2.4MHz giữ nguyên hoạt tính tinh dầu.</li>
+              <li>• <strong>Chất liệu:</strong> Nhựa ABS + PP cao cấp chống ăn mòn tinh dầu, tự ngắt khi cạn nước.</li>
               <li>• <strong>Bảo hành:</strong> 1 đổi 1 trong vòng 30 ngày nếu phát sinh lỗi từ nhà sản xuất.</li>
             </ul>
           </div>
-
-          <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
-            <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-moc-brown mb-1.5">
-              <i class="fa-solid fa-power-off text-[#c49a6c]"></i> 2. Hướng dẫn sử dụng
-            </span>
-            <ul class="space-y-1 text-[11.5px] text-moc-brown/85">
-              <li>• <strong>Bước 1:</strong> Mở nắp máy, đổ nước sạch (nước lọc hoặc nước máy) dưới vạch MAX.</li>
-              <li>• <strong>Bước 2:</strong> Nhỏ từ 4 - 6 giọt tinh dầu MỘC trực tiếp vào khoang chứa nước.</li>
-              <li>• <strong>Bước 3:</strong> Đậy chặt nắp, cắm nguồn điện và nhấn nút MIST để bắt đầu khuếch tán.</li>
-            </ul>
-          </div>
-
-          <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
-            <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-moc-brown mb-1.5">
-              <i class="fa-solid fa-house-chimney text-[#c49a6c]"></i> 3. Không gian phù hợp
-            </span>
-            <p class="text-[11.5px] text-moc-brown/85 leading-relaxed">
-              Lý tưởng cho phòng ngủ gia đình, phòng khách, phòng điều hòa, spa, yoga hoặc studio làm việc diện tích từ 20 - 40m².
-            </p>
-          </div>
-
-          <div class="p-3 bg-amber-50/70 rounded-2xl border border-amber-200/80">
-            <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-amber-900 mb-1.5">
-              <i class="fa-solid fa-triangle-exclamation text-amber-700"></i> 4. Lưu ý vệ sinh và an toàn
-            </span>
-            <ul class="space-y-1 text-[11px] text-amber-950/90">
-              <li>• Không đổ nước vượt quá vạch MAX chỉ định trong thân máy.</li>
-              <li>• Vệ sinh khay chứa nước 1 lần/tuần bằng khăn mềm để tránh đóng cặn màng loa siêu âm.</li>
-              <li>• Máy có tính năng tự ngắt nguồn an toàn khi khay nước cạn sạch.</li>
-            </ul>
-          </div>
-
           <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
             <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-moc-brown mb-1">
-              <i class="fa-solid fa-lightbulb text-[#c49a6c]"></i> 5. Chế độ đèn & Khuếch tán
+              <i class="fa-solid fa-lightbulb text-[#c49a6c]"></i> 2. Đặc điểm nổi bật
             </span>
             <p class="text-[11.5px] text-moc-brown/85 leading-relaxed">${p.fullDesc}</p>
           </div>
@@ -1714,31 +1729,19 @@
             </span>
             <p class="text-[11.5px] text-moc-brown/85 leading-relaxed">${p.fullDesc}</p>
           </div>
-
           <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
             <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-moc-brown mb-1.5">
-              <i class="fa-solid fa-gift text-[#c49a6c]"></i> 2. Đặc quyền quà tặng kèm theo
+              <i class="fa-solid fa-gift text-[#c49a6c]"></i> 2. Đặc quyền kèm theo
             </span>
             <ul class="space-y-1 text-[11.5px] text-moc-brown/85">
               ${isMayCombo ? `
                 <li>• 01 Máy khuếch tán 220ml chính hãng, bảo hành 1 đổi 1 trong 30 ngày.</li>
                 <li>• Tặng kèm cáp sạc USB tiện dụng và que bông lọc sương dự phòng.</li>
-                <li>• Tinh dầu thiên nhiên nguyên chất chuẩn IFRA an toàn cho hô hấp.</li>
               ` : `
                 <li>• Miễn phí gói quà chỉn chu có thắt nơ ruy băng thủ công cao cấp.</li>
                 <li>• Tặng kèm thiệp viết tay theo lời chúc riêng của bạn.</li>
-                <li>• Tặng bộ mẩu sáp thơm dùng thử ưu tiên từ xưởng.</li>
               `}
             </ul>
-          </div>
-
-          <div class="p-3 bg-white rounded-2xl border border-moc-border/60">
-            <span class="flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider text-moc-brown mb-1.5">
-              <i class="fa-solid fa-hand-holding-heart text-[#c49a6c]"></i> 3. Lựa chọn mùi hương
-            </span>
-            <p class="text-[11.5px] text-moc-brown/85 leading-relaxed">
-              ${isMayCombo ? 'Bạn có thể chọn trực tiếp mùi hương tinh dầu ngay bên dưới hoặc đổi mùi miễn phí khi nhận hàng.' : 'Bạn có thể ghi chú mùi nến/tinh dầu mong muốn ở bước thanh toán, hoặc nhân viên xưởng MỘC sẽ gọi điện thoại xác nhận mùi hợp gu với bạn nhất trước khi gửi hàng!'}
-            </p>
           </div>
         </div>
         `;
@@ -1752,10 +1755,15 @@
         `;
       }
 
+      const supportsAR = (p.cat === 'nenthom' || p.cat === 'tinhdau' || p.cat === 'mayxong');
       const modalContent = document.getElementById('product-modal-content');
       modalContent.innerHTML = `
-        <div class="aspect-square rounded-2xl overflow-hidden border border-moc-border bg-white mb-4">
+        <div class="relative aspect-square rounded-2xl overflow-hidden border border-moc-border bg-white mb-4">
           <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${p.fallbackImg}'">
+          ${supportsAR ? `
+          <button type="button" onclick="closeProductModal(); openARModal(${p.id});" class="absolute bottom-3 right-3 px-4 py-2 rounded-full bg-moc-brown/95 hover:bg-moc-brownDark text-white text-xs font-semibold shadow-lg transition flex items-center gap-2">
+            <i class="fa-solid fa-cube text-amber-300"></i> Xem trong phòng của bạn (AR)
+          </button>` : ''}
         </div>
         <div>
           <span class="text-[10px] uppercase tracking-widest text-moc-muted font-semibold">MỘC SCENT ATELIER</span>
@@ -1784,9 +1792,7 @@
 
       const allBoxes = document.querySelectorAll('.sample-checkbox');
       if (count >= maxAllowed) {
-        allBoxes.forEach(cb => {
-          if (!cb.checked) cb.disabled = true;
-        });
+        allBoxes.forEach(cb => { if (!cb.checked) cb.disabled = true; });
       } else {
         allBoxes.forEach(cb => cb.disabled = false);
       }
@@ -1801,9 +1807,7 @@
 
       const allBoxes = document.querySelectorAll('.combo-sample-cb');
       if (count >= maxAllowed) {
-        allBoxes.forEach(cb => {
-          if (!cb.checked) cb.disabled = true;
-        });
+        allBoxes.forEach(cb => { if (!cb.checked) cb.disabled = true; });
       } else {
         allBoxes.forEach(cb => cb.disabled = false);
       }
@@ -1844,16 +1848,13 @@
           }
         }
       } else if (currentModalProduct.cat === 'combo') {
-        // Nếu là Combo Máy + Tinh dầu
         if (currentModalProduct.comboType === 'may-oil-10' || currentModalProduct.comboType === 'may-oil-30') {
           const selectEl = document.getElementById('may-combo-oil-select');
           const oilVal = selectEl ? selectEl.value : 'Lavender & Sweet Orange';
           finalPrice = currentMayComboPrice || currentModalProduct.price;
           const oilSize = currentModalProduct.comboType === 'may-oil-30' ? '30ml' : '10ml';
           giftDescription = `Gồm: 01 Máy xông 220ml + 01 Tinh dầu ${oilVal} (${oilSize})`;
-        } 
-        // Nếu là Combo Nến + Tinh dầu
-        else {
+        } else {
           const candleVal = document.getElementById('combo-candle-select')?.value || comboSelectedCandle;
           const oilVal = document.getElementById('combo-oil-select')?.value || comboSelectedOil;
           const isTronVen = currentModalProduct.comboType === 'tron-ven';
@@ -2165,7 +2166,7 @@
       updateCartUI();
     }
 
-    // ================= XỬ LÝ VOUCHER & THANH TOÁN =================
+    // ================= XỬ LÝ VOUCHER (BAO GỒM VOUCHER ĐỔI ĐIỂM) & THANH TOÁN =================
     window.appliedVoucher = null;
 
     window.applyVoucher = function() {
@@ -2180,6 +2181,38 @@
         return;
       }
 
+      const subtotal = cart.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
+
+      // 1. Kiểm tra mã voucher từ hệ thống Đổi Điểm MỘC Club
+      const matchedRedeemed = redeemedVouchers.find(v => v.code === code);
+      if (matchedRedeemed) {
+        if (matchedRedeemed.type === 'freeship') {
+          window.appliedVoucher = { code: code, freeship: true };
+          msg.className = 'text-[11px] text-emerald-700 block font-medium';
+          msg.innerText = `✓ Áp dụng mã đổi điểm ${code}: Miễn Phí Vận Chuyển!`;
+          window.renderCheckoutCalculation();
+          return;
+        } else if (matchedRedeemed.type === 'discount30') {
+          window.appliedVoucher = { code: code, discount: 30000 };
+          msg.className = 'text-[11px] text-emerald-700 block font-medium';
+          msg.innerText = `✓ Áp dụng mã đổi điểm ${code}: Giảm ngay 30.000đ (đơn từ 0đ)!`;
+          window.renderCheckoutCalculation();
+          return;
+        } else if (matchedRedeemed.type === 'discount50') {
+          if (subtotal < 250000) {
+            msg.className = 'text-[11px] text-red-600 block';
+            msg.innerText = `Mã ${code} chỉ áp dụng cho đơn hàng từ 250.000đ trở lên!`;
+            return;
+          }
+          window.appliedVoucher = { code: code, discount: 50000 };
+          msg.className = 'text-[11px] text-emerald-700 block font-medium';
+          msg.innerText = `✓ Áp dụng mã đổi điểm ${code}: Giảm ngay 50.000đ!`;
+          window.renderCheckoutCalculation();
+          return;
+        }
+      }
+
+      // 2. Mã mặc định của cửa hàng
       if (code === 'MOCVIP') {
         window.appliedVoucher = { code: 'MOCVIP', discount: 20000 };
         msg.className = 'text-[11px] text-emerald-700 block font-medium';
@@ -2191,7 +2224,7 @@
       } else {
         window.appliedVoucher = null;
         msg.className = 'text-[11px] text-red-600 block';
-        msg.innerText = 'Mã giảm giá không hợp lệ hoặc đã hết hạn!';
+        msg.innerText = 'Mã giảm giá không hợp lệ hoặc chưa đủ điều kiện!';
       }
 
       window.renderCheckoutCalculation();
@@ -2214,7 +2247,10 @@
         `;
       }).join('');
 
-      const shippingFee = subtotal >= 300000 ? 0 : 35000;
+      let shippingFee = subtotal >= 300000 ? 0 : 35000;
+      if (window.appliedVoucher && window.appliedVoucher.freeship) {
+        shippingFee = 0;
+      }
 
       let discountAmount = 0;
       if (window.appliedVoucher) {
@@ -2251,14 +2287,9 @@
 
       summaryList.innerHTML = itemsHTML;
 
-      if (checkoutTotal) {
-        checkoutTotal.innerText = finalTotal.toLocaleString('vi-VN') + 'đ';
-      }
-
+      if (checkoutTotal) checkoutTotal.innerText = finalTotal.toLocaleString('vi-VN') + 'đ';
       const qrAmountText = document.getElementById('qr-amount-text');
-      if (qrAmountText) {
-        qrAmountText.innerText = finalTotal.toLocaleString('vi-VN') + 'đ';
-      }
+      if (qrAmountText) qrAmountText.innerText = finalTotal.toLocaleString('vi-VN') + 'đ';
 
       const qrImg = document.getElementById('qr-code-img');
       if (qrImg) {
@@ -2270,9 +2301,7 @@
       }
 
       const orderTotalHidden = document.getElementById('order-total-hidden');
-      if (orderTotalHidden) {
-        orderTotalHidden.value = finalTotal;
-      }
+      if (orderTotalHidden) orderTotalHidden.value = finalTotal;
     };
 
     function fillUserToCheckout() {
@@ -2346,13 +2375,18 @@
 
       const name = document.getElementById('order-name').value.trim();
       const phone = document.getElementById('order-phone').value.trim();
+      const address = document.getElementById('order-address').value.trim();
+      const note = document.getElementById('order-note').value.trim();
       const totalAmount = document.getElementById('checkout-total-price').innerText;
+
+      const orderCode = 'MOC' + Math.floor(100000 + Math.random() * 900000);
+      const orderTime = new Date().toLocaleString("vi-VN");
 
       const timeEl = document.getElementById('order-time-hidden');
       const itemsEl = document.getElementById('order-items-hidden');
       const totalEl = document.getElementById('order-total-hidden');
 
-      if (timeEl) timeEl.value = new Date().toLocaleString("vi-VN");
+      if (timeEl) timeEl.value = `${orderTime} [Mã: ${orderCode}]`;
       if (itemsEl) itemsEl.value = cart.map(item => `${item.name}${item.giftNote ? ' {' + item.giftNote + '}' : ''} (SL: ${item.qty})`).join('; ');
       if (totalEl) totalEl.value = totalAmount;
 
@@ -2362,19 +2396,36 @@
       const numericTotal = parseInt(totalAmount.replace(/\D/g, ''), 10) || 0;
       const earnedPoints = Math.floor(numericTotal / 10000);
 
-      if (currentUser && currentUser.phone === phone && earnedPoints > 0) {
+      if (currentUser && earnedPoints > 0) {
         currentUser.points = (currentUser.points || 0) + earnedPoints;
-        localStorage.setItem('moc_user', JSON.stringify(currentUser));
+        sessionStorage.setItem('moc_active_session', JSON.stringify(currentUser));
+        updateUserPointsInStorage(currentUser.phone, currentUser.points);
         updateHeaderUserUI();
       }
 
-      const rewardNotice = (currentUser && currentUser.phone === phone && earnedPoints > 0)
+      // Lưu đơn hàng vào Lịch sử & Theo dõi đơn hàng
+      const newOrderRecord = {
+        orderId: orderCode,
+        time: orderTime,
+        customerName: name,
+        phone: phone,
+        address: address,
+        note: note,
+        paymentMethod: selectedPayment,
+        total: totalAmount,
+        statusStep: 1, // 1: Đã xác nhận, 2: Đang rót nến & đóng gói, 3: Đang vận chuyển, 4: Giao thành công
+        items: JSON.parse(JSON.stringify(cart))
+      };
+      userOrdersHistory.unshift(newOrderRecord);
+      localStorage.setItem('moc_orders_history', JSON.stringify(userOrdersHistory));
+
+      const rewardNotice = (currentUser && earnedPoints > 0)
         ? `\n🌟 Bạn được cộng +${earnedPoints} điểm thưởng vào MỘC Club (Tổng: ${currentUser.points} điểm)!`
         : '';
 
       const confirmMsg = isTransfer 
-        ? `🎉 ĐÃ NHẬN THÔNG TIN ĐƠN HÀNG!\n\nCảm ơn ${name} đã ủng hộ MỘC Scent!${rewardNotice}\nShop sẽ kiểm tra sao kê Techcombank và liên hệ xác nhận đóng gói gửi bạn ngay nhé.`
-        : `🎉 ĐẶT HÀNG THÀNH CÔNG!\n\nCảm ơn ${name} đã ủng hộ MỘC Scent!${rewardNotice}\nĐơn hàng sẽ sớm được gửi đến bạn qua hình thức COD.`;
+        ? `🎉 ĐÃ NHẬN THÔNG TIN ĐƠN HÀNG (${orderCode})!\n\nCảm ơn ${name} đã ủng hộ MỘC Scent!${rewardNotice}\nBạn có thể theo dõi hành trình đơn hàng ngay tại mục "Đơn hàng".`
+        : `🎉 ĐẶT HÀNG THÀNH CÔNG (${orderCode})!\n\nCảm ơn ${name} đã ủng hộ MỘC Scent!${rewardNotice}\nBạn có thể theo dõi tiến độ đóng gói & giao hàng ngay tại mục "Đơn hàng".`;
 
       alert(confirmMsg);
 
@@ -2385,8 +2436,135 @@
         toggleCartDrawer();
         const form = document.getElementById('order-form');
         if (form) form.reset();
-      }, 500);
+        switchTab('orders');
+      }, 450);
     }
+
+    // ================= LỊCH SỬ ĐƠN HÀNG & MUA LẠI =================
+    window.renderOrdersHistory = function() {
+      const container = document.getElementById('orders-history-container');
+      if (!container) return;
+
+      const searchInput = document.getElementById('order-search-input');
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+      let filteredOrders = [...userOrdersHistory];
+      if (query) {
+        filteredOrders = filteredOrders.filter(o => 
+          (o.orderId && o.orderId.toLowerCase().includes(query)) ||
+          (o.phone && o.phone.includes(query)) ||
+          (o.customerName && o.customerName.toLowerCase().includes(query))
+        );
+      }
+
+      if (filteredOrders.length === 0) {
+        container.innerHTML = `
+          <div class="bg-white rounded-3xl p-10 text-center border border-moc-border/70 space-y-3">
+            <div class="w-14 h-14 rounded-full bg-moc-card text-moc-muted flex items-center justify-center text-xl mx-auto">
+              <i class="fa-solid fa-box-open"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-moc-brown">Chưa tìm thấy đơn hàng nào</h3>
+            <p class="text-xs text-moc-muted max-w-sm mx-auto">Bạn chưa đặt đơn hàng nào trên thiết bị này hoặc mã tra cứu chưa khớp. Hãy khám phá bộ sưu tập hương nến MỘC nhé!</p>
+            <button type="button" onclick="switchTab('products')" class="mt-2 px-6 py-2.5 rounded-full bg-moc-brown text-white text-xs font-semibold hover:bg-moc-brownDark transition">
+              Khám phá sản phẩm
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filteredOrders.map(order => {
+        const itemsListHTML = order.items.map(it => `
+          <div class="flex items-center justify-between gap-3 py-2 border-b border-moc-border/30 last:border-none text-xs">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <img src="${it.img || 'nenthom.png'}" alt="${it.name}" class="w-10 h-10 rounded-xl object-cover border border-moc-border/50 shrink-0" onerror="this.src='nenthom.png'">
+              <div class="min-w-0">
+                <p class="font-bold text-moc-brown truncate">${it.name} <span class="text-moc-muted font-normal">x${it.qty}</span></p>
+                ${it.giftNote ? `<p class="text-[10px] text-emerald-800 truncate">${it.giftNote}</p>` : ''}
+              </div>
+            </div>
+            <span class="font-semibold text-moc-brown whitespace-nowrap">${(it.price * it.qty).toLocaleString('vi-VN')}đ</span>
+          </div>
+        `).join('');
+
+        return `
+          <div class="bg-white rounded-3xl p-5 sm:p-6 border border-moc-border/80 shadow-xs space-y-4">
+            <!-- Header đơn hàng -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-moc-border/50">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider text-moc-muted block">Mã đơn hàng</span>
+                <strong class="font-mono text-sm font-bold text-moc-brown">#${order.orderId}</strong>
+                <span class="text-[11px] text-moc-muted ml-2">• ${order.time}</span>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[11px] font-bold">
+                <i class="fa-solid fa-fire-flame-curved mr-1"></i> Đang chế tác & chuẩn bị hàng
+              </span>
+            </div>
+
+            <!-- Thanh tiến trình theo dõi 4 bước -->
+            <div class="py-2 px-1">
+              <div class="grid grid-cols-4 gap-1 text-center text-[10px] sm:text-[11px]">
+                <div class="space-y-1">
+                  <div class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto shadow-xs"><i class="fa-solid fa-check"></i></div>
+                  <p class="font-bold text-emerald-800">Đã đặt đơn</p>
+                </div>
+                <div class="space-y-1">
+                  <div class="w-7 h-7 rounded-full bg-amber-500 text-white flex items-center justify-center mx-auto shadow-xs animate-pulse"><i class="fa-solid fa-box"></i></div>
+                  <p class="font-bold text-amber-800">Rót nến & Gói quà</p>
+                </div>
+                <div class="space-y-1 opacity-45">
+                  <div class="w-7 h-7 rounded-full bg-moc-border text-moc-brown flex items-center justify-center mx-auto"><i class="fa-solid fa-truck-fast"></i></div>
+                  <p class="font-medium text-moc-muted">Đang giao hàng</p>
+                </div>
+                <div class="space-y-1 opacity-45">
+                  <div class="w-7 h-7 rounded-full bg-moc-border text-moc-brown flex items-center justify-center mx-auto"><i class="fa-solid fa-house-circle-check"></i></div>
+                  <p class="font-medium text-moc-muted">Hoàn thành</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chi tiết sản phẩm đã mua -->
+            <div class="bg-moc-bg/60 rounded-2xl p-3.5 border border-moc-border/50">
+              ${itemsListHTML}
+            </div>
+
+            <!-- Thông tin giao nhận & Nút Mua Lại -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+              <div class="text-[11px] text-moc-muted space-y-0.5">
+                <p><strong>Người nhận:</strong> ${order.customerName} (${order.phone})</p>
+                <p><strong>Địa chỉ:</strong> ${order.address}</p>
+              </div>
+              <div class="flex items-center justify-between sm:justify-end gap-4">
+                <div class="text-right">
+                  <span class="text-[10px] text-moc-muted block">Tổng thanh toán</span>
+                  <strong class="text-base font-bold text-moc-brown">${order.total}</strong>
+                </div>
+                <button type="button" onclick="reorderItems('${order.orderId}')" class="px-5 py-2.5 rounded-full bg-moc-brown hover:bg-moc-brownDark text-white text-xs font-semibold transition shadow-sm flex items-center gap-1.5 shrink-0">
+                  <i class="fa-solid fa-rotate-right"></i> Mua lại đơn này
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    };
+
+    window.reorderItems = function(orderId) {
+      const targetOrder = userOrdersHistory.find(o => o.orderId === orderId);
+      if (!targetOrder || !targetOrder.items) return;
+
+      targetOrder.items.forEach(oldItem => {
+        const existing = cart.find(c => c.name === oldItem.name && c.giftNote === oldItem.giftNote);
+        if (existing) {
+          existing.qty += oldItem.qty;
+        } else {
+          cart.push({ ...oldItem });
+        }
+      });
+
+      updateCartUI();
+      toggleCartDrawer();
+    };
 
     function handleContactSubmit(e) {
       e.preventDefault();
@@ -2411,19 +2589,13 @@
         body: formData,
         mode: 'no-cors'
       })
-      .then(() => {
-        alert(`Cảm ơn ${name} đã gửi lời nhắn!\nMỘC Scent đã nhận được tin nhắn và sẽ phản hồi tới bạn sớm nhất.`);
-        document.getElementById('contact-form').reset();
-      })
-      .catch(() => {
-        alert(`Cảm ơn ${name}! Tin nhắn đã được gửi tới MỘC Scent.`);
-        document.getElementById('contact-form').reset();
-      })
       .finally(() => {
         if (btn) {
           btn.disabled = false;
           btn.innerHTML = '<span>Gửi lời nhắn</span>';
         }
+        alert(`Cảm ơn ${name} đã gửi lời nhắn!\nMỘC Scent đã nhận được tin nhắn và sẽ phản hồi tới bạn sớm nhất.`);
+        document.getElementById('contact-form').reset();
       });
     }
 
@@ -2475,8 +2647,17 @@
       `).join('');
     }
 
-    // ================= TÀI KHOẢN & TÍCH ĐIỂM =================
+    // ================= TÀI KHOẢN, TÍCH ĐIỂM & QUY ĐỔI PHẦN THƯỞNG =================
     let localUsersList = JSON.parse(localStorage.getItem('moc_registered_users') || '[]');
+
+    function updateUserPointsInStorage(phone, newPoints) {
+      localUsersList = JSON.parse(localStorage.getItem('moc_registered_users') || '[]');
+      const idx = localUsersList.findIndex(u => u.phone === phone);
+      if (idx !== -1) {
+        localUsersList[idx].points = newPoints;
+        localStorage.setItem('moc_registered_users', JSON.stringify(localUsersList));
+      }
+    }
 
     function toggleAuthMode(mode) {
       const loginBox = document.getElementById('acc-login-box');
@@ -2495,6 +2676,7 @@
         if (nameEl) nameEl.innerText = currentUser.name || 'Thành Viên';
         if (phoneEl) phoneEl.innerText = currentUser.phone || '';
         if (pointsEl) pointsEl.innerText = `${currentUser.points || 0} điểm`;
+        renderRedeemedVouchersList();
       } else {
         if (loggedBox) loggedBox.classList.add('hidden');
         if (mode === 'register') {
@@ -2512,8 +2694,130 @@
       if (!modal) return;
       modal.classList.toggle('hidden');
       if (!modal.classList.contains('hidden')) {
+        const resultBox = document.getElementById('redeem-result-box');
+        if (resultBox) resultBox.classList.add('hidden');
         toggleAuthMode('login');
       }
+    }
+
+    // XỬ LÝ QUY ĐỔI ĐIỂM THÀNH QUÀ HOẶC VOUCHER
+    window.redeemReward = function(rewardType) {
+      if (!currentUser) {
+        alert('Vui lòng đăng nhập tài khoản để đổi điểm!');
+        return;
+      }
+
+      const currentPts = currentUser.points || 0;
+      let cost = 0;
+      let title = '';
+      let generatedCode = '';
+
+      if (rewardType === 'candle10g') {
+        cost = 60;
+        if (currentPts < cost) {
+          alert(`Bạn hiện có ${currentPts} điểm, cần đủ 60 điểm để đổi 1 Hũ nến 10g nhé!`);
+          return;
+        }
+        const scentSel = document.getElementById('redeem-candle-scent');
+        const chosenScent = scentSel ? scentSel.value : 'Lavender Calm';
+
+        currentUser.points = currentPts - cost;
+        sessionStorage.setItem('moc_active_session', JSON.stringify(currentUser));
+        updateUserPointsInStorage(currentUser.phone, currentUser.points);
+        updateHeaderUserUI();
+        document.getElementById('user-display-points').innerText = `${currentUser.points} điểm`;
+
+        // Thêm thẳng hũ nến 10g giá 0đ vào giỏ hàng
+        cart.push({
+          id: 'reward-' + Date.now(),
+          name: `Quà Đổi Điểm: Nến Thơm ${chosenScent} (10g)`,
+          price: 0,
+          img: 'nenthom.png',
+          fallbackImg: 'nenthom.png',
+          qty: 1,
+          giftNote: 'Quà quy đổi 60 điểm MỘC Club (Miễn phí)'
+        });
+        updateCartUI();
+
+        const resBox = document.getElementById('redeem-result-box');
+        if (resBox) {
+          resBox.classList.remove('hidden');
+          resBox.innerHTML = `
+            <p class="font-bold text-emerald-800 text-xs">🎉 Đổi thành công 1 Hũ nến ${chosenScent} (10g) - 0đ!</p>
+            <p class="text-[11px] text-moc-brown mt-1">Sản phẩm quà tặng đã được thêm trực tiếp vào Giỏ hàng của bạn.</p>
+          `;
+        }
+        return;
+      }
+
+      if (rewardType === 'freeship') {
+        cost = 30;
+        title = 'Miễn phí vận chuyển (Đơn < 300k)';
+        generatedCode = 'MOCFS-' + Math.floor(1000 + Math.random() * 9000);
+      } else if (rewardType === 'discount30') {
+        cost = 30;
+        title = 'Giảm 30.000đ cho đơn từ 0đ';
+        generatedCode = 'MOC30-' + Math.floor(1000 + Math.random() * 9000);
+      } else if (rewardType === 'discount50') {
+        cost = 40;
+        title = 'Giảm 50.000đ cho đơn từ 250k';
+        generatedCode = 'MOC50-' + Math.floor(1000 + Math.random() * 9000);
+      }
+
+      if (currentPts < cost) {
+        alert(`Bạn hiện có ${currentPts} điểm, cần đủ ${cost} điểm để đổi ưu đãi này!`);
+        return;
+      }
+
+      currentUser.points = currentPts - cost;
+      sessionStorage.setItem('moc_active_session', JSON.stringify(currentUser));
+      updateUserPointsInStorage(currentUser.phone, currentUser.points);
+      updateHeaderUserUI();
+      document.getElementById('user-display-points').innerText = `${currentUser.points} điểm`;
+
+      redeemedVouchers.unshift({
+        code: generatedCode,
+        type: rewardType,
+        title: title,
+        time: new Date().toLocaleString("vi-VN")
+      });
+      localStorage.setItem('moc_redeemed_vouchers', JSON.stringify(redeemedVouchers));
+      renderRedeemedVouchersList();
+
+      const resBox = document.getElementById('redeem-result-box');
+      if (resBox) {
+        resBox.classList.remove('hidden');
+        resBox.innerHTML = `
+          <div class="space-y-1.5 text-center">
+            <span class="text-[10px] uppercase font-bold tracking-wider text-emerald-700 block">🎉 ĐỔI MÃ VOUCHER THÀNH CÔNG!</span>
+            <div class="bg-white border-2 border-dashed border-moc-brown py-2 px-3 rounded-xl font-mono text-base font-bold text-moc-brown tracking-widest select-all">
+              ${generatedCode}
+            </div>
+            <p class="text-[11px] font-semibold text-moc-brown">${title}</p>
+            <p class="text-[11px] text-red-600 font-bold bg-red-50 p-2 rounded-lg border border-red-200">
+              📸 LƯU Ý: Bạn vui lòng CHỤP MÀN HÌNH LẠI mã voucher này để sử dụng khi thanh toán nhé!
+            </p>
+          </div>
+        `;
+      }
+    };
+
+    function renderRedeemedVouchersList() {
+      const box = document.getElementById('user-saved-vouchers');
+      if (!box) return;
+      if (redeemedVouchers.length === 0) {
+        box.innerHTML = '<p class="text-[10.5px] text-moc-muted italic">Chưa có mã voucher nào được đổi.</p>';
+        return;
+      }
+      box.innerHTML = redeemedVouchers.slice(0, 4).map(v => `
+        <div class="flex items-center justify-between bg-white px-3 py-2 rounded-xl border border-moc-border/70 text-[11px]">
+          <div>
+            <strong class="font-mono text-moc-brown">${v.code}</strong>
+            <span class="text-moc-muted block text-[10px]">${v.title}</span>
+          </div>
+          <span class="text-[9.5px] text-emerald-700 font-semibold">Sẵn sàng dùng</span>
+        </div>
+      `).join('');
     }
 
     function handleAccountRegister(e) {
@@ -2532,7 +2836,7 @@
 
       if (btn) {
         btn.disabled = true;
-        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang đăng ký...';
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang tạo tài khoản...';
       }
 
       const newUser = { name: name, phone: phone, password: pass, points: 10 };
@@ -2540,10 +2844,24 @@
       localStorage.setItem('moc_registered_users', JSON.stringify(localUsersList));
 
       currentUser = newUser;
-      localStorage.setItem('moc_user', JSON.stringify(currentUser));
+      sessionStorage.setItem('moc_active_session', JSON.stringify(currentUser));
+      localStorage.removeItem('moc_user');
       updateHeaderUserUI();
 
-      setTimeout(() => {
+      const formData = new FormData();
+      formData.append('formType', 'register');
+      formData.append('time', new Date().toLocaleString("vi-VN"));
+      formData.append('name', name);
+      formData.append('phone', "'" + phone);
+      formData.append('password', pass);
+      formData.append('points', 10);
+
+      fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      })
+      .finally(() => {
         if (btn) {
           btn.disabled = false;
           btn.innerHTML = 'Tạo tài khoản';
@@ -2553,7 +2871,7 @@
         document.getElementById('reg-phone').value = '';
         document.getElementById('reg-pass').value = '';
         toggleAuthMode('login');
-      }, 400);
+      });
     }
 
     function handleAccountLogin(e) {
@@ -2582,17 +2900,19 @@
         }
 
         currentUser = foundUser;
-        localStorage.setItem('moc_user', JSON.stringify(currentUser));
+        sessionStorage.setItem('moc_active_session', JSON.stringify(currentUser));
+        localStorage.removeItem('moc_user');
         updateHeaderUserUI();
 
         alert(`Xin chào ${currentUser.name}! Bạn hiện đang có ${currentUser.points || 0} điểm tích lũy.`);
         document.getElementById('login-phone').value = '';
         document.getElementById('login-pass').value = '';
         toggleAuthMode('login');
-      }, 400);
+      }, 350);
     }
 
     function handleUserLogout() {
+      sessionStorage.removeItem('moc_active_session');
       localStorage.removeItem('moc_user');
       currentUser = null;
       updateHeaderUserUI();
@@ -2610,7 +2930,10 @@
       switchTab('products');
     };
 
-    // ================= LOGIC CHATBOT AI SMART PRO =================
+    // ================= NÂNG CẤP CHATBOT AI THÔNG MINH =================
+    let quizStep = 0;
+    let quizAnswers = {};
+
     function toggleChatWindow() {
       const chatWin = document.getElementById('moc-chat-window');
       if (!chatWin) return;
@@ -2647,6 +2970,72 @@
       container.scrollTop = container.scrollHeight;
     }
 
+    window.startScentFinderQuiz = function() {
+      quizStep = 1;
+      quizAnswers = {};
+      appendMessage('user', '✨ Bắt đầu trắc nghiệm tìm mùi chuẩn gu');
+      setTimeout(() => {
+        appendMessage('bot', `
+          <p><strong>Câu 1/3:</strong> Bạn dự định đặt hương thơm ở không gian nào?</p>
+          <div class="flex flex-wrap gap-1.5 pt-1">
+            <button type="button" onclick="answerQuiz(1, 'phongngu', 'Phòng ngủ thư giãn')" class="px-3 py-1.5 rounded-full bg-moc-bg hover:bg-moc-brown hover:text-white border border-moc-border text-[11px] transition">🛏️ Phòng ngủ</button>
+            <button type="button" onclick="answerQuiz(1, 'lamviec', 'Bàn làm việc / Học tập')" class="px-3 py-1.5 rounded-full bg-moc-bg hover:bg-moc-brown hover:text-white border border-moc-border text-[11px] transition">💻 Bàn làm việc</button>
+            <button type="button" onclick="answerQuiz(1, 'quatang', 'Làm quà tặng người thương')" class="px-3 py-1.5 rounded-full bg-moc-bg hover:bg-moc-brown hover:text-white border border-moc-border text-[11px] transition">🎁 Làm quà tặng</button>
+          </div>
+        `);
+      }, 300);
+    };
+
+    window.answerQuiz = function(step, key, label) {
+      appendMessage('user', label);
+      quizAnswers[step] = key;
+
+      setTimeout(() => {
+        if (step === 1) {
+          appendMessage('bot', `
+            <p><strong>Câu 2/3:</strong> Bạn thích phong cách mùi hương như thế nào?</p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <button type="button" onclick="answerQuiz(2, 'ngot', 'Ngọt ngào, ấm áp')" class="px-3 py-1.5 rounded-full bg-moc-bg hover:bg-moc-brown hover:text-white border border-moc-border text-[11px] transition">🍪 Ngọt ngào ấm áp</button>
+              <button type="button" onclick="answerQuiz(2, 'mat', 'Thanh mát, sảng khoái')" class="px-3 py-1.5 rounded-full bg-moc-bg hover:bg-moc-brown hover:text-white border border-moc-border text-[11px] transition">🍃 Thanh mát dịu nhẹ</button>
+              <button type="button" onclick="answerQuiz(2, 'tram', 'Trầm ấm mùi gỗ tự nhiên')" class="px-3 py-1.5 rounded-full bg-moc-bg hover:bg-moc-brown hover:text-white border border-moc-border text-[11px] transition">🪵 Trầm ấm gỗ mộc</button>
+            </div>
+          `);
+        } else if (step === 2) {
+          appendMessage('bot', `
+            <p><strong>Câu 3/3:</strong> Bạn muốn trải nghiệm dưới hình thức nào?</p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <button type="button" onclick="answerQuiz(3, 'nen', 'Nến thơm bấc gỗ')" class="px-3 py-1.5 rounded-full bg-moc-bg hover:bg-moc-brown hover:text-white border border-moc-border text-[11px] transition">🕯️ Nến thơm bấc gỗ</button>
+              <button type="button" onclick="answerQuiz(3, 'may', 'Máy khuếch tán + Tinh dầu')" class="px-3 py-1.5 rounded-full bg-moc-bg hover:bg-moc-brown hover:text-white border border-moc-border text-[11px] transition">💨 Máy khuếch tán</button>
+            </div>
+          `);
+        } else if (step === 3) {
+          let recId = 1;
+          let recName = 'Lavender Calm';
+          let reason = 'Hương oải hương Pháp dịu nhẹ giúp xoa dịu thần kinh và ngủ ngon.';
+
+          if (key === 'may') {
+            recId = 20;
+            recName = 'Máy Khuếch Tán Tulip 200ml (149.000đ)';
+            reason = 'Dòng máy chủ lực chuẩn phong cách MỘC, phun sương siêu êm cho không gian của bạn.';
+          } else {
+            if (quizAnswers[2] === 'ngot') { recId = 2; recName = 'Vanilla Dream'; reason = 'Hương vani ngọt ấm như bánh nướng chiều đông, cực kỳ nịnh mũi.'; }
+            else if (quizAnswers[2] === 'tram') { recId = 4; recName = 'Sandalwood (Gỗ Đàn Hương)'; reason = 'Nốt gỗ trầm tĩnh giúp tập trung sâu và thư thái tâm trí.'; }
+            else if (quizAnswers[1] === 'lamviec') { recId = 3; recName = 'Citrus Fresh'; reason = 'Cam chanh tươi mát đánh thức sự tỉnh táo và năng lượng tích cực.'; }
+          }
+
+          appendMessage('bot', `
+            <p>✨ <strong>Gợi ý chuẩn gu dành riêng cho bạn:</strong></p>
+            <p class="font-bold text-moc-brown text-sm">👉 ${recName}</p>
+            <p class="text-[11px] text-moc-muted">${reason}</p>
+            <button type="button" onclick="openProductModal(${recId}); toggleChatWindow();" class="mt-2 w-full py-2 bg-moc-brown hover:bg-moc-brownDark text-white text-xs font-semibold rounded-xl transition">
+              Xem chi tiết & Đặt thử AR ngay
+            </button>
+          `);
+          quizStep = 0;
+        }
+      }, 350);
+    };
+
     function sendQuickReply(text) {
       appendMessage('user', text);
       generateBotResponse(text);
@@ -2673,31 +3062,64 @@
         if (indicator) indicator.classList.add('hidden');
         let reply = '';
 
-        if (raw.includes('may') || raw.includes('khuech tan') || raw.includes('xong')) {
+        if (raw.includes('may') || raw.includes('khuech tan') || raw.includes('xong') || raw.includes('humi') || raw.includes('tulip') || raw.includes('comfort')) {
           reply = `
-            <p>💨 <strong>MỘC Scent hiện có các dòng máy và combo tiện ích:</strong></p>
-            <p>1. <strong>Combo Máy 220ml + Tinh dầu 10ml:</strong> Tiết kiệm ngay 59k (Chỉ từ 299k).</p>
-            <p>2. <strong>Combo Nâng Cấp Máy 220ml + Tinh dầu 30ml:</strong> Tiết kiệm ngay 69k (Chỉ từ 429k).</p>
-            <p>3. <strong>Máy Đơn Tách Rời:</strong> Máy Trụ 500ml, Máy Tròn Zen 300ml, Máy Lửa Flame 200ml.</p>
-            <button type="button" onclick="switchTab('products'); filterCategory('combo'); toggleChatWindow();" class="mt-2 w-full py-2 bg-moc-brown hover:bg-moc-brownDark text-white text-xs font-semibold rounded-xl transition shadow-2xs">
-              Xem ngay mục Set Combo
+            <p>💨 <strong>MỘC Scent hiện có 3 dòng máy khuếch tán tinh dầu:</strong></p>
+            <p>1. <strong>Humi 220ml (Dòng cơ bản):</strong> Nhỏ gọn, cổng USB — <strong>129.000đ</strong>.</p>
+            <p>2. <strong>Tulip 200ml (Dòng chủ lực):</strong> Chuẩn phong cách MỘC, siêu êm — <strong>149.000đ</strong>.</p>
+            <p>3. <strong>Comfort 420ml (Dòng cao cấp vừa):</strong> Khoang chứa lớn dùng cả ngày — <strong>199.000đ</strong>.</p>
+            <button type="button" onclick="switchTab('products'); filterCategory('mayxong'); toggleChatWindow();" class="mt-2 w-full py-2 bg-moc-brown hover:bg-moc-brownDark text-white text-xs font-semibold rounded-xl transition shadow-2xs">
+              Xem ngay mục Máy Khuếch Tán
             </button>
+          `;
+        } else if (raw.includes('diem') || raw.includes('doi qua') || raw.includes('tich diem')) {
+          reply = `
+            <p>🌟 <strong>Chính sách đổi điểm MỘC Club:</strong></p>
+            <p>• <strong>60 điểm:</strong> Đổi ngay 1 Hũ nến thơm 10g (0đ).</p>
+            <p>• <strong>30 điểm:</strong> Đổi mã Freeship cho đơn &lt; 300k.</p>
+            <p>• <strong>30 điểm:</strong> Đổi mã giảm 30.000đ (đơn từ 0đ).</p>
+            <p>• <strong>40 điểm:</strong> Đổi mã giảm 50.000đ (đơn từ 250k).</p>
+            <button type="button" onclick="toggleAccountModal(); toggleChatWindow();" class="mt-2 w-full py-2 bg-moc-brown text-white text-xs font-semibold rounded-xl transition">
+              Mở ví điểm của bạn ngay
+            </button>
+          `;
+        } else if (raw.includes('ar') || raw.includes('camera') || raw.includes('thu')) {
+          reply = `
+            <p>📱 <strong>Công nghệ đặt thử AR thực tế:</strong></p>
+            <p>Bạn chỉ cần bấm vào bất kỳ sản phẩm <em>Nến thơm, Tinh dầu hoặc Máy khuếch tán</em> nào, sau đó nhấn nút <strong>"AR"</strong> hoặc <strong>"Xem trong phòng của bạn (AR)"</strong> để bật camera đặt thử lên bàn nhé!</p>
           `;
         } else if (raw.includes('giam gia') || raw.includes('voucher') || raw.includes('ma')) {
           reply = `
             <p>🎁 <strong>Mã giảm giá đang áp dụng:</strong></p>
             <p>• <strong>MOCVIP:</strong> Giảm ngay 20.000đ cho đơn hàng.</p>
             <p>• <strong>MOC10:</strong> Giảm 10% tổng hóa đơn.</p>
-            <p class="text-[10.5px] text-moc-muted">Nhập mã vào khung thanh toán để được giảm giá bạn nhé!</p>
+            <p class="text-[10.5px] text-moc-muted">Ngoài ra bạn có thể dùng điểm tích lũy để đổi thêm mã giảm 30k, 50k và Freeship!</p>
           `;
         } else {
           reply = `
-            <p>Dạ MỘC đã nhận câu hỏi của bạn! ✨ Bạn đang muốn tìm <em>nến thơm thư giãn, tinh dầu nguyên chất hay máy khuếch tán</em> để xưởng tư vấn ngay nhé?</p>
+            <p>Dạ MỘC đã nhận câu hỏi của bạn! ✨ Bạn có thể chọn nhanh bên dưới để mình hỗ trợ ngay nhé:</p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <button type="button" onclick="startScentFinderQuiz()" class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-950 font-semibold text-[11px]">✨ Tìm mùi chuẩn gu</button>
+              <button type="button" onclick="sendQuickReply('Tư vấn máy khuếch tán')" class="px-2.5 py-1 rounded-full bg-moc-card text-moc-brown text-[11px]">💨 3 dòng máy xông</button>
+              <button type="button" onclick="sendQuickReply('Cách đổi điểm')" class="px-2.5 py-1 rounded-full bg-moc-card text-moc-brown text-[11px]">🌟 Đổi điểm nhận quà</button>
+            </div>
           `;
         }
 
         appendMessage('bot', reply);
-      }, 500);
+      }, 450);
+    }
+
+    function toggleReviewModal() {
+      const modal = document.getElementById('review-modal');
+      if (modal) modal.classList.toggle('hidden');
+    }
+
+    function handleReviewSubmit(e) {
+      e.preventDefault();
+      alert('Cảm ơn bạn đã gửi đánh giá yêu thương cho xưởng MỘC Scent! ♡');
+      document.getElementById('review-form').reset();
+      toggleReviewModal();
     }
 
     // ================= KHỞI TẠO =================
@@ -2724,12 +3146,12 @@
 
       <!-- KHUNG NHẬP MÃ VOUCHER -->
       <div class="mb-5 p-3.5 bg-white rounded-2xl border border-moc-border/70 space-y-2">
-        <label class="block text-[11px] font-semibold text-moc-brown uppercase tracking-wider">Mã giảm giá (Voucher)</label>
+        <label class="block text-[11px] font-semibold text-moc-brown uppercase tracking-wider">Mã giảm giá / Mã đổi điểm</label>
         <div class="flex gap-2">
           <input 
             type="text" 
             id="voucher-input" 
-            placeholder="Nhập mã (Ví dụ: MOCVIP)..." 
+            placeholder="Nhập mã (VD: MOCVIP, MOC30-...)..." 
             class="flex-1 p-2.5 rounded-xl border border-moc-border bg-moc-bg text-xs uppercase font-semibold text-moc-brown focus:outline-none focus:border-moc-brown"
           >
           <button 
@@ -2840,14 +3262,18 @@
     </div>
   </div>
 
-  <!-- MODAL TÀI KHOẢN -->
+  <!-- MODAL TÀI KHOẢN & KHU VỰC QUY ĐỔI ĐIỂM -->
   <div id="account-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 hidden backdrop-blur-sm">
-    <div class="bg-moc-bg w-full max-w-md rounded-3xl p-6 sm:p-8 border border-moc-border shadow-2xl relative">
+    <div class="bg-moc-bg w-full max-w-md rounded-3xl p-6 sm:p-7 border border-moc-border shadow-2xl relative max-h-[90vh] overflow-y-auto">
       <button type="button" onclick="toggleAccountModal()" class="absolute top-5 right-5 text-moc-muted hover:text-moc-brown text-lg">✕</button>
 
-      <div id="acc-logged-box" class="hidden space-y-4 text-center">
-        <span class="text-[10px] uppercase tracking-widest text-moc-muted font-semibold block">THÀNH VIÊN MỘC CLUB</span>
-        <div class="bg-gradient-to-br from-[#5c4033] to-[#432e25] text-white p-6 rounded-3xl shadow-md space-y-3">
+      <!-- GIAO DIỆN KHI ĐÃ ĐĂNG NHẬP + QUY ĐỔI ĐIỂM -->
+      <div id="acc-logged-box" class="hidden space-y-4">
+        <div class="text-center">
+          <span class="text-[10px] uppercase tracking-widest text-moc-muted font-semibold block">THÀNH VIÊN MỘC CLUB</span>
+        </div>
+
+        <div class="bg-gradient-to-br from-[#5c4033] to-[#432e25] text-white p-5 rounded-3xl shadow-md space-y-2.5">
           <div class="flex justify-between items-center text-xs opacity-80">
             <span>Thẻ tích điểm</span>
             <i class="fa-solid fa-seedling text-amber-300"></i>
@@ -2857,15 +3283,91 @@
             <p id="user-display-phone" class="text-xs opacity-75 font-mono">0987654321</p>
           </div>
           <div class="pt-2 border-t border-white/20 flex justify-between items-center">
-            <span class="text-xs">Điểm tích lũy:</span>
+            <span class="text-xs">Điểm tích lũy hiện có:</span>
             <span id="user-display-points" class="text-2xl font-bold text-amber-300">0 điểm</span>
           </div>
         </div>
-        <button type="button" onclick="handleUserLogout()" class="w-full py-3 rounded-full border border-moc-brown text-moc-brown hover:bg-moc-brown hover:text-white text-xs font-semibold transition">
-          Đăng xuất
+
+        <!-- KHU VỰC QUY ĐỔI ĐIỂM THƯỞNG -->
+        <div class="space-y-2.5 pt-1">
+          <h4 class="font-serif text-base font-bold text-moc-brown flex items-center gap-1.5">
+            <i class="fa-solid fa-gift text-[#c49a6c]"></i> Quy Đổi Điểm Thưởng
+          </h4>
+
+          <!-- Hộp thông báo mã Voucher sau khi đổi -->
+          <div id="redeem-result-box" class="hidden p-3.5 bg-emerald-50 border border-emerald-300 rounded-2xl"></div>
+
+          <!-- Mốc 1: 1 Hũ nến 10g <=> 60 điểm -->
+          <div class="p-3 bg-white rounded-2xl border border-moc-border/80 space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <div>
+                <strong class="text-moc-brown block">🕯️ 1 Hũ Nến Thơm 10g (0đ)</strong>
+                <span class="text-[10.5px] text-moc-muted">Tự chọn mùi hương & thêm thẳng vào giỏ</span>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 font-bold text-[10.5px] shrink-0">60 điểm</span>
+            </div>
+            <div class="flex gap-2">
+              <select id="redeem-candle-scent" class="flex-1 p-2 rounded-xl border border-moc-border bg-moc-bg text-[11px] font-medium text-moc-brown">
+                <option value="Lavender Calm">Mùi: Lavender Calm</option>
+                <option value="Vanilla Dream">Mùi: Vanilla Dream</option>
+                <option value="Citrus Fresh">Mùi: Citrus Fresh</option>
+                <option value="Sandalwood">Mùi: Sandalwood</option>
+                <option value="Rose Garden">Mùi: Rose Garden</option>
+                <option value="Green Tea">Mùi: Green Tea</option>
+                <option value="Sweet Peach">Mùi: Sweet Peach</option>
+              </select>
+              <button type="button" onclick="redeemReward('candle10g')" class="px-3.5 py-2 rounded-xl bg-moc-brown hover:bg-moc-brownDark text-white text-[11px] font-semibold transition shrink-0">
+                Đổi quà
+              </button>
+            </div>
+          </div>
+
+          <!-- Mốc 2: Freeship đơn <300k <=> 30 điểm -->
+          <div class="p-3 bg-white rounded-2xl border border-moc-border/80 flex items-center justify-between gap-2 text-xs">
+            <div>
+              <strong class="text-moc-brown block">🚚 Freeship cho đơn &lt; 300k</strong>
+              <span class="text-[10.5px] text-moc-muted">Nhận mã voucher miễn phí vận chuyển</span>
+            </div>
+            <button type="button" onclick="redeemReward('freeship')" class="px-3.5 py-2 rounded-xl bg-moc-brown hover:bg-moc-brownDark text-white text-[11px] font-semibold transition shrink-0">
+              Đổi (30đ)
+            </button>
+          </div>
+
+          <!-- Mốc 3: Giảm 30k đơn 0đ <=> 30 điểm -->
+          <div class="p-3 bg-white rounded-2xl border border-moc-border/80 flex items-center justify-between gap-2 text-xs">
+            <div>
+              <strong class="text-moc-brown block">🏷️ Voucher Giảm 30.000đ</strong>
+              <span class="text-[10.5px] text-moc-muted">Áp dụng cho mọi đơn hàng từ 0đ</span>
+            </div>
+            <button type="button" onclick="redeemReward('discount30')" class="px-3.5 py-2 rounded-xl bg-moc-brown hover:bg-moc-brownDark text-white text-[11px] font-semibold transition shrink-0">
+              Đổi (30đ)
+            </button>
+          </div>
+
+          <!-- Mốc 4: Giảm 50k đơn từ 250k <=> 40 điểm -->
+          <div class="p-3 bg-white rounded-2xl border border-moc-border/80 flex items-center justify-between gap-2 text-xs">
+            <div>
+              <strong class="text-moc-brown block">💎 Voucher Giảm 50.000đ</strong>
+              <span class="text-[10.5px] text-moc-muted">Áp dụng cho đơn hàng từ 250.000đ</span>
+            </div>
+            <button type="button" onclick="redeemReward('discount50')" class="px-3.5 py-2 rounded-xl bg-moc-brown hover:bg-moc-brownDark text-white text-[11px] font-semibold transition shrink-0">
+              Đổi (40đ)
+            </button>
+          </div>
+        </div>
+
+        <!-- Danh sách mã đã đổi gần đây -->
+        <div class="space-y-1.5 pt-2 border-t border-moc-border/60">
+          <span class="text-[10.5px] uppercase font-bold tracking-wider text-moc-muted block">Mã voucher bạn đã đổi:</span>
+          <div id="user-saved-vouchers" class="space-y-1.5"></div>
+        </div>
+
+        <button type="button" onclick="handleUserLogout()" class="w-full py-3 rounded-full border border-moc-brown text-moc-brown hover:bg-moc-brown hover:text-white text-xs font-semibold transition mt-2">
+          Đăng xuất tài khoản
         </button>
       </div>
 
+      <!-- FORM ĐĂNG NHẬP -->
       <div id="acc-login-box">
         <span class="text-[10px] uppercase tracking-widest text-moc-muted font-semibold block text-center">THÀNH VIÊN</span>
         <h3 class="font-serif text-2xl font-bold text-moc-brown text-center mt-1 mb-5">Đăng Nhập MỘC Club</h3>
@@ -2889,6 +3391,7 @@
         </div>
       </div>
 
+      <!-- FORM ĐĂNG KÝ -->
       <div id="acc-register-box" class="hidden">
         <span class="text-[10px] uppercase tracking-widest text-moc-muted font-semibold block text-center">TẠO TÀI KHOẢN MỚI</span>
         <h3 class="font-serif text-2xl font-bold text-moc-brown text-center mt-1 mb-5">Đăng Ký Tích Điểm</h3>
@@ -2942,8 +3445,8 @@
             <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#5c4033]"></span>
           </div>
           <div>
-            <h4 class="text-xs font-bold leading-tight">Trợ lý MỘC Scent</h4>
-            <span class="text-[10px] text-amber-200/80 flex items-center gap-1">Tư vấn mùi hương & máy khuếch tán</span>
+            <h4 class="text-xs font-bold leading-tight">Trợ lý AI MỘC Scent</h4>
+            <span class="text-[10px] text-amber-200/80 flex items-center gap-1">Tư vấn mùi hương • Đổi điểm • AR</span>
           </div>
         </div>
         <div class="flex items-center gap-1">
@@ -2957,8 +3460,13 @@
         <div class="flex gap-2">
           <img src="logo1.png" alt="Logo MỘC" class="w-7 h-7 rounded-full object-cover border border-moc-border/80 shrink-0 shadow-2xs bg-[#f7f3ec]" onerror="this.onerror=null; this.src='images/logo1.png'">
           <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-moc-border/60 text-moc-brown shadow-2xs max-w-[85%] leading-relaxed">
-            Dạ MỘC xin chào bạn! 🌿 Mình là trợ lý của MỘC Scent. Bạn có thể hỏi mình về các nốt hương nến, tinh dầu, máy xông hoặc các combo ưu đãi nhé!
+            Dạ MỘC xin chào bạn! 🌿 Mình là trợ lý thông minh của MỘC Scent. Bạn muốn tìm mùi hương hợp gu hay xem 3 dòng máy khuếch tán mới?
           </div>
+        </div>
+        <div class="flex flex-wrap gap-1.5 pl-9">
+          <button type="button" onclick="startScentFinderQuiz()" class="bg-amber-100 text-amber-950 border border-amber-300 hover:bg-amber-200 px-2.5 py-1 rounded-full text-[11px] font-semibold transition">✨ Trắc nghiệm tìm mùi</button>
+          <button type="button" onclick="sendQuickReply('Tư vấn 3 dòng máy khuếch tán')" class="bg-moc-card hover:bg-moc-accent/60 text-moc-brown border border-moc-border/70 px-2.5 py-1 rounded-full text-[11px] transition">💨 3 dòng máy xông</button>
+          <button type="button" onclick="sendQuickReply('Cách đổi điểm thưởng')" class="bg-moc-card hover:bg-moc-accent/60 text-moc-brown border border-moc-border/70 px-2.5 py-1 rounded-full text-[11px] transition">🌟 Đổi điểm nhận quà</button>
         </div>
       </div>
 
@@ -2970,7 +3478,7 @@
       </div>
 
       <form onsubmit="handleUserChat(event)" class="p-2.5 bg-white border-t border-moc-border/60 flex items-center gap-2">
-        <input id="chat-input" type="text" placeholder="Hỏi mùi hương, máy xông, mã giảm giá..." autocomplete="off" class="flex-1 text-xs bg-moc-bg px-3.5 py-2.5 rounded-full border border-moc-border/70 focus:outline-none focus:border-moc-brown text-moc-brown placeholder:text-moc-muted/60">
+        <input id="chat-input" type="text" placeholder="Hỏi mùi hương, máy Humi/Tulip, đổi điểm..." autocomplete="off" class="flex-1 text-xs bg-moc-bg px-3.5 py-2.5 rounded-full border border-moc-border/70 focus:outline-none focus:border-moc-brown text-moc-brown placeholder:text-moc-muted/60">
         <button type="submit" class="w-9 h-9 rounded-full bg-[#5c4033] text-white flex items-center justify-center hover:bg-moc-brownDark transition shrink-0 shadow-sm active:scale-95">
           <i class="fa-solid fa-paper-plane text-xs"></i>
         </button>
