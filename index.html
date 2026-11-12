@@ -15,6 +15,7 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -958,15 +959,10 @@
         <span class="text-[10px] text-white/60 uppercase tracking-widest bg-black/30 px-2 py-0.5 rounded">Mặt bàn / Kệ trang trí</span>
       </div>
 
-      <!-- Vật thể sản phẩm AR có thể kéo thả -->
-      <div id="ar-draggable-object" class="relative z-10 cursor-move touch-none flex flex-col items-center" style="transform: translate(0px, 0px) scale(1) rotate(0deg);">
-        <div class="relative group">
-          <img id="ar-product-img" src="" alt="AR Product" class="w-44 h-44 sm:w-56 sm:h-56 object-contain drop-shadow-[0_22px_25px_rgba(0,0,0,0.65)] pointer-events-none rounded-2xl">
-          <!-- Bóng đổ chân đế thực tế -->
-          <div class="w-32 h-5 bg-black/45 blur-md rounded-full mx-auto -mt-3"></div>
-        </div>
-      </div>
-    </div>
+      <!-- Vật thể 3D AR không nền có thể kéo thả & xoay 360 độ -->
+<div id="ar-draggable-object" class="relative z-10 cursor-move touch-none flex flex-col items-center" style="transform: translate(0px, 0px) scale(1) rotate(0deg);">
+  <div id="ar-3d-canvas-container" class="w-64 h-64 sm:w-80 sm:h-80 pointer-events-none"></div>
+</div>
 
     <!-- Thanh công cụ tinh chỉnh AR phía dưới -->
     <div class="relative z-20 p-4 sm:p-5 bg-gradient-to-t from-black/90 via-black/75 to-transparent text-white space-y-3">
@@ -1213,10 +1209,230 @@
       }).join('');
     }
 
-    // ================= CÔNG NGHỆ AR ĐẶT THỬ SẢN PHẨM VÀO KHÔNG GIAN =================
+    // ================= CÔNG NGHỆ AR 3D THỰC TẾ KHÔNG NỀN =================
     let arStream = null;
     let arPosX = 0, arPosY = 0;
     let isDraggingAR = false, startX = 0, startY = 0;
+    let arScene, arCamera, arRenderer, arProductGroup, arFlameMesh, arMistParticles, arAnimId;
+
+    function createLabelTexture(titleText, subText) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 256;
+      const ctx = canvas.getContext('2d');
+
+      // Nền giấy kraft kem mộc mạc
+      ctx.fillStyle = '#f5efe6';
+      ctx.fillRect(0, 0, 512, 256);
+
+      // Viền khung tinh tế
+      ctx.strokeStyle = '#5c4033';
+      ctx.lineWidth = 6;
+      ctx.strokeRect(18, 18, 476, 220);
+
+      // Thương hiệu MỘC SCENT
+      ctx.fillStyle = '#7c6d65';
+      ctx.font = 'bold 20px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('MỘC SCENT ATELIER', 256, 65);
+
+      // Tên mùi hương
+      ctx.fillStyle = '#3d2a21';
+      ctx.font = 'bold 38px Georgia, serif';
+      ctx.fillText(titleText.length > 20 ? titleText.slice(0, 20) + '...' : titleText, 256, 135);
+
+      // Mô tả phụ
+      ctx.fillStyle = '#5c4033';
+      ctx.font = '22px sans-serif';
+      ctx.fillText(subText, 256, 188);
+
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.needsUpdate = true;
+      return texture;
+    }
+
+    function initAR3DModel(product) {
+      const container = document.getElementById('ar-3d-canvas-container');
+      if (!container || typeof THREE === 'undefined') return;
+      container.innerHTML = '';
+      if (arAnimId) cancelAnimationFrame(arAnimId);
+
+      const width = container.clientWidth || 280;
+      const height = container.clientHeight || 280;
+
+      arScene = new THREE.Scene();
+      arCamera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
+      arCamera.position.set(0, 1.8, 4.8);
+      arCamera.lookAt(0, 0.4, 0);
+
+      arRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      arRenderer.setSize(width, height);
+      arRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(arRenderer.domElement);
+
+      // Ánh sáng môi trường ấm áp
+      const ambientLight = new THREE.AmbientLight(0xfff5e6, 1.1);
+      arScene.add(ambientLight);
+
+      const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
+      dirLight.position.set(3, 6, 4);
+      arScene.add(dirLight);
+
+      arProductGroup = new THREE.Group();
+      arFlameMesh = null;
+      arMistParticles = null;
+
+      // Bóng đổ mềm dưới đáy vật thể trên mặt bàn
+      const shadowGeo = new THREE.CircleGeometry(1.15, 32);
+      const shadowMat = new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.32 });
+      const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
+      shadowMesh.rotation.x = -Math.PI / 2;
+      shadowMesh.position.y = -0.68;
+      arProductGroup.add(shadowMesh);
+
+      if (product.cat === 'nenthom') {
+        // 1. Hũ thủy tinh nâu hổ phách trong suốt
+        const glassGeo = new THREE.CylinderGeometry(0.82, 0.8, 1.35, 40, 1, true);
+        const glassMat = new THREE.MeshPhysicalMaterial({
+          color: 0x6b3410,
+          transparent: true,
+          opacity: 0.78,
+          roughness: 0.15,
+          metalness: 0.05,
+          side: THREE.DoubleSide
+        });
+        const glassMesh = new THREE.Mesh(glassGeo, glassMat);
+        arProductGroup.add(glassMesh);
+
+        // Đáy hũ thủy tinh
+        const bottomGeo = new THREE.CylinderGeometry(0.8, 0.8, 0.08, 40);
+        const bottomMesh = new THREE.Mesh(bottomGeo, glassMat);
+        bottomMesh.position.y = -0.65;
+        arProductGroup.add(bottomMesh);
+
+        // 2. Lớp sáp cọ màu kem bên trong
+        const waxGeo = new THREE.CylinderGeometry(0.75, 0.74, 1.05, 36);
+        const waxMat = new THREE.MeshStandardMaterial({ color: 0xf6efe2, roughness: 0.6 });
+        const waxMesh = new THREE.Mesh(waxGeo, waxMat);
+        waxMesh.position.y = -0.1;
+        arProductGroup.add(waxMesh);
+
+        // 3. Nhãn giấy MỘC Scent dán quanh thân hũ
+        const labelTex = createLabelTexture(product.name, '100% Natural Palm Wax');
+        const labelGeo = new THREE.CylinderGeometry(0.825, 0.825, 0.75, 40, 1, true, -0.9, 1.8);
+        const labelMat = new THREE.MeshStandardMaterial({ map: labelTex, roughness: 0.8 });
+        const labelMesh = new THREE.Mesh(labelGeo, labelMat);
+        labelMesh.position.y = -0.05;
+        arProductGroup.add(labelMesh);
+
+        // 4. Bấc gỗ tự nhiên & Ngọn lửa lập lòe
+        const wickGeo = new THREE.BoxGeometry(0.14, 0.18, 0.03);
+        const wickMat = new THREE.MeshStandardMaterial({ color: 0x2b1b12 });
+        const wickMesh = new THREE.Mesh(wickGeo, wickMat);
+        wickMesh.position.y = 0.48;
+        arProductGroup.add(wickMesh);
+
+        const flameGeo = new THREE.ConeGeometry(0.09, 0.28, 16);
+        const flameMat = new THREE.MeshBasicMaterial({ color: 0xffb703 });
+        arFlameMesh = new THREE.Mesh(flameGeo, flameMat);
+        arFlameMesh.position.y = 0.68;
+        arProductGroup.add(arFlameMesh);
+
+        const flameLight = new THREE.PointLight(0xff9e00, 1.5, 4);
+        flameLight.position.set(0, 0.8, 0);
+        arProductGroup.add(flameLight);
+      } 
+      else if (product.cat === 'tinhdau') {
+        // Chai tinh dầu thủy tinh hổ phách + nắp nhỏ giọt đen
+        const bottleGeo = new THREE.CylinderGeometry(0.45, 0.45, 1.15, 36);
+        const bottleMat = new THREE.MeshPhysicalMaterial({ color: 0x5c2c0c, transparent: true, opacity: 0.88, roughness: 0.15 });
+        const bottleMesh = new THREE.Mesh(bottleGeo, bottleMat);
+        bottleMesh.position.y = -0.1;
+        arProductGroup.add(bottleMesh);
+
+        const labelTex = createLabelTexture(product.name, 'Pure Essential Oil');
+        const labelGeo = new THREE.CylinderGeometry(0.456, 0.456, 0.65, 36, 1, true, -1.1, 2.2);
+        const labelMat = new THREE.MeshStandardMaterial({ map: labelTex, roughness: 0.8 });
+        const labelMesh = new THREE.Mesh(labelGeo, labelMat);
+        labelMesh.position.y = -0.1;
+        arProductGroup.add(labelMesh);
+
+        const neckGeo = new THREE.CylinderGeometry(0.18, 0.35, 0.25, 24);
+        const neckMesh = new THREE.Mesh(neckGeo, bottleMat);
+        neckMesh.position.y = 0.58;
+        arProductGroup.add(neckMesh);
+
+        const capGeo = new THREE.CylinderGeometry(0.21, 0.22, 0.38, 24);
+        const capMat = new THREE.MeshStandardMaterial({ color: 0x1e1e1e, roughness: 0.4 });
+        const capMesh = new THREE.Mesh(capGeo, capMat);
+        capMesh.position.y = 0.85;
+        arProductGroup.add(capMesh);
+      } 
+      else {
+        // Máy khuếch tán tinh dầu (Humi / Tulip / Comfort) + hiệu ứng phun sương
+        const isComfort = product.id === 21;
+        const bodyGeo = isComfort
+          ? new THREE.CylinderGeometry(0.75, 0.85, 1.4, 40)
+          : new THREE.CylinderGeometry(0.45, 0.78, 1.35, 40);
+        const bodyMat = new THREE.MeshStandardMaterial({ color: 0xf4eee4, roughness: 0.35 });
+        const bodyMesh = new THREE.Mesh(bodyGeo, bodyMat);
+        arProductGroup.add(bodyMesh);
+
+        // Vòng đèn LED hổ phách ấm quanh thân máy
+        const ringGeo = new THREE.TorusGeometry(isComfort ? 0.8 : 0.72, 0.025, 16, 48);
+        const ringMat = new THREE.MeshBasicMaterial({ color: 0xffd166 });
+        const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+        ringMesh.rotation.x = Math.PI / 2;
+        ringMesh.position.y = -0.35;
+        arProductGroup.add(ringMesh);
+
+        // Hạt sương phun lên từ đỉnh máy
+        const mistGeo = new THREE.BufferGeometry();
+        const mistCount = 35;
+        const positions = new Float32Array(mistCount * 3);
+        for (let i = 0; i < mistCount; i++) {
+          positions[i * 3] = (Math.random() - 0.5) * 0.22;
+          positions[i * 3 + 1] = 0.75 + Math.random() * 1.1;
+          positions[i * 3 + 2] = (Math.random() - 0.5) * 0.22;
+        }
+        mistGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const mistMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.09, transparent: true, opacity: 0.65 });
+        arMistParticles = new THREE.Points(mistGeo, mistMat);
+        arProductGroup.add(arMistParticles);
+      }
+
+      arScene.add(arProductGroup);
+
+      let clock = 0;
+      function animateAR() {
+        arAnimId = requestAnimationFrame(animateAR);
+        clock += 0.05;
+
+        // Xoay nhẹ tự nhiên để thấy chiều sâu 3D
+        if (arProductGroup) {
+          arProductGroup.rotation.y = Math.sin(clock * 0.25) * 0.45;
+        }
+
+        // Hiệu ứng ngọn lửa nến lập lòe
+        if (arFlameMesh) {
+          arFlameMesh.scale.y = 1 + Math.sin(clock * 3) * 0.14;
+          arFlameMesh.scale.x = 1 + Math.cos(clock * 2.5) * 0.08;
+        }
+
+        // Hiệu ứng làn sương bay lên cho máy khuếch tán
+        if (arMistParticles) {
+          const pos = arMistParticles.geometry.attributes.position.array;
+          for (let i = 0; i < pos.length; i += 3) {
+            pos[i + 1] += 0.018;
+            if (pos[i + 1] > 1.85) pos[i + 1] = 0.75;
+          }
+          arMistParticles.geometry.attributes.position.needsUpdate = true;
+        }
+
+        arRenderer.render(arScene, arCamera);
+      }
+      animateAR();
+    }
 
     window.openARModal = async function(pId) {
       const p = productsData.find(item => item.id === pId);
@@ -1224,18 +1440,14 @@
 
       const modal = document.getElementById('ar-camera-modal');
       const titleEl = document.getElementById('ar-product-title');
-      const imgEl = document.getElementById('ar-product-img');
       const videoEl = document.getElementById('ar-video-stream');
       const fallbackRoom = document.getElementById('ar-fallback-room');
 
-      if (titleEl) titleEl.innerText = `AR Thực Tế: ${p.name}`;
-      if (imgEl) {
-        imgEl.src = p.img;
-        imgEl.onerror = function() { this.onerror = null; this.src = p.fallbackImg; };
-      }
+      if (titleEl) titleEl.innerText = `AR 3D Thực Tế: ${p.name}`;
 
       resetARPosition();
       modal.classList.remove('hidden');
+      initAR3DModel(p);
 
       try {
         arStream = await navigator.mediaDevices.getUserMedia({
@@ -1254,6 +1466,7 @@
     window.closeARModal = function() {
       const modal = document.getElementById('ar-camera-modal');
       if (modal) modal.classList.add('hidden');
+      if (arAnimId) cancelAnimationFrame(arAnimId);
       if (arStream) {
         arStream.getTracks().forEach(track => track.stop());
         arStream = null;
