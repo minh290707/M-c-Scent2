@@ -13,7 +13,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" href="logo1.png?v=2">
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS & Three.js -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
@@ -960,9 +960,10 @@
       </div>
 
       <!-- Vật thể 3D AR không nền có thể kéo thả & xoay 360 độ -->
-<div id="ar-draggable-object" class="relative z-10 cursor-move touch-none flex flex-col items-center" style="transform: translate(0px, 0px) scale(1) rotate(0deg);">
-  <div id="ar-3d-canvas-container" class="w-64 h-64 sm:w-80 sm:h-80 pointer-events-none"></div>
-</div>
+      <div id="ar-draggable-object" class="relative z-10 cursor-move touch-none flex flex-col items-center" style="transform: translate(0px, 0px) scale(1) rotate(0deg);">
+        <div id="ar-3d-canvas-container" class="w-64 h-64 sm:w-80 sm:h-80 pointer-events-none"></div>
+      </div>
+    </div> <!-- ĐÃ BỔ SUNG THẺ ĐÓNG #ar-stage -->
 
     <!-- Thanh công cụ tinh chỉnh AR phía dưới -->
     <div class="relative z-20 p-4 sm:p-5 bg-gradient-to-t from-black/90 via-black/75 to-transparent text-white space-y-3">
@@ -1221,27 +1222,22 @@
       canvas.height = 256;
       const ctx = canvas.getContext('2d');
 
-      // Nền giấy kraft kem mộc mạc
       ctx.fillStyle = '#f5efe6';
       ctx.fillRect(0, 0, 512, 256);
 
-      // Viền khung tinh tế
       ctx.strokeStyle = '#5c4033';
       ctx.lineWidth = 6;
       ctx.strokeRect(18, 18, 476, 220);
 
-      // Thương hiệu MỘC SCENT
       ctx.fillStyle = '#7c6d65';
       ctx.font = 'bold 20px sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText('MỘC SCENT ATELIER', 256, 65);
 
-      // Tên mùi hương
       ctx.fillStyle = '#3d2a21';
       ctx.font = 'bold 38px Georgia, serif';
       ctx.fillText(titleText.length > 20 ? titleText.slice(0, 20) + '...' : titleText, 256, 135);
 
-      // Mô tả phụ
       ctx.fillStyle = '#5c4033';
       ctx.font = '22px sans-serif';
       ctx.fillText(subText, 256, 188);
@@ -1270,7 +1266,6 @@
       arRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       container.appendChild(arRenderer.domElement);
 
-      // Ánh sáng môi trường ấm áp
       const ambientLight = new THREE.AmbientLight(0xfff5e6, 1.1);
       arScene.add(ambientLight);
 
@@ -1282,7 +1277,6 @@
       arFlameMesh = null;
       arMistParticles = null;
 
-      // Bóng đổ mềm dưới đáy vật thể trên mặt bàn
       const shadowGeo = new THREE.CircleGeometry(1.15, 32);
       const shadowMat = new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.32 });
       const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
@@ -1291,7 +1285,6 @@
       arProductGroup.add(shadowMesh);
 
       if (product.cat === 'nenthom') {
-        // 1. Hũ thủy tinh nâu hổ phách trong suốt
         const glassGeo = new THREE.CylinderGeometry(0.82, 0.8, 1.35, 40, 1, true);
         const glassMat = new THREE.MeshPhysicalMaterial({
           color: 0x6b3410,
@@ -1304,20 +1297,17 @@
         const glassMesh = new THREE.Mesh(glassGeo, glassMat);
         arProductGroup.add(glassMesh);
 
-        // Đáy hũ thủy tinh
         const bottomGeo = new THREE.CylinderGeometry(0.8, 0.8, 0.08, 40);
         const bottomMesh = new THREE.Mesh(bottomGeo, glassMat);
         bottomMesh.position.y = -0.65;
         arProductGroup.add(bottomMesh);
 
-        // 2. Lớp sáp cọ màu kem bên trong
         const waxGeo = new THREE.CylinderGeometry(0.75, 0.74, 1.05, 36);
         const waxMat = new THREE.MeshStandardMaterial({ color: 0xf6efe2, roughness: 0.6 });
         const waxMesh = new THREE.Mesh(waxGeo, waxMat);
         waxMesh.position.y = -0.1;
         arProductGroup.add(waxMesh);
 
-        // 3. Nhãn giấy MỘC Scent dán quanh thân hũ
         const labelTex = createLabelTexture(product.name, '100% Natural Palm Wax');
         const labelGeo = new THREE.CylinderGeometry(0.825, 0.825, 0.75, 40, 1, true, -0.9, 1.8);
         const labelMat = new THREE.MeshStandardMaterial({ map: labelTex, roughness: 0.8 });
@@ -1325,7 +1315,6 @@
         labelMesh.position.y = -0.05;
         arProductGroup.add(labelMesh);
 
-        // 4. Bấc gỗ tự nhiên & Ngọn lửa lập lòe
         const wickGeo = new THREE.BoxGeometry(0.14, 0.18, 0.03);
         const wickMat = new THREE.MeshStandardMaterial({ color: 0x2b1b12 });
         const wickMesh = new THREE.Mesh(wickGeo, wickMat);
@@ -1343,7 +1332,6 @@
         arProductGroup.add(flameLight);
       } 
       else if (product.cat === 'tinhdau') {
-        // Chai tinh dầu thủy tinh hổ phách + nắp nhỏ giọt đen
         const bottleGeo = new THREE.CylinderGeometry(0.45, 0.45, 1.15, 36);
         const bottleMat = new THREE.MeshPhysicalMaterial({ color: 0x5c2c0c, transparent: true, opacity: 0.88, roughness: 0.15 });
         const bottleMesh = new THREE.Mesh(bottleGeo, bottleMat);
@@ -1369,7 +1357,6 @@
         arProductGroup.add(capMesh);
       } 
       else {
-        // Máy khuếch tán tinh dầu (Humi / Tulip / Comfort) + hiệu ứng phun sương
         const isComfort = product.id === 21;
         const bodyGeo = isComfort
           ? new THREE.CylinderGeometry(0.75, 0.85, 1.4, 40)
@@ -1378,7 +1365,6 @@
         const bodyMesh = new THREE.Mesh(bodyGeo, bodyMat);
         arProductGroup.add(bodyMesh);
 
-        // Vòng đèn LED hổ phách ấm quanh thân máy
         const ringGeo = new THREE.TorusGeometry(isComfort ? 0.8 : 0.72, 0.025, 16, 48);
         const ringMat = new THREE.MeshBasicMaterial({ color: 0xffd166 });
         const ringMesh = new THREE.Mesh(ringGeo, ringMat);
@@ -1386,7 +1372,6 @@
         ringMesh.position.y = -0.35;
         arProductGroup.add(ringMesh);
 
-        // Hạt sương phun lên từ đỉnh máy
         const mistGeo = new THREE.BufferGeometry();
         const mistCount = 35;
         const positions = new Float32Array(mistCount * 3);
@@ -1408,18 +1393,15 @@
         arAnimId = requestAnimationFrame(animateAR);
         clock += 0.05;
 
-        // Xoay nhẹ tự nhiên để thấy chiều sâu 3D
         if (arProductGroup) {
           arProductGroup.rotation.y = Math.sin(clock * 0.25) * 0.45;
         }
 
-        // Hiệu ứng ngọn lửa nến lập lòe
         if (arFlameMesh) {
           arFlameMesh.scale.y = 1 + Math.sin(clock * 3) * 0.14;
           arFlameMesh.scale.x = 1 + Math.cos(clock * 2.5) * 0.08;
         }
 
-        // Hiệu ứng làn sương bay lên cho máy khuếch tán
         if (arMistParticles) {
           const pos = arMistParticles.geometry.attributes.position.array;
           for (let i = 0; i < pos.length; i += 3) {
@@ -1504,7 +1486,6 @@
       alert('📸 Đã ghi lại khung hình AR! Bạn có thể chụp màn hình ngay lúc này để lưu lại góc decor yêu thích cùng MỘC Scent nhé.');
     };
 
-    // Khởi tạo kéo thả mượt cho vật thể AR (cả chuột và cảm ứng điện thoại)
     document.addEventListener('DOMContentLoaded', () => {
       const arObj = document.getElementById('ar-draggable-object');
       if (!arObj) return;
@@ -2396,7 +2377,6 @@
 
       const subtotal = cart.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
 
-      // 1. Kiểm tra mã voucher từ hệ thống Đổi Điểm MỘC Club
       const matchedRedeemed = redeemedVouchers.find(v => v.code === code);
       if (matchedRedeemed) {
         if (matchedRedeemed.type === 'freeship') {
@@ -2425,7 +2405,6 @@
         }
       }
 
-      // 2. Mã mặc định của cửa hàng
       if (code === 'MOCVIP') {
         window.appliedVoucher = { code: 'MOCVIP', discount: 20000 };
         msg.className = 'text-[11px] text-emerald-700 block font-medium';
@@ -2616,7 +2595,6 @@
         updateHeaderUserUI();
       }
 
-      // Lưu đơn hàng vào Lịch sử & Theo dõi đơn hàng
       const newOrderRecord = {
         orderId: orderCode,
         time: orderTime,
@@ -2626,7 +2604,7 @@
         note: note,
         paymentMethod: selectedPayment,
         total: totalAmount,
-        statusStep: 1, // 1: Đã xác nhận, 2: Đang rót nến & đóng gói, 3: Đang vận chuyển, 4: Giao thành công
+        statusStep: 1,
         items: JSON.parse(JSON.stringify(cart))
       };
       userOrdersHistory.unshift(newOrderRecord);
@@ -2702,7 +2680,6 @@
 
         return `
           <div class="bg-white rounded-3xl p-5 sm:p-6 border border-moc-border/80 shadow-xs space-y-4">
-            <!-- Header đơn hàng -->
             <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-moc-border/50">
               <div>
                 <span class="text-[10px] uppercase tracking-wider text-moc-muted block">Mã đơn hàng</span>
@@ -2714,7 +2691,6 @@
               </span>
             </div>
 
-            <!-- Thanh tiến trình theo dõi 4 bước -->
             <div class="py-2 px-1">
               <div class="grid grid-cols-4 gap-1 text-center text-[10px] sm:text-[11px]">
                 <div class="space-y-1">
@@ -2736,12 +2712,10 @@
               </div>
             </div>
 
-            <!-- Chi tiết sản phẩm đã mua -->
             <div class="bg-moc-bg/60 rounded-2xl p-3.5 border border-moc-border/50">
               ${itemsListHTML}
             </div>
 
-            <!-- Thông tin giao nhận & Nút Mua Lại -->
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
               <div class="text-[11px] text-moc-muted space-y-0.5">
                 <p><strong>Người nhận:</strong> ${order.customerName} (${order.phone})</p>
@@ -2913,7 +2887,6 @@
       }
     }
 
-    // XỬ LÝ QUY ĐỔI ĐIỂM THÀNH QUÀ HOẶC VOUCHER
     window.redeemReward = function(rewardType) {
       if (!currentUser) {
         alert('Vui lòng đăng nhập tài khoản để đổi điểm!');
@@ -2940,7 +2913,6 @@
         updateHeaderUserUI();
         document.getElementById('user-display-points').innerText = `${currentUser.points} điểm`;
 
-        // Thêm thẳng hũ nến 10g giá 0đ vào giỏ hàng
         cart.push({
           id: 'reward-' + Date.now(),
           name: `Quà Đổi Điểm: Nến Thơm ${chosenScent} (10g)`,
@@ -3298,7 +3270,7 @@
           `;
         } else if (raw.includes('ar') || raw.includes('camera') || raw.includes('thu')) {
           reply = `
-            <p>📱 <strong>Công nghệ đặt thử AR thực tế:</strong></p>
+            <p>📱 <strong>Công nghệ đặt thử AR 3D thực tế:</strong></p>
             <p>Bạn chỉ cần bấm vào bất kỳ sản phẩm <em>Nến thơm, Tinh dầu hoặc Máy khuếch tán</em> nào, sau đó nhấn nút <strong>"AR"</strong> hoặc <strong>"Xem trong phòng của bạn (AR)"</strong> để bật camera đặt thử lên bàn nhé!</p>
           `;
         } else if (raw.includes('giam gia') || raw.includes('voucher') || raw.includes('ma')) {
@@ -3507,7 +3479,6 @@
             <i class="fa-solid fa-gift text-[#c49a6c]"></i> Quy Đổi Điểm Thưởng
           </h4>
 
-          <!-- Hộp thông báo mã Voucher sau khi đổi -->
           <div id="redeem-result-box" class="hidden p-3.5 bg-emerald-50 border border-emerald-300 rounded-2xl"></div>
 
           <!-- Mốc 1: 1 Hũ nến 10g <=> 60 điểm -->
@@ -3569,7 +3540,6 @@
           </div>
         </div>
 
-        <!-- Danh sách mã đã đổi gần đây -->
         <div class="space-y-1.5 pt-2 border-t border-moc-border/60">
           <span class="text-[10.5px] uppercase font-bold tracking-wider text-moc-muted block">Mã voucher bạn đã đổi:</span>
           <div id="user-saved-vouchers" class="space-y-1.5"></div>
