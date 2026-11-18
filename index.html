@@ -93,6 +93,11 @@
       color: #3d2a21;
       font-weight: 700;
     }
+    /* Ẩn biểu tượng con mắt mặc định của trình duyệt */
+    input[type="password"]::-ms-reveal,
+    input[type="password"]::-ms-clear {
+      display: none !important;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-moc-brown selection:text-white">
@@ -290,7 +295,7 @@
           <div class="bg-white p-5 rounded-3xl border border-moc-border/80 shadow-2xs space-y-2">
             <span class="font-serif italic text-base text-[#c49a6c] font-bold block">N° 03</span>
             <h4 class="text-xs font-bold text-moc-brown uppercase tracking-wider">Trải Nghiệm AR 3D</h4>
-            <p class="text-[11px] text-moc-muted leading-relaxed font-light">Bật camera đặt thử cốc nến thủy tinh thật lên góc bàn phòng bạn.</p>
+            <p class="text-[11px] text-moc-muted leading-relaxed font-light">Bật camera đặt thử cốc nến & máy xông lên góc bàn phòng bạn.</p>
           </div>
 
           <div class="bg-white p-5 rounded-3xl border border-moc-border/80 shadow-2xs space-y-2">
@@ -397,8 +402,9 @@
           </button>
         </div>
 
-        <div id="reviews-list-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition">
+        <div id="reviews-list-grid" class="grid grid-cols-1 md:grid-cols-3 gap-5 max-h-[540px] md:max-h-[250px] overflow-y-auto pr-1.5 scroll-smooth">
+          <!-- 1. Đánh giá chính 1 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
             <div>
               <div class="flex text-amber-400 text-xs gap-1 mb-3">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -418,7 +424,8 @@
             </div>
           </div>
 
-          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition">
+          <!-- 2. Đánh giá chính 2 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
             <div>
               <div class="flex text-amber-400 text-xs gap-1 mb-3">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -438,7 +445,8 @@
             </div>
           </div>
 
-          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition">
+          <!-- 3. Đánh giá chính 3 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
             <div>
               <div class="flex text-amber-400 text-xs gap-1 mb-3">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -453,6 +461,447 @@
                 <h5 class="text-xs font-bold text-moc-brown">Minh Anh</h5>
                 <span class="text-[10px] text-moc-muted flex items-center gap-1">
                   <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Sandalwood & Green Tea
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Đặt hộp quà khắc tên tặng sinh nhật bạn thân mà nhận hàng ưng quá chừng. Nét khắc laser trên nắp gỗ cực sắc nét, thiệp viết tay chữ đẹp, hộp thắt nơ sang xịn."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">KL</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Khánh Linh</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Hộp Quà Khắc Tên (Rose Garden)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Mình rất mê mùi Coffee Beans đốt buổi sáng lúc ngồi làm việc, thơm đúng kiểu cà phê rang mộc ấm áp chứ không bị ngọt gắt hóa chất như mấy loại nến ngoài thị trường."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">ĐH</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Đức Hoàng</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Coffee Beans (160g)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Combo máy 220ml kèm tinh dầu Hinoki & Bamboo dùng siêu tiết kiệm mà thơm kiểu spa Nhật Bản dễ chịu lắm. Đèn ngủ vàng ấm bật buổi tối cực kỳ chill."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">NT</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Ngọc Trâm</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Combo Máy 220ml + Hinoki
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Vanilla Dream thơm ngọt ngào như bánh quy mới nướng, đốt trong phòng máy lạnh ấm áp vô cùng. Mình đã quay lại mua hũ 160g lần thứ hai rồi."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">BV</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Bảo Vy</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Vanilla Dream (160g)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Sáp cọ đốt sạch không hề bị khói đen hay bám muội lên thành cốc thủy tinh. Đóng gói chống sốc rất kỹ, giao hàng ở Hà Nội trong ngày là nhận được luôn."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">TM</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Tuấn Minh</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Cedarwood Forest (75g)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Mình dùng tinh dầu Sả Chanh & Trà Xanh cho máy Comfort 420ml ở phòng khách, khử mùi đồ ăn siêu nhanh mà không khí trong lành hẳn."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">PL</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Phương Linh</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Máy Comfort 420ml
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Tính năng AR 3D trên web hay thật, bật camera lên đặt thử cốc nến lên bàn trang điểm xem vừa cỡ không rồi mới chốt đơn, nhận hàng giống y như hình."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">HT</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Hà Trang</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Sweet Peach (75g)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 11 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Mùi Citrus Fresh bưởi hồng với chanh vàng cực kỳ sảng khoái, sáng nào dậy mình cũng đốt khoảng 20 phút là thấy tỉnh táo hẳn người."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">MK</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Minh Khôi</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Citrus Fresh (160g)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Earl Grey Tea thơm chuẩn vị trà bá tước Anh Quốc thanh tao, buổi chiều pha ấm trà nóng đọc sách bên hũ nến này đúng là bình yên hết nấc."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">LY</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Lan Yên</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Earl Grey Tea (160g)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 13 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Musk Warmth sang và quyến rũ thực sự, mùi xạ hương trầm ấm bám trong phòng rất lâu kể cả sau khi đã tắt nến rồi."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">QA</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Quỳnh Anh</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Musk Warmth (160g)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 14 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Mình mua Combo MỘC Trọn Vẹn làm quà kỷ niệm 2 năm yêu nhau, bạn gái mình thích mê mẩn cái nắp khắc tên với 6 mẩu thử mùi đi kèm."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">HN</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Hoàng Nam</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Combo MỘC Trọn Vẹn
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 15 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Ocean Breeze mát rượi như gió biển mùa hè, đốt trong phòng tắm lúc ngâm bồn thư giãn cứ gọi là hết sảy, xua tan mệt mỏi ngay lập tức."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">MT</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Mai Thảo</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Ocean Breeze (75g)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 16 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Tinh dầu Lotus & White Musk nhỏ 4 giọt vào máy xông trước khi ngủ 15 phút là ngủ một mạch tới sáng không mộng mị, mùi sen thanh tịnh dễ chịu lắm."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">TV</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Thanh Vân</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Tinh dầu Lotus & White Musk
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 17 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Máy Humi 220ml nhỏ xinh cắm cổng USB ngay cạnh laptop rất tiện, sương phun mịn không làm ướt bàn làm việc mà mùi thơm lan tỏa rất đều."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">GL</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Gia Long</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Máy Khuếch Tán Humi 220ml
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 18 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Mùi Peppermint, Lemongrass & Jasmine mix 3 tầng hương thông mũi cực kỳ, nhà mình có nuôi mèo mà xông lên là hết sạch mùi trong phòng luôn."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">CN</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Châu Ngân</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Tinh dầu Mix 3 mùi (30ml)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 19 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Lần đầu mua nên mình thử 3 hũ 10g trước để test mùi, sáp cọ đổ đầy đặn, mùi nào cũng tự nhiên chứ không hắc cồn. Chắc chắn sẽ ủng hộ hũ 160g!"
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">YT</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Yến Trang</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Bộ 3 Nến Dùng Thử (10g)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 20 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Sea Salt & Sage thơm kiểu phóng khoáng tự do, đốt lúc trời mưa rả rích nghe tiếng bấc gỗ nổ tí tách thấy ấm lòng gì đâu."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">AD</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Anh Dũng</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Tinh dầu Sea Salt & Sage
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 21 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Rose Garden mùi hoa hồng nhung buổi sớm nhẹ nhàng tiểu thư cực kỳ, không hề bị sến hay nồng phấn như nước hoa rẻ tiền."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">KH</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Kim Hoa</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Rose Garden (160g)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 22 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Sandalwood trầm ấm chuẩn mùi gỗ đàn hương mộc mạc, mình hay đốt mỗi khi ngồi thiền hoặc đọc sách buổi tối, giúp tâm trí tĩnh tại hẳn."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">QT</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Quốc Thái</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Sandalwood (160g)
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 23 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Combo MỘC Dịu Êm vừa có nến vừa có tinh dầu mà giá chưa tới 300k, mình dùng được hơn 2 tháng rồi vẫn còn nhiều, rất đáng tiền."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">NL</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Nhật Lệ</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Combo MỘC Dịu Êm
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 24 -->
+          <div class="bg-white p-6 rounded-3xl border border-moc-border/70 shadow-xs flex flex-col justify-between hover:shadow-md transition cursor-pointer">
+            <div>
+              <div class="flex text-amber-400 text-xs gap-1 mb-3">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="text-xs text-moc-brown/90 leading-relaxed italic mb-4 font-light">
+                "Lavender & Sweet Orange là chân ái của mình luôn, vừa có nét thư giãn của oải hương vừa có vị cam ngọt tươi vui, xông cả ngày không chán."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-3 border-t border-moc-border/40">
+              <div class="w-9 h-9 rounded-full bg-[#dfd4c3] text-moc-brown font-serif font-bold text-xs flex items-center justify-center shrink-0">MP</div>
+              <div>
+                <h5 class="text-xs font-bold text-moc-brown">Minh Phương</h5>
+                <span class="text-[10px] text-moc-muted flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-emerald-600"></i> Đã mua Tinh dầu Lavender & Orange
                 </span>
               </div>
             </div>
@@ -518,7 +967,7 @@
           <div>
             <span class="font-handwriting text-2xl text-moc-brownLight block">bộ sưu tập hương nến & máy xông</span>
             <h2 class="font-serif text-3xl sm:text-4xl text-moc-brown font-normal mt-0.5">Tuyển Tập Sản Phẩm Xưởng MỘC</h2>
-            <p class="text-xs text-moc-muted mt-1">Hỗ trợ xem thử sản phẩm đặt trong phòng qua Camera AR 3D chân thực</p>
+            <p class="text-xs text-moc-muted mt-1">Hỗ trợ xem thử nến thơm & máy khuếch tán đặt trong phòng qua Camera AR 3D chân thực</p>
           </div>
 
           <div class="flex flex-wrap items-center gap-3">
@@ -823,10 +1272,9 @@
           <div class="pt-5 border-t border-moc-border/60 space-y-3">
             <span class="text-[11px] uppercase tracking-wider font-semibold text-moc-brown block">Kênh kết nối trực tiếp:</span>
             
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-          
-              <a href=" https://www.facebook.com/share/1HhshD8Deb/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2.5 bg-moc-bg hover:bg-white rounded-2xl border border-moc-border/70 hover:border-blue-700 shadow-2xs transition group">
-                <div class="w-7 h-7 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-xs shrink-0">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a href="https://www.facebook.com/share/1HhshD8Deb/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 p-3 bg-moc-bg hover:bg-white rounded-2xl border border-moc-border/70 hover:border-blue-700 shadow-2xs transition group">
+                <div class="w-8 h-8 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-xs shrink-0">
                   <i class="fa-brands fa-facebook-f"></i>
                 </div>
                 <div class="min-w-0">
@@ -835,8 +1283,8 @@
                 </div>
               </a>
 
-              <a href="https://www.instagram.com/mocscent?cplk=dzVneWN3cjc5MHlv&utm_source=qr " target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2.5 bg-moc-bg hover:bg-white rounded-2xl border border-moc-border/70 hover:border-pink-600 shadow-2xs transition group">
-                <div class="w-7 h-7 rounded-xl bg-pink-50 text-rose-600 flex items-center justify-center text-xs shrink-0">
+              <a href="https://www.instagram.com/mocscent?cplk=dzVneWN3cjc5MHlv&utm_source=qr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 p-3 bg-moc-bg hover:bg-white rounded-2xl border border-moc-border/70 hover:border-pink-600 shadow-2xs transition group">
+                <div class="w-8 h-8 rounded-xl bg-pink-50 text-rose-600 flex items-center justify-center text-xs shrink-0">
                   <i class="fa-brands fa-instagram"></i>
                 </div>
                 <div class="min-w-0">
@@ -908,16 +1356,16 @@
     </div>
   </footer>
 
-  <!-- ================= MODAL AR CAMERA 3D SỬ DỤNG ẢNH THẬT NEN.PNG ================= -->
+  <!-- ================= MODAL AR CAMERA 3D ================= -->
   <div id="ar-camera-modal" class="fixed inset-0 z-50 bg-black flex flex-col justify-between hidden select-none">
     <div class="relative z-20 flex items-center justify-between p-4 bg-gradient-to-b from-black/80 to-transparent text-white">
       <div class="flex items-center gap-2.5">
         <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> AR Studio Real Photo
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> AR Studio 3D
         </span>
         <div>
           <h4 id="ar-product-title" class="text-xs sm:text-sm font-serif font-bold">Tên sản phẩm</h4>
-          <p class="text-[10px] text-white/70">Kéo xoay 360 độ • Xem hũ nến thực tế từ ảnh chụp</p>
+          <p class="text-[10px] text-white/70">Vuốt xoay 360 độ • Xem thử sản phẩm đặt trong phòng</p>
         </div>
       </div>
       <button type="button" onclick="closeARModal()" class="w-9 h-9 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition">
@@ -939,7 +1387,7 @@
       </div>
 
       <div id="ar-draggable-object" class="relative z-10 cursor-move touch-none flex flex-col items-center" style="transform: translate(0px, 0px) scale(1) rotate(0deg);">
-        <div id="ar-3d-canvas-container" class="w-72 h-72 sm:w-96 sm:h-96 pointer-events-none"></div>
+        <div id="ar-3d-canvas-container" class="w-72 h-72 sm:w-96 sm:h-96"></div>
       </div>
     </div>
 
@@ -963,7 +1411,7 @@
 
       <div class="flex flex-wrap items-center justify-center gap-2.5 pt-1">
         <button type="button" id="ar-toggle-lid-btn" onclick="toggleARCandleState()" class="hidden px-4 py-2.5 rounded-full bg-white/15 hover:bg-white/25 text-xs font-semibold transition flex items-center gap-1.5">
-          <i class="fa-solid fa-fire text-amber-400"></i> <span>Đậy nắp gỗ / Thắp nến</span>
+          <i class="fa-solid fa-fire text-amber-400"></i> <span>Tắt / Thắp lửa</span>
         </button>
         <button type="button" onclick="resetARPosition()" class="px-4 py-2.5 rounded-full bg-white/15 hover:bg-white/25 text-xs font-medium transition">
           <i class="fa-solid fa-arrows-to-dot mr-1"></i> Căn giữa
@@ -1154,35 +1602,171 @@
     </div>
   </div>
 
-  <!-- MODAL TÀI KHOẢN -->
-  <div id="account-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 hidden backdrop-blur-sm">
-    <div class="bg-moc-bg w-full max-w-md rounded-3xl p-6 sm:p-7 border border-moc-border shadow-2xl relative max-h-[90vh] overflow-y-auto">
-      <button type="button" onclick="toggleAccountModal()" class="absolute top-5 right-5 text-moc-muted hover:text-moc-brown text-lg">✕</button>
-      <div id="acc-logged-box" class="hidden space-y-4">
-        <h4 id="user-display-name" class="font-serif text-lg font-bold text-moc-brown">Thành viên</h4>
-        <p id="user-display-phone" class="text-xs text-moc-muted"></p>
-        <span id="user-display-points" class="text-xl font-bold text-amber-600">0 điểm</span>
-        <button type="button" onclick="handleUserLogout()" class="w-full py-2.5 rounded-full border border-moc-brown text-moc-brown text-xs font-semibold">Đăng xuất</button>
+  <!-- MODAL TÀI KHOẢN & VÍ ĐỔI ĐIỂM MỘC CLUB VIP -->
+  <div id="account-modal" onclick="if(event.target === this) toggleAccountModal()" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 hidden backdrop-blur-sm">
+    <div class="bg-[#f7f3ec] w-full max-w-md rounded-[2rem] p-6 sm:p-8 border border-[#dfd4c3] shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button type="button" onclick="toggleAccountModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white border border-moc-border/70 text-moc-muted hover:text-moc-brown flex items-center justify-center transition">✕</button>
+      
+      <!-- 1. GIAO DIỆN KHI ĐÃ ĐĂNG NHẬP (THẺ THÀNH VIÊN & ĐỔI ĐIỂM) -->
+      <div id="acc-logged-box" class="hidden space-y-5">
+        <div class="text-center">
+          <span class="text-[10px] uppercase tracking-[0.25em] text-moc-muted font-bold block">MỘC CLUB MEMBERSHIP</span>
+          <h3 class="font-serif text-2xl font-bold text-moc-brown mt-0.5">Xin chào, <span id="user-display-name">Thành viên</span></h3>
+          <p id="user-display-phone" class="text-xs text-moc-muted mt-0.5 font-mono"></p>
+        </div>
+
+        <!-- Thẻ điểm thành viên sang trọng -->
+        <div class="bg-gradient-to-br from-[#5c4033] to-[#3d2a21] text-[#f7f3ec] p-5 rounded-3xl shadow-lg relative overflow-hidden">
+          <div class="absolute -right-4 -bottom-4 font-handwriting text-7xl text-white/10 pointer-events-none select-none">Mộc</div>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] uppercase tracking-widest text-amber-200/90 font-semibold">Điểm tích lũy hiện tại</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-300/20 border border-amber-300/40 text-amber-200 text-[10px] font-bold">VIP Member</span>
+          </div>
+          <div class="mt-2 flex items-baseline gap-2">
+            <span id="user-display-points" class="font-serif text-3xl font-bold text-amber-300">0 điểm</span>
+          </div>
+          <p class="text-[10.5px] text-white/75 mt-2 leading-relaxed">Tích lũy 1 điểm cho mỗi 10.000đ mua sắm tại xưởng MỘC.</p>
+        </div>
+
+        <!-- Khu vực Đổi Điểm Lấy Quà / Voucher -->
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-moc-brown uppercase tracking-wider">🎁 Đổi điểm nhận ưu đãi:</span>
+            <span class="text-[10px] text-moc-muted">Dùng ngay khi thanh toán</span>
+          </div>
+
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <div class="bg-white p-3 rounded-2xl border border-moc-border/80 flex items-center justify-between gap-2">
+              <div>
+                <p class="font-bold text-moc-brown">🚚 Mã Miễn Phí Vận Chuyển</p>
+                <span class="text-[10.5px] text-moc-muted">Freeship toàn quốc • Cần 30 điểm</span>
+              </div>
+              <button type="button" onclick="redeemMemberReward('freeship', 30)" class="px-3.5 py-1.5 rounded-full bg-moc-brown hover:bg-moc-brownDark text-white text-[11px] font-semibold transition shrink-0">Đổi (30đ)</button>
+            </div>
+
+            <div class="bg-white p-3 rounded-2xl border border-moc-border/80 flex items-center justify-between gap-2">
+              <div>
+                <p class="font-bold text-moc-brown">🎟️ Voucher Giảm 30.000đ</p>
+                <span class="text-[10.5px] text-moc-muted">Áp dụng mọi đơn hàng • Cần 30 điểm</span>
+              </div>
+              <button type="button" onclick="redeemMemberReward('discount30', 30)" class="px-3.5 py-1.5 rounded-full bg-moc-brown hover:bg-moc-brownDark text-white text-[11px] font-semibold transition shrink-0">Đổi (30đ)</button>
+            </div>
+
+            <div class="bg-white p-3 rounded-2xl border border-moc-border/80 flex items-center justify-between gap-2">
+              <div>
+                <p class="font-bold text-moc-brown">💎 Voucher Giảm 50.000đ</p>
+                <span class="text-[10.5px] text-moc-muted">Đơn từ 250.000đ • Cần 40 điểm</span>
+              </div>
+              <button type="button" onclick="redeemMemberReward('discount50', 40)" class="px-3.5 py-1.5 rounded-full bg-moc-brown hover:bg-moc-brownDark text-white text-[11px] font-semibold transition shrink-0">Đổi (40đ)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Danh sách mã đã đổi -->
+        <div id="user-redeemed-list" class="space-y-1.5"></div>
+
+        <div class="grid grid-cols-2 gap-2.5 pt-2">
+          <button type="button" onclick="toggleAccountModal(); switchTab('orders');" class="py-3 rounded-full bg-white hover:bg-moc-card border border-moc-border text-moc-brown text-xs font-semibold transition">
+            📦 Đơn hàng của tôi
+          </button>
+          <button type="button" onclick="handleUserLogout()" class="py-3 rounded-full border border-red-200 bg-red-50/70 hover:bg-red-600 text-red-700 hover:text-white text-xs font-semibold transition">
+            Đăng xuất
+          </button>
+        </div>
       </div>
-      <div id="acc-login-box">
-        <h3 class="font-serif text-2xl font-bold text-moc-brown text-center mb-4">Đăng Nhập</h3>
-        <form onsubmit="handleAccountLogin(event)" class="space-y-3 text-xs">
-          <input type="tel" id="login-phone" required placeholder="Số điện thoại" class="w-full p-3 rounded-xl border border-moc-border bg-white text-moc-brown">
-          <input type="password" id="login-pass" required placeholder="Mật khẩu" class="w-full p-3 rounded-xl border border-moc-border bg-white text-moc-brown">
-          <button id="login-btn" type="submit" class="w-full bg-moc-brown text-white py-3 rounded-full font-semibold">Đăng nhập</button>
-        </form>
-        <p class="mt-4 text-center text-xs text-moc-muted">Chưa có tài khoản? <a href="javascript:void(0)" onclick="toggleAuthMode('register')" class="text-moc-brown font-bold">Đăng ký</a></p>
+
+      <!-- 2. KHUNG ĐĂNG NHẬP / ĐĂNG KÝ CHƯA ĐĂNG NHẬP -->
+      <div id="acc-guest-wrapper">
+        <!-- Logo & Lời chào thương hiệu -->
+        <div class="text-center mb-5">
+          <div class="w-12 h-12 rounded-2xl overflow-hidden border border-moc-border mx-auto mb-2.5 shadow-xs">
+            <img src="logo1.png" alt="MỘC Logo" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='images/logo1.png'">
+          </div>
+          <span class="font-handwriting text-2xl text-moc-brownLight block leading-none">chào mừng đến với</span>
+          <h3 class="font-serif text-2xl font-bold text-moc-brown mt-0.5">MỘC Scent Club</h3>
+        </div>
+
+        <!-- Thanh Tab chuyển đổi Đăng Nhập / Đăng Ký -->
+        <div class="grid grid-cols-2 p-1 bg-white rounded-full border border-moc-border/80 mb-5 text-xs font-semibold">
+          <button type="button" id="tab-btn-login" onclick="toggleAuthMode('login')" class="py-2 rounded-full bg-moc-brown text-white shadow-2xs transition">Đăng nhập</button>
+          <button type="button" id="tab-btn-register" onclick="toggleAuthMode('register')" class="py-2 rounded-full text-moc-muted hover:text-moc-brown transition">Đăng ký mới</button>
+        </div>
+
+        <!-- FORM ĐĂNG NHẬP -->
+        <div id="acc-login-box">
+          <form onsubmit="handleAccountLogin(event)" class="space-y-3.5 text-xs">
+            <div>
+              <label class="block text-[11px] font-semibold text-moc-brown uppercase tracking-wider mb-1">Số điện thoại</label>
+              <div class="relative">
+                <i class="fa-solid fa-phone absolute left-3.5 top-1/2 -translate-y-1/2 text-moc-muted/70 text-xs"></i>
+                <input type="tel" id="login-phone" required placeholder="Nhập số điện thoại của bạn..." class="w-full pl-9 pr-3.5 py-3 rounded-2xl border border-moc-border bg-white text-moc-brown focus:outline-none focus:border-moc-brown transition">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-semibold text-moc-brown uppercase tracking-wider mb-1">Mật khẩu</label>
+              <div class="relative">
+                <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-moc-muted/70 text-xs"></i>
+                <input type="password" id="login-pass" required placeholder="Nhập mật khẩu..." class="w-full pl-9 pr-10 py-3 rounded-2xl border border-moc-border bg-white text-moc-brown focus:outline-none focus:border-moc-brown transition">
+               <button type="button" onclick="togglePass('login-pass', this)" class="absolute right-3.5 top-1/2 -translate-y-1/2 z-20 cursor-pointer p-1.5 text-moc-muted hover:text-moc-brown transition">
+               <i class="fa-regular fa-eye text-xs pointer-events-none"></i>
+             </button>
+              </div>
+            </div>
+
+            <button id="login-btn" type="submit" class="w-full bg-moc-brown hover:bg-moc-brownDark text-white py-3.5 rounded-full font-semibold uppercase tracking-wider transition shadow-md mt-2">
+              Đăng nhập ngay
+            </button>
+          </form>
+          <p class="mt-4 text-center text-[11px] text-moc-muted">
+            Chưa có tài khoản thành viên? <a href="javascript:void(0)" onclick="toggleAuthMode('register')" class="text-moc-brown font-bold hover:underline">Đăng ký nhận 10 điểm</a>
+          </p>
+        </div>
+
+        <!-- FORM ĐĂNG KÝ -->
+        <div id="acc-register-box" class="hidden">
+          <div class="mb-3.5 p-2.5 rounded-2xl bg-amber-50/90 border border-amber-200 text-center text-[11px] text-amber-950 font-medium">
+            🎁 Tặng ngay <strong>+10 điểm thưởng</strong> chào mừng khi tạo tài khoản mới!
+          </div>
+
+          <form onsubmit="handleAccountRegister(event)" class="space-y-3 text-xs">
+            <div>
+              <label class="block text-[11px] font-semibold text-moc-brown uppercase tracking-wider mb-1">Họ và tên</label>
+              <div class="relative">
+                <i class="fa-regular fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-moc-muted/70 text-xs"></i>
+                <input type="text" id="reg-name" required placeholder="Ví dụ: Nguyễn Minh Anh" class="w-full pl-9 pr-3.5 py-3 rounded-2xl border border-moc-border bg-white text-moc-brown focus:outline-none focus:border-moc-brown transition">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-semibold text-moc-brown uppercase tracking-wider mb-1">Số điện thoại</label>
+              <div class="relative">
+                <i class="fa-solid fa-phone absolute left-3.5 top-1/2 -translate-y-1/2 text-moc-muted/70 text-xs"></i>
+                <input type="tel" id="reg-phone" required placeholder="Dùng để tích điểm & tra cứu đơn..." class="w-full pl-9 pr-3.5 py-3 rounded-2xl border border-moc-border bg-white text-moc-brown focus:outline-none focus:border-moc-brown transition">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-semibold text-moc-brown uppercase tracking-wider mb-1">Mật khẩu</label>
+              <div class="relative">
+                <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-moc-muted/70 text-xs"></i>
+                <input type="password" id="reg-pass" required minlength="4" placeholder="Tối thiểu 4 ký tự..." class="w-full pl-9 pr-10 py-3 rounded-2xl border border-moc-border bg-white text-moc-brown focus:outline-none focus:border-moc-brown transition">
+                <button type="button" onclick="const inp = document.getElementById('reg-pass'); inp.type = inp.type === 'password' ? 'text' : 'password'; const icon = this.querySelector('i'); icon.classList.toggle('fa-eye'); icon.classList.toggle('fa-eye-slash');" class="absolute right-3.5 top-1/2 -translate-y-1/2 z-20 cursor-pointer p-1.5 text-moc-muted hover:text-moc-brown transition">
+                  <i class="fa-regular fa-eye text-xs pointer-events-none"></i>
+                </button>
+              </div>
+            </div>
+
+            <button id="reg-btn" type="submit" class="w-full bg-moc-brown hover:bg-moc-brownDark text-white py-3.5 rounded-full font-semibold uppercase tracking-wider transition shadow-md mt-2">
+              Tạo tài khoản & Nhận quà
+            </button>
+          </form>
+          <p class="mt-4 text-center text-[11px] text-moc-muted">
+            Đã có tài khoản MỘC Club? <a href="javascript:void(0)" onclick="toggleAuthMode('login')" class="text-moc-brown font-bold hover:underline">Đăng nhập</a>
+          </p>
+        </div>
       </div>
-      <div id="acc-register-box" class="hidden">
-        <h3 class="font-serif text-2xl font-bold text-moc-brown text-center mb-4">Đăng Ký</h3>
-        <form onsubmit="handleAccountRegister(event)" class="space-y-3 text-xs">
-          <input type="text" id="reg-name" required placeholder="Họ và tên" class="w-full p-3 rounded-xl border border-moc-border bg-white text-moc-brown">
-          <input type="tel" id="reg-phone" required placeholder="Số điện thoại" class="w-full p-3 rounded-xl border border-moc-border bg-white text-moc-brown">
-          <input type="password" id="reg-pass" required placeholder="Mật khẩu" class="w-full p-3 rounded-xl border border-moc-border bg-white text-moc-brown">
-          <button id="reg-btn" type="submit" class="w-full bg-moc-brown text-white py-3 rounded-full font-semibold">Tạo tài khoản</button>
-        </form>
-        <p class="mt-4 text-center text-xs text-moc-muted">Đã có tài khoản? <a href="javascript:void(0)" onclick="toggleAuthMode('login')" class="text-moc-brown font-bold">Đăng nhập</a></p>
-      </div>
+
     </div>
   </div>
 
@@ -1204,13 +1788,13 @@
           </div>
         </div>
         <div class="flex items-center gap-1">
-       <button type="button" onclick="clearChatHistory()" title="Làm mới cuộc trò chuyện" class="text-[#f7f3ec]/70 hover:text-white p-1.5 transition text-xs">
-         <i class="fa-solid fa-rotate-right"></i>
-       </button>
-       <button type="button" onclick="toggleChatWindow()" title="Thu nhỏ" class="text-[#f7f3ec]/70 hover:text-white p-1.5 transition text-sm">
-         <i class="fa-solid fa-xmark"></i>
-       </button>
-     </div>
+          <button type="button" onclick="clearChatHistory()" title="Làm mới cuộc trò chuyện" class="text-[#f7f3ec]/70 hover:text-white p-1.5 transition text-xs">
+            <i class="fa-solid fa-rotate-right"></i>
+          </button>
+          <button type="button" onclick="toggleChatWindow()" title="Thu nhỏ" class="text-[#f7f3ec]/70 hover:text-white p-1.5 transition text-sm">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
       </div>
 
       <div id="chat-messages" class="flex-1 p-3.5 overflow-y-auto space-y-3 text-xs">
@@ -1264,7 +1848,6 @@
       </div>
 
       <form id="review-form" onsubmit="handleReviewSubmit(event)" class="space-y-4">
-        <!-- ĐÁNH GIÁ SAO TƯƠNG TÁC -->
         <div class="text-center bg-white p-4 rounded-2xl border border-moc-border/70 space-y-2">
           <label class="block text-xs font-bold text-moc-brown uppercase tracking-wider">Chất lượng sản phẩm</label>
           <div id="star-rating-container" class="flex justify-center gap-2 text-2xl text-amber-400 cursor-pointer">
@@ -1278,7 +1861,6 @@
           <input type="hidden" id="review-rating-value" value="5">
         </div>
 
-        <!-- THẺ GỢI Ý NHANH -->
         <div>
           <label class="block text-xs font-semibold text-moc-brown uppercase tracking-wider mb-2">Đặc điểm nổi bật bạn thích nhất</label>
           <div class="flex flex-wrap gap-1.5">
@@ -1331,12 +1913,11 @@
       </button>
     </div>
   </div>
-
   <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script>
     const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxuwrMO4EhuI8ojGxJTQdDSdYyIPA478AFLtknbbjGzlOxz9F7WZNeMbltj0ou20gNZ/exec";
 
-    // DỮ LIỆU SẢN PHẨM VỚI BẢNG GIÁ NẾN CHUẨN XÁC CHO TỪNG MÙI (75G & 160G)
+    // DỮ LIỆU SẢN PHẨM VỚI BẢNG GIÁ NẾN & COMBO CHUẨN XÁC THEO BẢNG CHỐT GIÁ
     const productsData = [
       { id: 1, name: 'Lavender Calm', price: 199000, price160: 349000, cat: 'nenthom', img: 'images/nen-lavender.jpg', fallbackImg: 'lavender.jpg', desc: 'Thư giãn • Giảm stress', notes: 'Hương đầu: Cam Bergamot • Hương giữa: Oải hương Pháp • Hương cuối: Gỗ tuyết tùng & Xạ hương', fullDesc: 'Hương thơm dịu nhẹ, thanh khiết từ những cánh đồng hoa oải hương Pháp. Giúp xoa dịu thần kinh, xua tan căng thẳng sau ngày dài làm việc và đưa bạn vào giấc ngủ sâu, an yên.', scale: { sweet: 2, warm: 3, throw: 3 } },
       { id: 2, name: 'Vanilla Dream', price: 209000, price160: 359000, cat: 'nenthom', img: 'images/nen-dream.jpg', fallbackImg: 'dream.jpg', desc: 'Ngọt ngào • Ấm áp', notes: 'Hương đầu: Kem sữa tươi • Hương giữa: Vani Madagascar • Hương cuối: Đường nâu & Hổ phách', fullDesc: 'Vị ngọt béo ngậy, ấm áp tựa như những chiếc bánh quy vừa mới ra lò trong chiều đông. Mang lại không gian ấm cúng, ngọt ngào và cảm giác được vỗ về đầy yêu thương.', scale: { sweet: 5, warm: 4, throw: 4 } },
@@ -1354,18 +1935,18 @@
       { id: 13, name: 'Lemongrass & Tea', price: 119000, price10ml: 119000, price30ml: 259000, cat: 'tinhdau', img: 'images/lemonglass.jpg', fallbackImg: 'lemonglass.jpg', desc: 'Thanh mát • Thư thái', fullDesc: 'Hương sả chanh tươi mát kết hợp trà xanh, hỗ trợ khử mùi, xua đuổi côn trùng hiệu quả và đem lại không gian thoáng đãng, sạch sẽ.' },
       { id: 14, name: 'Lotus & White Musk', price: 139000, price10ml: 139000, price30ml: 299000, cat: 'tinhdau', img: 'images/lotus.jpg', fallbackImg: 'lotus.jpg', desc: 'Tĩnh lặng • Nhẹ nhàng', fullDesc: 'Hương hoa sen thuần khiết hòa quyện xạ hương trắng thanh tao, tạo nên cảm giác bình yên, êm dịu và vỗ về giấc ngủ.' },
       { id: 15, name: 'Hinoki & Bamboo', price: 149000, price10ml: 149000, price30ml: 319000, cat: 'tinhdau', img: 'images/bamboo.jpg', fallbackImg: 'bamboo.jpg', desc: 'Mộc mạc • Trong lành', fullDesc: 'Hương gỗ bách Hinoki Nhật Bản và tre xanh trong lành, mang cả không gian spa thư giãn về ngay góc phòng của bạn.' },
-      { id: 16, name: 'Sea salt & Sage', price: 129000, price10ml: 129000, price30ml: 279000, cat: 'tinhdau', img: 'images/sage.jpg', fallbackImg: 'sage.jpg', desc: 'Phóng khoáng • Tự do', fullDesc: 'Muối biển khoáng đạt kết hợp thảo mộc xô thơm tạo cảm giác tự do, dễ chịu và thanh lọc nguồn năng lượng tiêu cực.' },
+      { id: 16, name: 'Sea Salt & Sage', price: 129000, price10ml: 129000, price30ml: 279000, cat: 'tinhdau', img: 'images/sage.jpg', fallbackImg: 'sage.jpg', desc: 'Phóng khoáng • Tự do', fullDesc: 'Muối biển khoáng đạt kết hợp thảo mộc xô thơm tạo cảm giác tự do, dễ chịu và thanh lọc nguồn năng lượng tiêu cực.' },
       { id: 17, name: 'Lavender & Sweet Orange', price: 119000, price10ml: 119000, price30ml: 259000, cat: 'tinhdau', img: 'images/mix2mui.jpg', fallbackImg: 'mix2mui.jpg', desc: 'Thư giãn • Ngọt dịu (2 nốt hương)', fullDesc: 'Sự hòa quyện êm dịu giữa hoa oải hương Pháp nồng nàn và quả cam ngọt mọng nước. Tông hương vừa giúp xoa dịu thần kinh, dễ ngủ, vừa mang lại cảm giác vui tươi, xua tan căng thẳng.' },
       { id: 18, name: 'Peppermint, Lemongrass & Jasmine', price: 139000, price10ml: 139000, price30ml: 279000, cat: 'tinhdau', img: 'images/mix3mui.jpg', fallbackImg: 'mix3mui.jpg', desc: 'Mát lạnh • Thanh lọc (3 nốt hương)', fullDesc: 'Tổ hợp 3 tầng hương độc đáo: Bạc hà the mát thông mũi, sả chanh khử mùi ẩm mốc, và hoa nhài thoang thoảng quý phái. Đem lại luồng không khí thanh sạch và sảng khoái tối đa.' },
 
-      { id: 19, name: 'Máy Khuếch Tán Humi 220ml', price: 129000, cat: 'mayxong', img: 'images/may1.jpg', fallbackImg: 'may1.jpg', desc: 'Dòng cơ bản • Nhỏ gọn • Cổng USB', fullDesc: 'Humi 220ml – Dòng cơ bản dễ tiếp cận: Thiết kế nhỏ gọn, tối giản đặt vừa vặn mọi góc bàn làm việc hoặc đầu giường. Phun sương siêu âm mịn màng, tích hợp đèn ngủ dịu nhẹ và tự ngắt an toàn khi hết nước.' },
-      { id: 20, name: 'Máy Khuếch Tán Tulip 200ml', price: 149000, cat: 'mayxong', img: 'images/may2.jpg', fallbackImg: 'may2.jpg', desc: 'Dòng chủ lực • Chuẩn phong cách MỘC', fullDesc: 'Tulip 200ml – Dòng chủ lực mang đậm dấu ấn thủ công MỘC Scent: Dáng búp hoa Tulip thanh lịch hòa hợp hoàn hảo với nội thất gỗ và không gian sống tối giản. Hoạt động siêu êm dưới 25dB, khuếch tán hương thơm lan tỏa đều khắp phòng.' },
-      { id: 21, name: 'Máy Khuếch Tán Comfort 420ml', price: 199000, cat: 'mayxong', img: 'images/may3.jpg', fallbackImg: 'may3.jpg', desc: 'Dòng cao cấp vừa • Dung tích lớn 420ml', fullDesc: 'Comfort 420ml – Dòng cao cấp vừa với khoang chứa lớn 420ml cho thời gian phun sương liên tục suốt 8–10 tiếng không cần châm nước nhiều lần. Thích hợp cho phòng ngủ rộng, phòng khách gia đình hoặc studio.' },
+      { id: 19, name: 'Máy Khuếch Tán Humi 220ml', price: 129000, cat: 'mayxong', machineType: 'humi', img: 'images/may1.jpg', fallbackImg: 'may1.jpg', desc: 'Dòng cơ bản • Nhỏ gọn • Cổng USB', fullDesc: 'Humi 220ml – Dòng cơ bản dễ tiếp cận: Thiết kế nhỏ gọn, tối giản đặt vừa vặn mọi góc bàn làm việc hoặc đầu giường. Phun sương siêu âm mịn màng, tích hợp đèn ngủ dịu nhẹ và tự ngắt an toàn khi hết nước.' },
+      { id: 20, name: 'Máy Khuếch Tán Tulip 200ml', price: 149000, cat: 'mayxong', machineType: 'tulip', img: 'images/may2.jpg', fallbackImg: 'may2.jpg', desc: 'Dòng chủ lực • Chuẩn phong cách MỘC', fullDesc: 'Tulip 200ml – Dòng chủ lực mang đậm dấu ấn thủ công MỘC Scent: Dáng búp hoa Tulip thanh lịch hòa hợp hoàn hảo với nội thất gỗ và không gian sống tối giản. Hoạt động siêu êm dưới 25dB, khuếch tán hương thơm lan tỏa đều khắp phòng.' },
+      { id: 21, name: 'Máy Khuếch Tán Comfort 420ml', price: 199000, cat: 'mayxong', machineType: 'comfort', img: 'images/may3.jpg', fallbackImg: 'may3.jpg', desc: 'Dòng cao cấp vừa • Dung tích lớn 420ml', fullDesc: 'Comfort 420ml – Dòng cao cấp vừa với khoang chứa lớn 420ml cho thời gian phun sương liên tục suốt 8–10 tiếng không cần châm nước nhiều lần. Thích hợp cho phòng ngủ rộng, phòng khách gia đình hoặc studio.' },
 
       { id: 22, name: 'Combo MỘC Dịu Êm', price: 299000, cat: 'combo', comboType: 'diu-em', img: 'images/combo1.jpg', fallbackImg: 'combo1.jpg', desc: '1 Nến 75g + 1 Tinh dầu 10ml + 4 Mẫu thử', fullDesc: 'Combo chủ lực bán chạy: Gồm 01 Nến thơm sáp cọ 75g (đốt ~20h), 01 Chai tinh dầu thiên nhiên 10ml, tặng kèm 04 mẩu sáp thử tự chọn và hỗ trợ đóng hộp quà thường.' },
       { id: 23, name: 'Combo MỘC Trọn Vẹn', price: 549000, cat: 'combo', comboType: 'tron-ven', img: 'images/combo2.jpg', fallbackImg: 'combo2.jpg', desc: '1 Nến 160g + 1 Tinh dầu 30ml + 6 Mẫu thử + Khắc tên', fullDesc: 'Combo quà tặng cao cấp: Gồm 01 Nến thơm 160g (đốt ~45h), 01 Chai tinh dầu 30ml tiết kiệm, tặng kèm 06 mẩu sáp thử, đóng hộp quà cao cấp thắt nơ, kèm thiệp tay nắn nót và miễn phí khắc tên lên nắp gỗ.' },
-      { id: 26, name: 'Combo Máy 220ml + Tinh Dầu 10ml', price: 299000, cat: 'combo', comboType: 'may-oil-10', img: 'images/combo3.jpg', fallbackImg: 'combo3.jpg', desc: '1 Máy xông 220ml + 1 Tinh dầu 10ml ', fullDesc: 'Combo chuẩn dễ trải nghiệm: Gồm 01 Máy khuếch tán phun sương 220ml nhỏ gọn kèm dây cắm USB + 01 Chai tinh dầu thiên nhiên 10ml tùy chọn mùi hương. Tiết kiệm ngay 59.000đ so với mua lẻ.' },
-      { id: 27, name: 'Combo Nâng Cấp: Máy 220ml + Tinh Dầu 30ml', price: 429000, cat: 'combo', comboType: 'may-oil-30', img: 'images/combo4.jpg', fallbackImg: 'combo4.jpg', desc: '1 Máy xông 220ml + 1 Tinh dầu 30ml ', fullDesc: 'Combo nâng cấp tăng dung tích: Dành cho khách hàng đã quen dùng tinh dầu hoặc làm quà tặng chỉn chu. Gồm 01 Máy khuếch tán 220ml + 01 Chai tinh dầu dung tích lớn 30ml tiết kiệm. Tiết kiệm ngay 69.000đ.' },
+      { id: 26, name: 'Combo Máy 220ml + Tinh Dầu 10ml', price: 219000, cat: 'combo', comboType: 'may-oil-10', img: 'images/combo3.jpg', fallbackImg: 'combo3.jpg', desc: '1 Máy xông 220ml + 1 Tinh dầu 10ml (Giảm 29k)', fullDesc: 'Combo chuẩn dễ trải nghiệm: Gồm 01 Máy khuếch tán phun sương 220ml nhỏ gọn kèm dây cắm USB + 01 Chai tinh dầu thiên nhiên 10ml tùy chọn mùi hương. Giảm ngay 29.000đ so với mua lẻ.' },
+      { id: 27, name: 'Combo Nâng Cấp: Máy 220ml + Tinh Dầu 30ml', price: 319000, cat: 'combo', comboType: 'may-oil-30', img: 'images/combo4.jpg', fallbackImg: 'combo4.jpg', desc: '1 Máy xông 220ml + 1 Tinh dầu 30ml (Giảm 69k–79k)', fullDesc: 'Combo nâng cấp tăng dung tích: Dành cho khách hàng đã quen dùng tinh dầu hoặc làm quà tặng chỉn chu. Gồm 01 Máy khuếch tán 220ml + 01 Chai tinh dầu dung tích lớn 30ml tiết kiệm. Giảm ngay 69.000đ – 79.000đ so với mua lẻ.' },
 
       { id: 24, name: 'Hộp quà Basic', price: 45000, cat: 'hopqua', img: 'images/hopquabasic.png', fallbackImg: 'hopquabasic.png', desc: 'Đơn giản • Mộc mạc', fullDesc: 'Hộp giấy kraft mộc mạc, thắt nơ ruy băng thủ công tinh tế kèm thiệp viết tay, thích hợp làm món quà nhỏ chân thành.' },
       { id: 25, name: 'Hộp quà Premium', price: 95000, cat: 'hopqua', img: 'images/premium.png', fallbackImg: 'premium.png', desc: 'Sang trọng • Quý phái', fullDesc: 'Hộp quà bồi cứng cao cấp, đệm lót bảo vệ cẩn thận kèm phụ kiện trang trí sang trọng, nâng tầm trọn vẹn giá trị món quà tặng.' }
@@ -1376,7 +1957,7 @@
     let currentModalProduct = null;
     let comboSelectedCandle = 'Lavender Calm';
     let comboSelectedOil = 'Lemongrass & Tea';
-    let currentMayComboPrice = 299000;
+    let currentMayComboPrice = 219000;
     
     localStorage.removeItem('moc_user');
     let currentUser = JSON.parse(sessionStorage.getItem('moc_active_session') || 'null');
@@ -1441,7 +2022,7 @@
       }
 
       grid.innerHTML = items.map(p => {
-        const supportsAR = (p.cat === 'nenthom' || p.cat === 'tinhdau' || p.cat === 'mayxong');
+        const supportsAR = (p.cat === 'nenthom' || p.cat === 'mayxong');
         return `
         <div onclick="openProductModal(${p.id})" class="relative bg-white rounded-3xl p-4 border border-moc-border/80 hover:border-moc-brown hover:shadow-lg transition-all duration-300 flex flex-col justify-between cursor-pointer group">
           ${(p.id === 1 || p.id === 11 || p.id === 20 || p.id === 22) ? `
@@ -1452,7 +2033,7 @@
           </div>` : ''}
 
           ${supportsAR ? `
-          <button type="button" onclick="event.stopPropagation(); openARModal(${p.id})" title="Xem thử ảnh thật nen.png trong phòng qua AR 3D" class="absolute top-4 right-4 z-20 px-2.5 py-1 rounded-full bg-white/95 hover:bg-moc-brown text-moc-brown hover:text-white border border-moc-border text-[9.5px] font-bold shadow-xs transition flex items-center gap-1">
+          <button type="button" onclick="event.stopPropagation(); openARModal(${p.id})" title="Xem thử sản phẩm đặt trong phòng qua AR 3D" class="absolute top-4 right-4 z-20 px-2.5 py-1 rounded-full bg-white/95 hover:bg-moc-brown text-moc-brown hover:text-white border border-moc-border text-[9.5px] font-bold shadow-xs transition flex items-center gap-1">
             <i class="fa-solid fa-cube text-[9px]"></i> AR 3D
           </button>` : ''}
 
@@ -1493,11 +2074,11 @@
       }).join('');
     }
 
-    // ================= AR 3D SỬ DỤNG ẢNH THẬT NEN.PNG CHUẨN XÁC =================
+    // ================= AR 3D: CỐC NẾN THỦY TINH HỔ PHÁCH ĐẬM & MÁY KHUẾCH TÁN PHUN SƯƠNG =================
     let arStream = null;
     let arPosX = 0, arPosY = 0;
     let isDraggingAR = false, startX = 0, startY = 0;
-    let arScene, arCamera, arRenderer, arProductGroup, arFlameOuter, arFlameInner, arFlameGlow, arFlameLight, arAnimId;
+    let arScene, arCamera, arRenderer, arProductGroup, arFlameOuter, arFlameInner, arFlameGlow, arFlameLight, arMistSprites = [], arAnimId;
     let isCandleLit = true;
 
     function createSoftShadowTexture() {
@@ -1505,10 +2086,10 @@
       canvas.width = 256;
       canvas.height = 256;
       const ctx = canvas.getContext('2d');
-      const grad = ctx.createRadialGradient(128, 128, 10, 128, 128, 120);
-      grad.addColorStop(0, 'rgba(25, 14, 8, 0.65)');
-      grad.addColorStop(0.5, 'rgba(25, 14, 8, 0.3)');
-      grad.addColorStop(1, 'rgba(25, 14, 8, 0)');
+      const grad = ctx.createRadialGradient(128, 128, 15, 128, 128, 120);
+      grad.addColorStop(0, 'rgba(18, 10, 5, 0.72)');
+      grad.addColorStop(0.55, 'rgba(18, 10, 5, 0.32)');
+      grad.addColorStop(1, 'rgba(18, 10, 5, 0)');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, 256, 256);
       return new THREE.CanvasTexture(canvas);
@@ -1521,11 +2102,149 @@
       const ctx = canvas.getContext('2d');
       const grad = ctx.createRadialGradient(64, 64, 3, 64, 64, 62);
       grad.addColorStop(0, 'rgba(255, 248, 210, 1)');
-      grad.addColorStop(0.25, 'rgba(255, 185, 50, 0.55)');
-      grad.addColorStop(0.65, 'rgba(255, 115, 15, 0.15)');
+      grad.addColorStop(0.25, 'rgba(255, 185, 50, 0.6)');
+      grad.addColorStop(0.65, 'rgba(255, 115, 15, 0.18)');
       grad.addColorStop(1, 'rgba(255, 100, 0, 0)');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, 128, 128);
+      return new THREE.CanvasTexture(canvas);
+    }
+
+    function createMistTexture() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 128;
+      canvas.height = 128;
+      const ctx = canvas.getContext('2d');
+      const grad = ctx.createRadialGradient(64, 64, 4, 64, 64, 60);
+      grad.addColorStop(0, 'rgba(255, 255, 255, 0.75)');
+      grad.addColorStop(0.5, 'rgba(240, 248, 255, 0.25)');
+      grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 128, 128);
+      return new THREE.CanvasTexture(canvas);
+    }
+
+    function createFrontKraftLabelTexture(productName) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 720;
+      canvas.height = 540;
+      const ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = '#d9c3a3';
+      ctx.fillRect(0, 0, 720, 540);
+      for (let i = 0; i < 3500; i++) {
+        ctx.fillStyle = i % 2 === 0 ? 'rgba(92, 64, 51, 0.04)' : 'rgba(255, 250, 240, 0.06)';
+        ctx.fillRect(Math.random() * 720, Math.random() * 540, 2, 2);
+      }
+
+      ctx.strokeStyle = 'rgba(92, 64, 51, 0.18)';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(4, 4, 712, 532);
+
+      ctx.fillStyle = '#2d1e17';
+      ctx.textAlign = 'center';
+
+      ctx.font = 'bold 78px Georgia, serif';
+      ctx.fillText('MỘC', 360, 138);
+      ctx.font = '500 36px sans-serif';
+      ctx.fillText('Scent', 360, 182);
+
+      ctx.save();
+      const title = 'Nến thơm tự nhiên';
+      ctx.font = 'bold 46px Georgia, serif';
+      const radius = 520;
+      const startAngle = -0.26;
+      const angleStep = (0.52) / (title.length - 1);
+      for (let i = 0; i < title.length; i++) {
+        const angle = startAngle + i * angleStep;
+        ctx.save();
+        ctx.translate(360 + Math.sin(angle) * radius, 785 - Math.cos(angle) * radius);
+        ctx.rotate(angle * 0.85);
+        ctx.fillText(title[i], 0, 0);
+        ctx.restore();
+      }
+      ctx.restore();
+
+      ctx.fillStyle = '#3a2820';
+      const scentSize = productName.length > 18 ? 30 : 36;
+      ctx.font = `500 ${scentSize}px sans-serif`;
+      ctx.fillText(productName, 360, 342);
+
+      ctx.fillStyle = '#4a352b';
+      ctx.font = '25px sans-serif';
+      ctx.fillText('Natural Scented Candle | 160g', 360, 465);
+
+      const tex = new THREE.CanvasTexture(canvas);
+      tex.needsUpdate = true;
+      return tex;
+    }
+
+    function createBackKraftLabelTexture() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 720;
+      canvas.height = 540;
+      const ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = '#d9c3a3';
+      ctx.fillRect(0, 0, 720, 540);
+      for (let i = 0; i < 3500; i++) {
+        ctx.fillStyle = i % 2 === 0 ? 'rgba(92, 64, 51, 0.04)' : 'rgba(255, 250, 240, 0.06)';
+        ctx.fillRect(Math.random() * 720, Math.random() * 540, 2, 2);
+      }
+
+      ctx.strokeStyle = 'rgba(92, 64, 51, 0.18)';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(4, 4, 712, 532);
+
+      ctx.fillStyle = '#2d1e17';
+      ctx.textAlign = 'left';
+      const padX = 46;
+
+      ctx.font = 'bold 24px sans-serif';
+      ctx.fillText('Hướng dẫn sử dụng:', padX, 75);
+      ctx.font = '21px sans-serif';
+      ctx.fillText('• Lần đầu đốt liên tục 1–2 giờ để sáp tan đều bề mặt.', padX, 110);
+      ctx.fillText('• Cắt ngắn bấc gỗ còn ~0.5cm trước mỗi lần thắp.', padX, 140);
+      ctx.fillText('• Không đốt nến quá 3–4 giờ liên tục trong phòng kín.', padX, 170);
+
+      ctx.font = 'bold 24px sans-serif';
+      ctx.fillText('Thành phần:', padX, 228);
+      ctx.font = '21px sans-serif';
+      ctx.fillText('100% sáp cọ thực vật tự nhiên, tinh dầu chuẩn IFRA,', padX, 262);
+      ctx.fillText('bấc gỗ tự nhiên không chì, an toàn cho sức khỏe.', padX, 292);
+
+      ctx.font = 'bold 24px sans-serif';
+      ctx.fillText('Cảnh báo an toàn:', padX, 352);
+      ctx.font = '21px sans-serif';
+      ctx.fillText('• Đặt nến trên bề mặt phẳng, chịu nhiệt, tránh gió lùa.', padX, 386);
+      ctx.fillText('• Tránh xa vật dễ cháy, tầm tay trẻ em và thú cưng.', padX, 416);
+      ctx.fillText('• Không chạm vào cốc thủy tinh khi nến đang cháy.', padX, 446);
+
+      ctx.font = 'bold 20px Georgia, serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('MỘC SCENT ATELIER • HÀ NỘI', 360, 502);
+
+      const tex = new THREE.CanvasTexture(canvas);
+      tex.needsUpdate = true;
+      return tex;
+    }
+
+    function createWoodTexture() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 256;
+      canvas.height = 256;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#8b5a2b';
+      ctx.fillRect(0, 0, 256, 256);
+      for (let i = 0; i < 60; i++) {
+        ctx.strokeStyle = i % 2 === 0 ? 'rgba(61, 42, 33, 0.22)' : 'rgba(196, 154, 108, 0.18)';
+        ctx.lineWidth = Math.random() * 4 + 1;
+        ctx.beginPath();
+        const y = Math.random() * 256;
+        ctx.moveTo(0, y);
+        ctx.bezierCurveTo(85, y + 8, 170, y - 8, 256, y);
+        ctx.stroke();
+      }
       return new THREE.CanvasTexture(canvas);
     }
 
@@ -1550,25 +2269,41 @@
         else lidBtn.classList.add('hidden');
       }
 
-      const width = container.clientWidth || 320;
-      const height = container.clientHeight || 320;
+      const width = container.clientWidth || 350;
+      const height = container.clientHeight || 350;
 
       arScene = new THREE.Scene();
       arCamera = new THREE.PerspectiveCamera(35, width / height, 0.1, 100);
-      arCamera.position.set(0, 0, 4.5);
+      arCamera.position.set(0, 1.35, 4.35);
+      arCamera.lookAt(0, -0.05, 0);
 
       arRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
       arRenderer.setSize(width, height);
       arRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      arRenderer.toneMapping = THREE.ACESFilmicToneMapping;
+      arRenderer.toneMappingExposure = 1.1;
       container.appendChild(arRenderer.domElement);
+
+      const ambientLight = new THREE.AmbientLight(0xfff8ee, 0.95);
+      arScene.add(ambientLight);
+
+      const keyLight = new THREE.DirectionalLight(0xffffff, 1.15);
+      keyLight.position.set(3, 5, 4);
+      arScene.add(keyLight);
+
+      const fillLight = new THREE.DirectionalLight(0xffdfb8, 0.65);
+      fillLight.position.set(-4, 2, -2);
+      arScene.add(fillLight);
 
       arProductGroup = new THREE.Group();
       arFlameOuter = null;
       arFlameInner = null;
       arFlameGlow = null;
       arFlameLight = null;
+      arMistSprites = [];
 
-      const shadowGeo = new THREE.PlaneGeometry(2.4, 1.2);
+      // Bóng đổ mềm dưới đáy sản phẩm
+      const shadowGeo = new THREE.PlaneGeometry(2.35, 2.35);
       const shadowMat = new THREE.MeshBasicMaterial({
         map: createSoftShadowTexture(),
         transparent: true,
@@ -1576,69 +2311,209 @@
       });
       const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
       shadowMesh.rotation.x = -Math.PI / 2;
-      shadowMesh.position.y = -1.12;
+      shadowMesh.position.y = -0.82;
       arProductGroup.add(shadowMesh);
 
-      const textureLoader = new THREE.TextureLoader();
-      textureLoader.load('nen.png', (texture) => {
-        texture.generateMipmaps = true;
-        texture.minFilter = THREE.LinearMipmapLinearFilter;
+      if (product.cat === 'mayxong') {
+        // === DỰNG MÔ HÌNH 3D CHO TỪNG DÒNG MÁY KHUẾCH TÁN ===
+        const ceramicMat = new THREE.MeshStandardMaterial({ color: 0xf7f2ea, roughness: 0.32, metalness: 0.04 });
+        const woodMat = new THREE.MeshStandardMaterial({ map: createWoodTexture(), roughness: 0.55 });
+        const ledMat = new THREE.MeshBasicMaterial({ color: 0xffd27d });
 
-        const planeGeo = new THREE.PlaneGeometry(2.2, 2.2);
-        const planeMat = new THREE.MeshBasicMaterial({
-          map: texture,
-          transparent: true,
+        let nozzleY = 0.68;
+
+        if (product.machineType === 'humi') {
+          // 1. Humi 220ml: Dáng trụ tròn nhỏ gọn + Đai gỗ giữa + Đèn ngủ ấm
+          const lowerBody = new THREE.Mesh(new THREE.CylinderGeometry(0.56, 0.54, 0.62, 48), ceramicMat);
+          lowerBody.position.y = -0.49;
+          arProductGroup.add(lowerBody);
+
+          const woodBand = new THREE.Mesh(new THREE.CylinderGeometry(0.565, 0.565, 0.08, 48), woodMat);
+          woodBand.position.y = -0.15;
+          arProductGroup.add(woodBand);
+
+          const ledRing = new THREE.Mesh(new THREE.TorusGeometry(0.562, 0.018, 16, 48), ledMat);
+          ledRing.rotation.x = Math.PI / 2;
+          ledRing.position.y = -0.10;
+          arProductGroup.add(ledRing);
+
+          const upperDome = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.56, 0.45, 48), ceramicMat);
+          upperDome.position.y = 0.12;
+          arProductGroup.add(upperDome);
+          nozzleY = 0.36;
+
+        } else if (product.machineType === 'comfort') {
+          // 2. Comfort 420ml: Khoang chứa lớn bề thế + Đế gỗ + Vòng LED hắt sáng
+          const woodBase = new THREE.Mesh(new THREE.CylinderGeometry(0.76, 0.72, 0.24, 52), woodMat);
+          woodBase.position.y = -0.68;
+          arProductGroup.add(woodBase);
+
+          const ledRing = new THREE.Mesh(new THREE.TorusGeometry(0.755, 0.022, 16, 52), ledMat);
+          ledRing.rotation.x = Math.PI / 2;
+          ledRing.position.y = -0.55;
+          arProductGroup.add(ledRing);
+
+          const mainTank = new THREE.Mesh(new THREE.CylinderGeometry(0.66, 0.76, 0.78, 52), ceramicMat);
+          mainTank.position.y = -0.16;
+          arProductGroup.add(mainTank);
+
+          const topCap = new THREE.Mesh(new THREE.CylinderGeometry(0.20, 0.66, 0.44, 52), ceramicMat);
+          topCap.position.y = 0.45;
+          arProductGroup.add(topCap);
+          nozzleY = 0.68;
+
+        } else {
+          // 3. Tulip 200ml (Mặc định): Dáng búp hoa Tulip thanh lịch chuẩn phong cách MỘC
+          const tulipProfile = [
+            new THREE.Vector2(0.0, -0.80),
+            new THREE.Vector2(0.46, -0.80),
+            new THREE.Vector2(0.68, -0.35),
+            new THREE.Vector2(0.64, 0.12),
+            new THREE.Vector2(0.42, 0.48),
+            new THREE.Vector2(0.16, 0.68),
+            new THREE.Vector2(0.0, 0.68)
+          ];
+          const tulipGeo = new THREE.LatheGeometry(tulipProfile, 56);
+          const tulipMesh = new THREE.Mesh(tulipGeo, ceramicMat);
+          arProductGroup.add(tulipMesh);
+
+          const ledRing = new THREE.Mesh(new THREE.TorusGeometry(0.665, 0.02, 16, 56), ledMat);
+          ledRing.rotation.x = Math.PI / 2;
+          ledRing.position.y = -0.12;
+          arProductGroup.add(ledRing);
+          nozzleY = 0.69;
+        }
+
+        // Lỗ phun sương & 5 hạt sương bay lên chuyển động liên tục
+        const nozzleRim = new THREE.Mesh(
+          new THREE.TorusGeometry(0.08, 0.015, 12, 24),
+          new THREE.MeshStandardMaterial({ color: 0x8b5a2b, roughness: 0.4 })
+        );
+        nozzleRim.rotation.x = Math.PI / 2;
+        nozzleRim.position.y = nozzleY;
+        arProductGroup.add(nozzleRim);
+
+        const mistTex = createMistTexture();
+        for (let i = 0; i < 5; i++) {
+          const mistMat = new THREE.SpriteMaterial({
+            map: mistTex,
+            transparent: true,
+            opacity: 0.55,
+            depthWrite: false
+          });
+          const sprite = new THREE.Sprite(mistMat);
+          sprite.userData = {
+            baseY: nozzleY + 0.08,
+            phase: i * 1.25
+          };
+          sprite.position.set(0, nozzleY + 0.1 + i * 0.18, 0);
+          sprite.scale.set(0.28, 0.28, 1);
+          arProductGroup.add(sprite);
+          arMistSprites.push(sprite);
+        }
+
+      } else {
+        // === DỰNG CỐC NẾN THỦY TINH HỔ PHÁCH ĐẬM TRẦM + TEM KRAFT 2 MẶT ===
+        const jarProfile = [
+          new THREE.Vector2(0.0, -0.80),
+          new THREE.Vector2(0.66, -0.80),
+          new THREE.Vector2(0.69, -0.74),
+          new THREE.Vector2(0.75, 0.70),
+          new THREE.Vector2(0.72, 0.73),
+          new THREE.Vector2(0.68, 0.70),
+          new THREE.Vector2(0.63, -0.62),
+          new THREE.Vector2(0.0, -0.62)
+        ];
+        const jarGeo = new THREE.LatheGeometry(jarProfile, 64);
+        const frostedAmberMat = new THREE.MeshStandardMaterial({
+          color: 0x220d03,
+          roughness: 0.28,
+          metalness: 0.08,
           side: THREE.DoubleSide
         });
-        const candleMesh = new THREE.Mesh(planeGeo, planeMat);
-        candleMesh.position.y = -0.05;
-        arProductGroup.add(candleMesh);
-      });
+        arProductGroup.add(new THREE.Mesh(jarGeo, frostedAmberMat));
 
-      const flamePoints = [];
-      for (let i = 0; i <= 10; i++) {
-        const t = i / 10;
-        const radius = Math.sin(t * Math.PI) * (1 - t * 0.4) * 0.07;
-        flamePoints.push(new THREE.Vector2(radius, t * 0.22));
+        const darkBaseMesh = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.685, 0.66, 0.14, 56),
+          new THREE.MeshStandardMaterial({ color: 0x0f0501, roughness: 0.2 })
+        );
+        darkBaseMesh.position.y = -0.73;
+        arProductGroup.add(darkBaseMesh);
+
+        const waxMesh = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.67, 0.63, 1.12, 56),
+          new THREE.MeshStandardMaterial({ color: 0xf4ead5, roughness: 0.72 })
+        );
+        waxMesh.position.y = -0.06;
+        arProductGroup.add(waxMesh);
+
+        const wickMesh = new THREE.Mesh(
+          new THREE.BoxGeometry(0.18, 0.16, 0.028),
+          new THREE.MeshStandardMaterial({ color: 0x5c361e, roughness: 0.85 })
+        );
+        wickMesh.position.set(0, 0.54, 0);
+        arProductGroup.add(wickMesh);
+
+        const frontTex = createFrontKraftLabelTexture(product.name);
+        const frontLabelMesh = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.742, 0.708, 0.98, 48, 1, true, -Math.PI * 0.36, Math.PI * 0.72),
+          new THREE.MeshStandardMaterial({ map: frontTex, roughness: 0.92 })
+        );
+        frontLabelMesh.position.y = -0.05;
+        arProductGroup.add(frontLabelMesh);
+
+        const backTex = createBackKraftLabelTexture();
+        const backLabelMesh = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.742, 0.708, 0.98, 48, 1, true, Math.PI - Math.PI * 0.36, Math.PI * 0.72),
+          new THREE.MeshStandardMaterial({ map: backTex, roughness: 0.92 })
+        );
+        backLabelMesh.position.y = -0.05;
+        arProductGroup.add(backLabelMesh);
+
+        const flamePoints = [];
+        for (let i = 0; i <= 10; i++) {
+          const t = i / 10;
+          const radius = Math.sin(t * Math.PI) * (1 - t * 0.4) * 0.06;
+          flamePoints.push(new THREE.Vector2(radius, t * 0.21));
+        }
+        const teardropGeo = new THREE.LatheGeometry(flamePoints, 16);
+
+        arFlameOuter = new THREE.Mesh(teardropGeo, new THREE.MeshBasicMaterial({ color: 0xff9500, transparent: true, opacity: 0.88 }));
+        arFlameOuter.position.set(0, 0.59, 0);
+        arProductGroup.add(arFlameOuter);
+
+        arFlameInner = new THREE.Mesh(teardropGeo, new THREE.MeshBasicMaterial({ color: 0xfff8d6 }));
+        arFlameInner.scale.set(0.5, 0.6, 0.5);
+        arFlameInner.position.set(0, 0.60, 0);
+        arProductGroup.add(arFlameInner);
+
+        const glowMat = new THREE.SpriteMaterial({
+          map: createFlameGlowTexture(),
+          transparent: true,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        });
+        arFlameGlow = new THREE.Sprite(glowMat);
+        arFlameGlow.scale.set(0.52, 0.52, 1);
+        arFlameGlow.position.set(0, 0.68, 0);
+        arProductGroup.add(arFlameGlow);
+
+        arFlameLight = new THREE.PointLight(0xff9e2c, 1.8, 3.5);
+        arFlameLight.position.set(0, 0.72, 0.1);
+        arProductGroup.add(arFlameLight);
       }
-      const teardropGeo = new THREE.LatheGeometry(flamePoints, 16);
-
-      arFlameOuter = new THREE.Mesh(teardropGeo, new THREE.MeshBasicMaterial({ color: 0xff9500, transparent: true, opacity: 0.88 }));
-      arFlameOuter.position.set(0, 0.95, 0.05);
-      arProductGroup.add(arFlameOuter);
-
-      arFlameInner = new THREE.Mesh(teardropGeo, new THREE.MeshBasicMaterial({ color: 0xfff8d6 }));
-      arFlameInner.scale.set(0.5, 0.6, 0.5);
-      arFlameInner.position.set(0, 0.96, 0.05);
-      arProductGroup.add(arFlameInner);
-
-      const glowMat = new THREE.SpriteMaterial({
-        map: createFlameGlowTexture(),
-        transparent: true,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
-      });
-      arFlameGlow = new THREE.Sprite(glowMat);
-      arFlameGlow.scale.set(0.55, 0.55, 1);
-      arFlameGlow.position.set(0, 1.02, 0.05);
-      arProductGroup.add(arFlameGlow);
-
-      arFlameLight = new THREE.PointLight(0xff9e2c, 1.8, 3.5);
-      arFlameLight.position.set(0, 1.0, 0.1);
-      arProductGroup.add(arFlameLight);
 
       arScene.add(arProductGroup);
 
+      // Vuốt / kéo xoay 360 độ mượt mà
       let isDragging = false, prevMouseX = 0, prevMouseY = 0;
       const domElem = arRenderer.domElement;
 
       domElem.onmousedown = (e) => { isDragging = true; prevMouseX = e.clientX; prevMouseY = e.clientY; };
       window.onmousemove = (e) => {
         if (!isDragging || !arProductGroup) return;
-        const deltaX = e.clientX - prevMouseX;
-        const deltaY = e.clientY - prevMouseY;
-        arProductGroup.rotation.y += deltaX * 0.01;
-        arProductGroup.rotation.x += deltaY * 0.01;
+        arProductGroup.rotation.y += (e.clientX - prevMouseX) * 0.013;
+        arProductGroup.rotation.x = Math.max(-0.45, Math.min(0.55, arProductGroup.rotation.x + (e.clientY - prevMouseY) * 0.008));
         prevMouseX = e.clientX;
         prevMouseY = e.clientY;
       };
@@ -1653,10 +2528,8 @@
       };
       window.ontouchmove = (e) => {
         if (!isDragging || !arProductGroup || e.touches.length !== 1) return;
-        const deltaX = e.touches[0].clientX - prevMouseX;
-        const deltaY = e.touches[0].clientY - prevMouseY;
-        arProductGroup.rotation.y += deltaX * 0.01;
-        arProductGroup.rotation.x += deltaY * 0.01;
+        arProductGroup.rotation.y += (e.touches[0].clientX - prevMouseX) * 0.013;
+        arProductGroup.rotation.x = Math.max(-0.45, Math.min(0.55, arProductGroup.rotation.x + (e.touches[0].clientY - prevMouseY) * 0.008));
         prevMouseX = e.touches[0].clientX;
         prevMouseY = e.touches[0].clientY;
       };
@@ -1667,12 +2540,29 @@
         arAnimId = requestAnimationFrame(animateAR);
         clock += 0.04;
 
-        if (isCandleLit && arFlameOuter && arFlameInner) {
+        if (!isDragging && arProductGroup) {
+          arProductGroup.rotation.y += 0.005;
+        }
+
+        // Hiệu ứng phun sương bay lên của máy khuếch tán
+        if (arMistSprites.length > 0) {
+          arMistSprites.forEach((sp) => {
+            const cycle = (clock * 0.45 + sp.userData.phase) % 1;
+            sp.position.y = sp.userData.baseY + cycle * 0.85;
+            sp.position.x = Math.sin(clock * 1.5 + sp.userData.phase) * 0.08 * cycle;
+            const s = 0.22 + cycle * 0.55;
+            sp.scale.set(s, s * 1.2, 1);
+            sp.material.opacity = (1 - cycle) * 0.55;
+          });
+        }
+
+        // Hiệu ứng lửa nến lung linh
+        if (product.cat === 'nenthom' && isCandleLit && arFlameOuter && arFlameInner) {
           const flicker = 1 + Math.sin(clock * 4.5) * 0.12 + Math.cos(clock * 8.1) * 0.05;
           arFlameOuter.scale.set(1 + Math.cos(clock * 3.5) * 0.06, flicker, 1);
           arFlameInner.scale.set(0.5, 0.6 * flicker, 0.5);
-          if (arFlameGlow) arFlameGlow.scale.set(0.65 * flicker, 0.65 * flicker, 1);
-          if (arFlameLight) arFlameLight.intensity = 1.5 + Math.sin(clock * 5) * 0.3;
+          if (arFlameGlow) arFlameGlow.scale.set(0.58 * flicker, 0.58 * flicker, 1);
+          if (arFlameLight) arFlameLight.intensity = 1.6 + Math.sin(clock * 5) * 0.35;
         }
 
         arRenderer.render(arScene, arCamera);
@@ -1688,7 +2578,7 @@
     };
 
     window.captureARPhoto = function() {
-      alert('📸 Đã ghi lại khung hình AR với ảnh thật! Bạn có thể chụp màn hình ngay lúc này để lưu lại góc decor yêu thích cùng MỘC Scent nhé.');
+      alert('📸 Đã ghi lại khung hình AR 3D! Bạn có thể chụp màn hình ngay lúc này để lưu lại góc decor yêu thích cùng MỘC Scent nhé.');
     };
 
     window.openARModal = async function(productId) {
@@ -1795,7 +2685,8 @@
 
     window.updateMayComboPrice = function(comboType, selectEl) {
       const selectedOpt = selectEl.options[selectEl.selectedIndex];
-      const price = parseInt(selectedOpt.getAttribute('data-price'), 10) || 299000;
+      const defaultFallback = comboType === 'may-oil-30' ? 319000 : 219000;
+      const price = parseInt(selectedOpt.getAttribute('data-price'), 10) || defaultFallback;
       currentMayComboPrice = price;
 
       const priceDisplay = document.getElementById('modal-product-price');
@@ -1886,7 +2777,7 @@
                 ${samplesCheckboxHTML}
               </div>
               <p id="sample-note-10g" class="text-[11px] text-moc-brown hidden italic">
-                * Với hũ 10g, xưởng MỘC sẽ mix tặng kèm 1 mẩu thử ngẫu nhiên theo đơn hàng bạn nhé!
+- Với hũ 10g, xưởng MỘC sẽ mix tặng kèm 1 mẩu thử ngẫu nhiên theo đơn hàng bạn nhé!
               </p>
             </div>
           </div>
@@ -1920,12 +2811,12 @@
       else if (p.cat === 'combo') {
         selectedOption = '';
         if (p.comboType === 'may-oil-10') {
-          currentMayComboPrice = 299000;
+          currentMayComboPrice = 219000;
           optionsHTML = `
             <div class="space-y-4 pt-3 border-t border-moc-border/60">
               <div class="p-3 bg-amber-50/80 rounded-2xl border border-amber-200 text-xs text-moc-brown space-y-1">
-                <p>• <strong>Bộ sản phẩm:</strong> 01 Máy xông 220ml (USB + LED) + 01 Chai tinh dầu 10ml.</p>
-                <p>• <strong>Ưu đãi:</strong> Tiết kiệm ngay <strong>59.000đ</strong> so với mua lẻ.</p>
+                <p>• <strong>Bộ sản phẩm:</strong> 01 Máy xông 220ml (lẻ 129k) + 01 Chai tinh dầu 10ml.</p>
+                <p>• <strong>Ưu đãi:</strong> Giảm trực tiếp <strong>29.000đ</strong> cho tất cả 6 mùi hương.</p>
               </div>
 
               <div>
@@ -1933,24 +2824,24 @@
                   <i class="fa-solid fa-droplet text-sky-600"></i> Chọn mùi hương Tinh dầu (10ml):
                 </label>
                 <select id="may-combo-oil-select" onchange="updateMayComboPrice('may-oil-10', this)" class="w-full p-3 rounded-2xl border border-moc-border bg-white text-xs font-semibold text-moc-brown focus:outline-none focus:border-moc-brown cursor-pointer">
-                  <option value="Lavender & Sweet Orange" data-price="299000">Lavender & Sweet Orange — 299.000đ (Gốc 358k)</option>
-                  <option value="Lemongrass & Tea (Số 13)" data-price="299000">Lemongrass & Tea (Số 13) — 299.000đ (Gốc 358k)</option>
-                  <option value="Sea salt & Sage (Số 16)" data-price="309000">Sea salt & Sage (Số 16) — 309.000đ (Gốc 368k)</option>
-                  <option value="Peppermint, Lemongrass & Jasmine" data-price="309000">Peppermint, Lemongrass & Jasmine — 309.000đ (Gốc 368k)</option>
-                  <option value="Lotus & White Musk (Số 14)" data-price="319000">Lotus & White Musk (Số 14) — 319.000đ (Gốc 378k)</option>
-                  <option value="Hinoki & Bamboo (Số 15)" data-price="329000">Hinoki & Bamboo (Số 15) — 329.000đ (Gốc 388k)</option>
+                  <option value="Lemongrass & Tea" data-price="219000">1. Lemongrass & Tea — 219.000đ (Gốc 248k • Giảm 29k)</option>
+                  <option value="Sea Salt & Sage" data-price="229000">2. Sea Salt & Sage — 229.000đ (Gốc 258k • Giảm 29k)</option>
+                  <option value="Lotus & White Musk" data-price="239000">3. Lotus & White Musk — 239.000đ (Gốc 268k • Giảm 29k)</option>
+                  <option value="Hinoki & Bamboo" data-price="249000">4. Hinoki & Bamboo — 249.000đ (Gốc 278k • Giảm 29k)</option>
+                  <option value="Peppermint, Lemongrass & Jasmine" data-price="239000">5. Peppermint, Lemongrass & Jasmine — 239.000đ (Gốc 268k • Giảm 29k)</option>
+                  <option value="Lavender & Sweet Orange" data-price="219000">6. Lavender & Sweet Orange — 219.000đ (Gốc 248k • Giảm 29k)</option>
                 </select>
               </div>
             </div>
           `;
         }
         else if (p.comboType === 'may-oil-30') {
-          currentMayComboPrice = 429000;
+          currentMayComboPrice = 319000;
           optionsHTML = `
             <div class="space-y-4 pt-3 border-t border-moc-border/60">
               <div class="p-3 bg-amber-50/80 rounded-2xl border border-amber-200 text-xs text-moc-brown space-y-1">
-                <p>• <strong>Bộ sản phẩm:</strong> 01 Máy xông 220ml + 01 Chai tinh dầu lớn 30ml (dùng ~3 tháng).</p>
-                <p>• <strong>Ưu đãi:</strong> Tiết kiệm ngay <strong>69.000đ</strong> so với mua lẻ.</p>
+                <p>• <strong>Bộ sản phẩm:</strong> 01 Máy xông 220ml (lẻ 129k) + 01 Chai tinh dầu lớn 30ml (dùng ~3 tháng).</p>
+                <p>• <strong>Ưu đãi:</strong> Giảm trực tiếp <strong>69.000đ – 79.000đ</strong> so với mua lẻ.</p>
               </div>
 
               <div>
@@ -1958,12 +2849,12 @@
                   <i class="fa-solid fa-droplet text-sky-600"></i> Chọn mùi hương Tinh dầu (Chai lớn 30ml):
                 </label>
                 <select id="may-combo-oil-select" onchange="updateMayComboPrice('may-oil-30', this)" class="w-full p-3 rounded-2xl border border-moc-border bg-white text-xs font-semibold text-moc-brown focus:outline-none focus:border-moc-brown cursor-pointer">
-                  <option value="Lavender & Sweet Orange" data-price="429000">Lavender & Sweet Orange (30ml) — 429.000đ (Gốc 498k)</option>
-                  <option value="Lemongrass & Tea (Số 13)" data-price="429000">Lemongrass & Tea (Số 13, 30ml) — 429.000đ (Gốc 498k)</option>
-                  <option value="Sea salt & Sage (Số 16)" data-price="449000">Sea salt & Sage (Số 16, 30ml) — 449.000đ (Gốc 518k)</option>
-                  <option value="Peppermint, Lemongrass & Jasmine" data-price="449000">Peppermint, Lemongrass & Jasmine (30ml) — 449.000đ (Gốc 518k)</option>
-                  <option value="Lotus & White Musk (Số 14)" data-price="469000">Lotus & White Musk (Số 14, 30ml) — 469.000đ (Gốc 538k)</option>
-                  <option value="Hinoki & Bamboo (Số 15)" data-price="489000">Hinoki & Bamboo (Số 15, 30ml) — 489.000đ (Gốc 558k)</option>
+                  <option value="Lemongrass & Tea" data-price="319000">1. Lemongrass & Tea (30ml) — 319.000đ (Gốc 388k • Giảm 69k)</option>
+                  <option value="Sea Salt & Sage" data-price="339000">2. Sea Salt & Sage (30ml) — 339.000đ (Gốc 408k • Giảm 69k)</option>
+                  <option value="Lotus & White Musk" data-price="359000">3. Lotus & White Musk (30ml) — 359.000đ (Gốc 428k • Giảm 69k)</option>
+                  <option value="Hinoki & Bamboo" data-price="369000">4. Hinoki & Bamboo (30ml) — 369.000đ (Gốc 448k • Giảm 79k)</option>
+                  <option value="Peppermint, Lemongrass & Jasmine" data-price="339000">5. Peppermint, Lemongrass & Jasmine (30ml) — 339.000đ (Gốc 408k • Giảm 69k)</option>
+                  <option value="Lavender & Sweet Orange" data-price="319000">6. Lavender & Sweet Orange (30ml) — 319.000đ (Gốc 388k • Giảm 69k)</option>
                 </select>
               </div>
             </div>
@@ -1986,7 +2877,7 @@
 
           const oilList = [
             'Lemongrass & Tea', 'Lotus & White Musk', 'Hinoki & Bamboo',
-            'Sea salt & Sage', 'Lavender & Sweet Orange', 'Peppermint, Lemongrass & Jasmine'
+            'Sea Salt & Sage', 'Lavender & Sweet Orange', 'Peppermint, Lemongrass & Jasmine'
           ];
 
           const candleOptionsHTML = candleList.map(c => `<option value="${c}">${c}</option>`).join('');
@@ -2178,14 +3069,14 @@
         `;
       }
 
-      const supportsAR = (p.cat === 'nenthom' || p.cat === 'tinhdau' || p.cat === 'mayxong');
+      const supportsAR = (p.cat === 'nenthom' || p.cat === 'mayxong');
       const modalContent = document.getElementById('product-modal-content');
       modalContent.innerHTML = `
         <div class="relative aspect-square rounded-2xl overflow-hidden border border-moc-border bg-white mb-4">
           <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${p.fallbackImg}'">
           ${supportsAR ? `
           <button type="button" onclick="closeProductModal(); openARModal(${p.id});" class="absolute bottom-3 right-3 px-4 py-2 rounded-full bg-moc-brown/95 hover:bg-moc-brownDark text-white text-xs font-semibold shadow-lg transition flex items-center gap-2">
-            <i class="fa-solid fa-cube text-amber-300"></i> Xem AR 3D (Ảnh thật)
+            <i class="fa-solid fa-cube text-amber-300"></i> Xem AR 3D
           </button>` : ''}
         </div>
         <div>
@@ -2274,7 +3165,7 @@
       } else if (currentModalProduct.cat === 'combo') {
         if (currentModalProduct.comboType === 'may-oil-10' || currentModalProduct.comboType === 'may-oil-30') {
           const selectEl = document.getElementById('may-combo-oil-select');
-          const oilVal = selectEl ? selectEl.value : 'Lavender & Sweet Orange';
+          const oilVal = selectEl ? selectEl.value : 'Lemongrass & Tea';
           finalPrice = currentMayComboPrice || currentModalProduct.price;
           const oilSize = currentModalProduct.comboType === 'may-oil-30' ? '30ml' : '10ml';
           giftDescription = `Gồm: 01 Máy xông 220ml + 01 Tinh dầu ${oilVal} (${oilSize})`;
@@ -2871,7 +3762,7 @@
       }, 450);
     }
 
-    // ================= LỊCH SỬ ĐƠN HÀNG, TỰ ĐỘNG CHUYỂN TRẠNG THÁI 5 PHÚT, HỦY ĐƠN & XÁC NHẬN NHẬN HÀNG =================
+    // ================= LỊCH SỬ ĐƠN HÀNG =================
     function parseOrderTimestamp(order) {
       if (order.createdAt) return order.createdAt;
       if (order.time && order.time.includes(' ')) {
@@ -3029,7 +3920,7 @@
           `;
         } else if (isShipping) {
           actionButtonsHTML = `
-            <a href="https://zalo.me/0815275000" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-full bg-white hover:bg-moc-card text-moc-brown border border-moc-border text-xs font-semibold transition flex items-center gap-1.5 shrink-0">
+            <a href="https://www.facebook.com/share/1HhshD8Deb/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-full bg-white hover:bg-moc-card text-moc-brown border border-moc-border text-xs font-semibold transition flex items-center gap-1.5 shrink-0">
               <i class="fa-solid fa-headset"></i> Liên hệ shop
             </a>
             <button type="button" onclick="confirmOrderReceived('${order.orderId}')" class="px-5 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold transition shadow-sm flex items-center gap-1.5 shrink-0">
@@ -3041,7 +3932,7 @@
             <button type="button" onclick="cancelCustomerOrder('${order.orderId}')" class="px-4 py-2.5 rounded-full bg-red-50 hover:bg-red-600 text-red-700 hover:text-white border border-red-200 text-xs font-semibold transition flex items-center gap-1.5 shrink-0">
               <i class="fa-solid fa-xmark"></i> Hủy đơn
             </button>
-            <a href="https://zalo.me/0815275000" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-full bg-white hover:bg-moc-card text-moc-brown border border-moc-border text-xs font-semibold transition flex items-center gap-1.5 shrink-0">
+            <a href="https://www.facebook.com/share/1HhshD8Deb/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-full bg-white hover:bg-moc-card text-moc-brown border border-moc-border text-xs font-semibold transition flex items-center gap-1.5 shrink-0">
               <i class="fa-solid fa-headset"></i> Liên hệ shop
             </a>
           `;
@@ -3225,7 +4116,7 @@
       `).join('');
     }
 
-    // ================= TÀI KHOẢN & TÍCH ĐIỂM =================
+    // ================= TÀI KHOẢN, ĐỔI ĐIỂM & TÍCH ĐIỂM =================
     let localUsersList = JSON.parse(localStorage.getItem('moc_registered_users') || '[]');
 
     function updateUserPointsInStorage(phone, newPoints) {
@@ -3237,14 +4128,75 @@
       }
     }
 
+    window.renderRedeemedVouchersList = function() {
+      const box = document.getElementById('user-redeemed-list');
+      if (!box) return;
+      if (!redeemedVouchers || redeemedVouchers.length === 0) {
+        box.innerHTML = '';
+        return;
+      }
+      box.innerHTML = `
+        <span class="block text-[11px] font-bold text-moc-brown uppercase tracking-wider pt-1">🎟️ Mã ưu đãi của bạn:</span>
+        ${redeemedVouchers.map(v => `
+          <div class="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between text-[11px]">
+            <div>
+              <strong class="font-mono text-emerald-900">${v.code}</strong>
+              <span class="text-emerald-700 block text-[10px]">${v.label}</span>
+            </div>
+            <button type="button" onclick="navigator.clipboard?.writeText('${v.code}'); alert('Đã sao chép mã ${v.code}! Bạn hãy dán mã này ở bước Thanh toán nhé.');" class="px-2.5 py-1 rounded-lg bg-white border border-emerald-300 text-emerald-800 font-bold text-[10px]">Copy mã</button>
+          </div>
+        `).join('')}
+      `;
+    };
+
+    window.redeemMemberReward = function(type, costPoints) {
+      if (!currentUser) return;
+      const currentPts = currentUser.points || 0;
+      if (currentPts < costPoints) {
+        alert(`Bạn hiện có ${currentPts} điểm, cần tối thiểu ${costPoints} điểm để đổi ưu đãi này nhé!`);
+        return;
+      }
+
+      if (!confirm(`Xác nhận dùng ${costPoints} điểm để đổi ưu đãi này?`)) return;
+
+      currentUser.points = currentPts - costPoints;
+      sessionStorage.setItem('moc_active_session', JSON.stringify(currentUser));
+      updateUserPointsInStorage(currentUser.phone, currentUser.points);
+      updateHeaderUserUI();
+
+      const randSuffix = Math.floor(1000 + Math.random() * 9000);
+      let code = '';
+      let label = '';
+      if (type === 'freeship') {
+        code = 'MOCSHIP-' + randSuffix;
+        label = 'Miễn phí vận chuyển toàn quốc';
+      } else if (type === 'discount30') {
+        code = 'MOC30-' + randSuffix;
+        label = 'Giảm trực tiếp 30.000đ';
+      } else {
+        code = 'MOC50-' + randSuffix;
+        label = 'Giảm 50.000đ (đơn từ 250k)';
+      }
+
+      redeemedVouchers.unshift({ code, type, label });
+      localStorage.setItem('moc_redeemed_vouchers', JSON.stringify(redeemedVouchers));
+
+      const pointsEl = document.getElementById('user-display-points');
+      if (pointsEl) pointsEl.innerText = `${currentUser.points} điểm`;
+      renderRedeemedVouchersList();
+      alert(`🎉 Đổi thành công mã ${code} (${label})!\nBạn có thể bấm Copy mã và dùng ngay ở bước Thanh toán.`);
+    };
+
     function toggleAuthMode(mode) {
+      const guestWrapper = document.getElementById('acc-guest-wrapper');
       const loginBox = document.getElementById('acc-login-box');
       const regBox = document.getElementById('acc-register-box');
       const loggedBox = document.getElementById('acc-logged-box');
+      const tabLogin = document.getElementById('tab-btn-login');
+      const tabReg = document.getElementById('tab-btn-register');
 
       if (currentUser) {
-        if (loginBox) loginBox.classList.add('hidden');
-        if (regBox) regBox.classList.add('hidden');
+        if (guestWrapper) guestWrapper.classList.add('hidden');
         if (loggedBox) loggedBox.classList.remove('hidden');
 
         const nameEl = document.getElementById('user-display-name');
@@ -3254,14 +4206,21 @@
         if (nameEl) nameEl.innerText = currentUser.name || 'Thành Viên';
         if (phoneEl) phoneEl.innerText = currentUser.phone || '';
         if (pointsEl) pointsEl.innerText = `${currentUser.points || 0} điểm`;
+        renderRedeemedVouchersList();
       } else {
         if (loggedBox) loggedBox.classList.add('hidden');
+        if (guestWrapper) guestWrapper.classList.remove('hidden');
+
         if (mode === 'register') {
           if (loginBox) loginBox.classList.add('hidden');
           if (regBox) regBox.classList.remove('hidden');
+          if (tabReg) tabReg.className = 'py-2 rounded-full bg-moc-brown text-white shadow-2xs transition';
+          if (tabLogin) tabLogin.className = 'py-2 rounded-full text-moc-muted hover:text-moc-brown transition';
         } else {
           if (regBox) regBox.classList.add('hidden');
           if (loginBox) loginBox.classList.remove('hidden');
+          if (tabLogin) tabLogin.className = 'py-2 rounded-full bg-moc-brown text-white shadow-2xs transition';
+          if (tabReg) tabReg.className = 'py-2 rounded-full text-moc-muted hover:text-moc-brown transition';
         }
       }
     }
@@ -3318,7 +4277,7 @@
       .finally(() => {
         if (btn) {
           btn.disabled = false;
-          btn.innerHTML = 'Tạo tài khoản';
+          btn.innerHTML = 'Tạo tài khoản & Nhận quà';
         }
         alert(`🎉 Chúc mừng ${name} đã đăng ký tài khoản thành công!\nMỘC tặng bạn 10 điểm thưởng chào mừng.`);
         document.getElementById('reg-name').value = '';
@@ -3342,7 +4301,7 @@
       setTimeout(() => {
         if (btn) {
           btn.disabled = false;
-          btn.innerHTML = 'Đăng nhập';
+          btn.innerHTML = 'Đăng nhập ngay';
         }
 
         localUsersList = JSON.parse(localStorage.getItem('moc_registered_users') || '[]');
@@ -3436,7 +4395,7 @@
       const priceText = p.price160
         ? `75g: <strong>${p.price.toLocaleString('vi-VN')}đ</strong> • 160g: <strong>${p.price160.toLocaleString('vi-VN')}đ</strong>`
         : `Giá: <strong>${p.price.toLocaleString('vi-VN')}đ</strong>`;
-      const hasAR = (p.cat === 'nenthom' || p.cat === 'tinhdau' || p.cat === 'mayxong');
+      const hasAR = (p.cat === 'nenthom' || p.cat === 'mayxong');
       const isComplexOption = (p.cat === 'combo');
 
       return `
@@ -3598,7 +4557,6 @@
         let reply = '';
         const greetingName = currentUser ? ` <strong>${currentUser.name}</strong>` : '';
 
-        // 0. Tra cứu trực tiếp mã đơn hàng (VD: MOC123456) hoặc SĐT
         const orderCodeMatch = userMsg.toUpperCase().match(/MOC\d{5,7}/);
         const phoneMatch = norm.match(/\b0\d{9}\b/);
         if (orderCodeMatch || phoneMatch || norm.includes('tra cuu don') || norm.includes('kiem tra don') || norm.includes('don hang cua toi')) {
@@ -3633,7 +4591,6 @@
             `;
           }
         }
-        // 1. Chào hỏi & Cảm ơn tự nhiên
         else if (/^(xin chao|chao|hello|hi|hey|alo|shop oi)\b/.test(norm)) {
           reply = `
             <p>Dạ MỘC Scent xin chào${greetingName}! 🌿 Chúc bạn một ngày thật bình yên và thư thái.</p>
@@ -3648,12 +4605,10 @@
         else if (norm.includes('cam on') || norm.includes('thank')) {
           reply = `<p>Dạ không có chi ạ${greetingName}! 🕯️ Nếu cần tư vấn thêm về nốt hương hay khắc nắp quà tặng, cứ nhắn cho MỘC bất cứ lúc nào nhé ♡</p>`;
         }
-        // 2. Tìm trực tiếp tên bất kỳ sản phẩm nào
         else if (productsData.find(p => norm.includes(normalizeText(p.name)))) {
           const exactProd = productsData.find(p => norm.includes(normalizeText(p.name)));
           reply = `<p>Dạ${greetingName}, thông tin chi tiết về <strong>${exactProd.name}</strong> đây ạ:</p>${buildProductChatCard(exactProd)}`;
         }
-        // 3. Tư vấn theo Tâm trạng / Công dụng thực tế
         else if (norm.includes('tam trang') || norm.includes('mat ngu') || norm.includes('kho ngu') || norm.includes('stress') || norm.includes('thu gian') || norm.includes('tap trung') || norm.includes('lam viec') || norm.includes('khu mui')) {
           if (norm.includes('mat ngu') || norm.includes('kho ngu') || norm.includes('stress') || norm.includes('thu gian')) {
             const p1 = productsData.find(p => p.id === 1);
@@ -3691,7 +4646,6 @@
             `;
           }
         }
-        // 4. Phối hương chuẩn Spa (Scent Layering)
         else if (norm.includes('phoi huong') || norm.includes('mix mui') || norm.includes('ket hop')) {
           reply = `
             <p>🔮 <strong>3 Công Thức Phối Hương Độc Bản Chuẩn Spa:</strong></p>
@@ -3711,7 +4665,6 @@
             </div>
           `;
         }
-        // 5. Gợi ý lời chúc viết thiệp tay
         else if (norm.includes('loi chuc') || norm.includes('viet thiep') || norm.includes('sinh nhat') || norm.includes('ky niem')) {
           const w1 = "Chúc bạn luôn giữ được sự bình yên trong tâm hồn, như ánh nến nhỏ ấm áp giữa những ngày bộn bề ♡";
           const w2 = "Gửi đến người thương một chút hương thơm dịu dàng thay lời muốn nói. Chúc mừng sinh nhật thật rạng rỡ nhé!";
@@ -3735,7 +4688,6 @@
             </div>
           `;
         }
-        // 6. Cách sử dụng, bảo quản & Địa chỉ xưởng
         else if (norm.includes('cach dot') || norm.includes('bao quan') || norm.includes('bac go') || norm.includes('dia chi') || norm.includes('o dau') || norm.includes('bao hanh')) {
           reply = `
             <p>🕯️ <strong>Cẩm Nang Sử Dụng & Thông Tin Xưởng MỘC:</strong></p>
@@ -3743,11 +4695,10 @@
               <p>• <strong>Lần đốt đầu tiên:</strong> Đốt liên tục 1–2 tiếng để bề mặt sáp tan chảy đều tới thành cốc (tránh lõm nến).</p>
               <p>• <strong>Chăm sóc bấc gỗ:</strong> Bấm bỏ phần đầu bấc cháy đen còn ~0.5cm trước mỗi lần đốt để lửa đẹp và không khói.</p>
               <p>• <strong>Bảo hành máy xông:</strong> Lỗi 1 đổi 1 trong vòng 30 ngày.</p>
-              <p>• <strong>Địa chỉ xưởng:</strong> Trường Đại Học CMC - Cơ sở 2 Hà Nội (Zalo: 0815.275.000).</p>
+              <p>• <strong>Địa chỉ xưởng:</strong> Trường Đại Học CMC - Cơ sở 2 Hà Nội.</p>
             </div>
           `;
         }
-        // 7. Lọc theo tầm giá
         else if (norm.includes('tam gia') || norm.includes('ngan sach') || norm.includes('khoang') || norm.includes('duoi') || norm.includes('tren') || /\b\d{2,3}\s*k?\b/.test(norm)) {
           const numMatch = norm.match(/\b(\d{2,3})\s*k?\b/);
           if (numMatch && parseInt(numMatch[1], 10) >= 30) {
@@ -3775,12 +4726,10 @@
             `;
           }
         }
-        // 8. Tư vấn Set Combo
         else if (norm.includes('combo') || norm.includes('set')) {
           const combos = productsData.filter(p => p.cat === 'combo');
           reply = `<p>🎁 <strong>Trọn bộ 4 Set Combo Tiết Kiệm tại MỘC Scent:</strong></p>${combos.map(c => buildProductChatCard(c)).join('')}`;
         }
-        // 9. Tư vấn Hộp quà & Khắc tên
         else if (norm.includes('hop qua') || norm.includes('ca nhan') || norm.includes('khac ten') || norm.includes('khac nap') || norm.includes('qua tang') || norm.includes('thiep')) {
           const giftBoxes = productsData.filter(p => p.cat === 'hopqua');
           reply = `
@@ -3796,17 +4745,14 @@
             ${giftBoxes.map(g => buildProductChatCard(g)).join('')}
           `;
         }
-        // 10. Tư vấn 3 dòng máy khuếch tán
         else if (norm.includes('may') || norm.includes('khuech tan') || norm.includes('xong') || norm.includes('humi') || norm.includes('tulip') || norm.includes('comfort')) {
           const machines = productsData.filter(x => x.cat === 'mayxong');
           reply = `<p>💨 <strong>3 dòng máy khuếch tán siêu âm tại MỘC:</strong></p>${machines.map(m => buildProductChatCard(m)).join('')}`;
         }
-        // 11. Tư vấn 6 loại tinh dầu
         else if (norm.includes('tinh dau')) {
           const oils = productsData.filter(x => x.cat === 'tinhdau');
           reply = `<p>💧 <strong>6 dòng Tinh Dầu Thiên Nhiên Nguyên Chất:</strong></p>${oils.map(o => buildProductChatCard(o)).join('')}`;
         }
-        // 12. Bảng giá 12 nến thơm
         else if (norm.includes('bang gia') || norm.includes('gia nen') || norm.includes('bao nhieu')) {
           reply = `
             <p>📋 <strong>Bảng Giá Nến Thơm Thủ Công MỘC (75g / 160g):</strong></p>
@@ -3820,7 +4766,6 @@
             </div>
           `;
         }
-        // 13. Đổi điểm & Ví thành viên
         else if (norm.includes('diem') || norm.includes('doi qua') || norm.includes('tich diem') || norm.includes('voucher') || norm.includes('ship')) {
           const userPtsText = currentUser
             ? `<p class="p-2 rounded-xl bg-amber-50 border border-amber-200 text-amber-950 font-semibold">🌟 Tài khoản <strong>${currentUser.name}</strong> hiện có: <strong>${currentUser.points || 0} điểm</strong>.</p>`
@@ -3828,7 +4773,7 @@
           reply = `
             <p>🌟 <strong>Hệ Thống MỘC Club & Vận Chuyển VIP:</strong></p>
             ${userPtsText}
-            <p>• Đổi quà: 60đ đổi hũ 10g, 30đ đổi Freeship hoặc giảm 30k, 40đ đổi giảm 50k.</p>
+            <p>• Đổi quà: 30đ đổi Freeship hoặc giảm 30k, 40đ đổi giảm 50k.</p>
             <p>• Freeship toàn quốc cho đơn hàng từ <strong>300.000đ</strong> trở lên.</p>
             <div class="grid grid-cols-2 gap-1.5 pt-1">
               <button type="button" onclick="toggleAccountModal(); toggleChatWindow();" class="py-2 bg-moc-brown text-white text-[11px] font-semibold rounded-xl">🌟 Ví Đổi Điểm</button>
@@ -3836,7 +4781,6 @@
             </div>
           `;
         }
-        // 14. Menu tổng hợp VVIP
         else {
           reply = `
             <p>Dạ trợ lý VVIP của <strong>MỘC Scent</strong> sẵn sàng hỗ trợ${greetingName}! Bạn muốn khám phá mục nào ạ?</p>
@@ -3978,12 +4922,12 @@
       if (form) form.reset();
       window.setReviewRating(5);
       document.querySelectorAll('#review-form button[data-selected="true"]').forEach(btn => {
-      btn.setAttribute('data-selected', 'false');
-      btn.style.backgroundColor = '#ffffff';
-      btn.style.color = '#5c4033';
-      btn.style.borderColor = '#dfd4c3';
-      btn.style.fontWeight = '400';
-    });
+        btn.setAttribute('data-selected', 'false');
+        btn.style.backgroundColor = '#ffffff';
+        btn.style.color = '#5c4033';
+        btn.style.borderColor = '#dfd4c3';
+        btn.style.fontWeight = '400';
+      });
       window.toggleReviewModal();
     };
 
@@ -3995,25 +4939,74 @@
       updateHeaderUserUI();
       renderSavedCustomReviews();
 
-      // ================= TỰ ĐỘNG BẬT XEM CHI TIẾT KHI BẤM VÀO BẤT KỲ BÀI ĐÁNH GIÁ NÀO =================
+      // ================= POPUP CHI TIẾT ĐÁNH GIÁ KHÁCH HÀNG BẢN VIP =================
       if (!document.getElementById('auto-review-detail-modal')) {
         document.body.insertAdjacentHTML('beforeend', `
-          <div id="auto-review-detail-modal" onclick="if(event.target === this) this.classList.add('hidden')" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 hidden backdrop-blur-sm">
-            <div class="bg-[#f7f3ec] w-full max-w-md rounded-3xl p-6 sm:p-7 border border-[#dfd4c3] shadow-2xl relative space-y-4">
-              <button type="button" onclick="document.getElementById('auto-review-detail-modal').classList.add('hidden')" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white border border-[#dfd4c3] text-[#7c6d65] hover:text-[#5c4033] flex items-center justify-center transition">✕</button>
-              <div class="flex items-center gap-3 pt-1">
-                <div id="auto-rev-avatar" class="w-11 h-11 rounded-full bg-[#5c4033] text-white font-serif font-bold text-sm flex items-center justify-center shrink-0">KH</div>
-                <div>
-                  <h4 id="auto-rev-author" class="font-serif text-base font-bold text-[#5c4033]">Khách hàng</h4>
-                  <span id="auto-rev-meta" class="text-[11px] text-[#7c6d65] flex items-center gap-1 mt-0.5"></span>
+          <div id="auto-review-detail-modal" onclick="if(event.target === this) this.classList.add('hidden')" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/65 hidden backdrop-blur-sm">
+            <div class="bg-[#f7f3ec] w-full max-w-md rounded-[2rem] p-6 sm:p-7 border border-[#dfd4c3] shadow-2xl relative space-y-4 overflow-hidden">
+              <!-- Chữ nền mờ nghệ thuật -->
+              <div class="absolute -bottom-3 -right-2 font-handwriting text-7xl text-[#dfd4c3]/35 pointer-events-none select-none rotate-[-6deg]">Mộc Scent</div>
+
+              <!-- Header thông tin khách hàng -->
+              <div class="flex items-center gap-3.5 pt-1 relative z-10">
+                <div id="auto-rev-avatar" class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#5c4033] to-[#3d2a21] text-amber-200 font-serif font-bold text-base flex items-center justify-center shrink-0 shadow-md border border-amber-300/30">KH</div>
+                <div class="min-w-0 pr-6">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <h4 id="auto-rev-author" class="font-serif text-lg font-bold text-[#5c4033] leading-tight">Khách hàng</h4>
+                    <span class="px-2 py-0.5 rounded-full bg-emerald-100/90 text-emerald-800 border border-emerald-300/80 text-[9.5px] font-bold flex items-center gap-1">
+                      <i class="fa-solid fa-shield-check text-[9px]"></i> Đã xác thực
+                    </span>
+                  </div>
+                  <span id="auto-rev-meta" class="text-[11px] text-[#7c6d65] flex items-center gap-1 mt-1"></span>
                 </div>
               </div>
-              <div id="auto-rev-stars" class="flex text-amber-400 text-sm gap-1"></div>
-              <div id="auto-rev-tags" class="flex flex-wrap gap-1.5"></div>
-              <div class="bg-white p-4 rounded-2xl border border-[#dfd4c3]">
-                <p id="auto-rev-content" class="text-xs sm:text-sm text-[#5c4033] leading-relaxed italic font-light"></p>
+
+              <!-- Hàng sao đánh giá & Tag nổi bật -->
+              <div class="flex items-center justify-between bg-white/70 px-3.5 py-2 rounded-2xl border border-[#dfd4c3]/70 relative z-10">
+                <div id="auto-rev-stars" class="flex text-amber-400 text-sm gap-1"></div>
+                <span class="text-[10.5px] font-bold text-amber-900 bg-amber-100/80 px-2.5 py-0.5 rounded-full">5.0 • Hài lòng tuyệt đối</span>
               </div>
-              <button type="button" onclick="document.getElementById('auto-review-detail-modal').classList.add('hidden')" class="w-full py-3 rounded-full bg-[#5c4033] hover:bg-[#3d2a21] text-white text-xs font-semibold uppercase tracking-wider transition">Đóng</button>
+
+              <div id="auto-rev-tags" class="flex flex-wrap gap-1.5 relative z-10"></div>
+
+              <!-- Khung nội dung trích dẫn nghệ thuật -->
+              <div class="relative bg-white p-5 rounded-2xl border border-[#dfd4c3] shadow-2xs z-10">
+                <i class="fa-solid fa-quote-left text-2xl text-[#dfd4c3] absolute top-3 left-3.5"></i>
+                <p id="auto-rev-content" class="text-xs sm:text-[13.5px] text-[#3a2d27] leading-relaxed italic font-normal pl-5 pt-1"></p>
+              </div>
+
+              <!-- Thẻ sản phẩm khách đã mua (Tự động nhận diện để bấm mua nhanh) -->
+              <div id="auto-rev-product-box" class="hidden bg-[#f0eae0]/80 p-3 rounded-2xl border border-[#dfd4c3] flex items-center justify-between gap-3 relative z-10">
+                <div class="flex items-center gap-2.5 min-w-0">
+                  <img id="auto-rev-prod-img" src="nenthom.png" alt="Sản phẩm" class="w-11 h-11 rounded-xl object-cover border border-[#dfd4c3] shrink-0 bg-white">
+                  <div class="min-w-0">
+                    <span class="text-[9.5px] uppercase tracking-wider text-[#7c6d65] font-bold block">Sản phẩm khách đã dùng</span>
+                    <p id="auto-rev-prod-name" class="font-serif text-xs font-bold text-[#5c4033] truncate">Tên sản phẩm</p>
+                    <span id="auto-rev-prod-price" class="text-[11px] font-bold text-emerald-800"></span>
+                  </div>
+                </div>
+                <button type="button" id="auto-rev-prod-btn" class="px-3.5 py-2 rounded-full bg-[#5c4033] hover:bg-[#3d2a21] text-white text-[10.5px] font-bold uppercase tracking-wider shrink-0 transition shadow-xs">
+                  Xem ngay
+                </button>
+              </div>
+
+              <!-- Phản hồi từ Xưởng MỘC -->
+              <div class="bg-[#ece4d5]/60 p-3 rounded-2xl border-l-4 border-[#c49a6c] text-[11px] text-[#5c4033] relative z-10">
+                <strong class="font-bold flex items-center gap-1.5 text-[10.5px] uppercase tracking-wider text-[#7a5a49] mb-0.5">
+                  <i class="fa-solid fa-heart text-rose-500"></i> Phản hồi từ Xưởng MỘC Scent:
+                </strong>
+                <p class="font-light leading-relaxed">Cảm ơn bạn đã tin yêu và để hương thơm nhà MỘC đồng hành cùng những phút giây thư giãn của bạn nhé ♡</p>
+              </div>
+
+              <!-- Thanh tương tác Hữu ích & Đóng -->
+              <div class="flex items-center gap-2.5 pt-1 relative z-10">
+                <button type="button" id="auto-rev-helpful-btn" onclick="this.classList.toggle('bg-amber-100'); this.classList.toggle('border-amber-400'); const cnt = this.querySelector('span'); cnt.innerText = Number(cnt.innerText) + 1; this.disabled = true;" class="px-4 py-3 rounded-full bg-white hover:bg-amber-50 border border-[#dfd4c3] text-[#5c4033] text-xs font-semibold transition flex items-center gap-1.5 shrink-0">
+                  <i class="fa-regular fa-thumbs-up text-amber-600"></i> Hữu ích (<span>12</span>)
+                </button>
+                <button type="button" onclick="document.getElementById('auto-review-detail-modal').classList.add('hidden')" class="flex-1 py-3 rounded-full bg-[#5c4033] hover:bg-[#3d2a21] text-white text-xs font-semibold uppercase tracking-wider transition shadow-md">
+                  Đóng
+                </button>
+              </div>
             </div>
           </div>
         `);
@@ -4028,23 +5021,57 @@
 
           const author = card.querySelector('h5')?.innerText || 'Khách hàng MỘC';
           const avatar = card.querySelector('.rounded-full')?.innerText || 'KH';
-          const meta = card.querySelector('span.text-\\[10px\\]')?.innerHTML || 'Khách hàng đã trải nghiệm';
-          const content = card.querySelector('p')?.innerText || '';
+          const metaEl = card.querySelector('span.text-\\[10px\\]');
+          const metaText = metaEl?.innerText || 'Khách hàng đã trải nghiệm';
+          const metaHTML = metaEl?.innerHTML || metaText;
+          const content = card.querySelector('p')?.innerText.replace(/^"|"$/g, '') || '';
           const starsHTML = card.querySelector('.flex.text-xs, .flex.text-amber-400')?.innerHTML || '';
           
           const tagEls = card.querySelectorAll('span.rounded-full');
           let tagsHTML = '';
           tagEls.forEach(t => {
             if (!t.innerText.includes('Mới gửi') && t.innerText.trim().length > 3) {
-              tagsHTML += `<span class="text-[11px] bg-amber-100 text-amber-950 border border-amber-300 font-medium px-2.5 py-1 rounded-full">${t.innerText}</span>`;
+              tagsHTML += `<span class="text-[11px] bg-amber-100/90 text-amber-950 border border-amber-300 font-semibold px-2.5 py-1 rounded-full">${t.innerText}</span>`;
             }
           });
 
           document.getElementById('auto-rev-author').innerText = author;
           document.getElementById('auto-rev-avatar').innerText = avatar;
-          document.getElementById('auto-rev-meta').innerHTML = meta;
+          document.getElementById('auto-rev-meta').innerHTML = metaHTML;
           document.getElementById('auto-rev-content').innerText = content;
           document.getElementById('auto-rev-stars').innerHTML = starsHTML;
+
+          // Reset nút hữu ích với số ngẫu nhiên tự nhiên (14 - 38)
+          const helpfulBtn = document.getElementById('auto-rev-helpful-btn');
+          if (helpfulBtn) {
+            helpfulBtn.disabled = false;
+            helpfulBtn.classList.remove('bg-amber-100', 'border-amber-400');
+            const randomLikes = 14 + (author.length * 3) % 25;
+            helpfulBtn.querySelector('span').innerText = randomLikes;
+          }
+
+          // Tự động tìm sản phẩm khách nhắc tới trong đánh giá để gắn thẻ mua nhanh
+          const fullSearchStr = (metaText + ' ' + content).toLowerCase();
+          const matchedProd = productsData.find(p => fullSearchStr.includes(p.name.toLowerCase().split(' ')[0].toLowerCase()) && p.name.length > 5)
+            || productsData.find(p => fullSearchStr.includes('tulip') && p.id === 20)
+            || productsData.find(p => fullSearchStr.includes('lavender') && p.id === 1)
+            || productsData.find(p => fullSearchStr.includes('sandalwood') && p.id === 4);
+
+          const prodBox = document.getElementById('auto-rev-product-box');
+          if (matchedProd && prodBox) {
+            prodBox.classList.remove('hidden');
+            const prodImg = document.getElementById('auto-rev-prod-img');
+            prodImg.src = matchedProd.img;
+            prodImg.onerror = () => { prodImg.src = matchedProd.fallbackImg; };
+            document.getElementById('auto-rev-prod-name').innerText = matchedProd.name;
+            document.getElementById('auto-rev-prod-price').innerText = matchedProd.price.toLocaleString('vi-VN') + 'đ';
+            document.getElementById('auto-rev-prod-btn').onclick = () => {
+              document.getElementById('auto-review-detail-modal').classList.add('hidden');
+              openProductModal(matchedProd.id);
+            };
+          } else if (prodBox) {
+            prodBox.classList.add('hidden');
+          }
 
           const tagsBox = document.getElementById('auto-rev-tags');
           if (tagsHTML) {
